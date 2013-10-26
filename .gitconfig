@@ -1,0 +1,62 @@
+[user]
+  name = Nathan Stilwell
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
+[push]
+  default = tracking
+
+[alias]
+  pretty = log --graph --oneline --decorate
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit
+  mine = log --author 'Nathan Stilwell'
+  recent = log -p -n 5
+  st = status -sb
+  it = grep -n
+  co = checkout
+  ci = commit -m
+  ca = commit -a -m
+  df = diff
+  scorch = clean -fdx
+  delete = branch -d
+  Delete = branch -D
+  dropit = checkout -- .
+  names = log --name-status
+#
+# Borrrowed from Doug Russell
+# https://github.com/rustle/KaleidoscopeVCSTidbits
+#
+  ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
+
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
+[gc]
+  auto = 0
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[mergetool "ksdiff"]
+  cmd = ksdiff $LOCAL $REMOTE
+  trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+	keepBackup = false
+[merge]
+	tool = Kaleidoscope
+
+[include]
+  path = ~/.gitconfig-extras

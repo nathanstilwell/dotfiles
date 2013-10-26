@@ -1,0 +1,21 @@
+#                      ______     __         __     ______     ______
+#                     /\  __ \   /\ \       /\ \   /\  __ \   /\  ___\
+#                     \ \  __ \  \ \ \____  \ \ \  \ \  __ \  \ \___  \
+#                      \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \_\  \/\_____\
+#                       \/_/\/_/   \/_____/   \/_/   \/_/\/_/   \/_____/
+
+# Directory list
+alias l='ls -lp'
+alias ll='ls -alhF'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....="cd ../../.."
+alias .....="cd ../../../.."  # We're going to need a function to do this eventually
+alias f="find . -name"
+alias copy="pbcopy"
+
+alias urn="ssh nathanstilwell@enif.dreamhost.com"
+alias load="source ~/.zsh_aliases"
+
+# Applications
+alias mkd='open -a /Applications/Marked.app'

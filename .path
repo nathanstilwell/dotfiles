@@ -1,0 +1,8 @@
+# bins
+export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH
+
+# git
+export PATH=/usr/local/git/bin:$PATH
+
+# ??
+export PATH=/usr/X11/bin:$PATH

@@ -1,0 +1,71 @@
+#!/bin/bash
+
+#         __       ____
+#        /\ \     /\  _`\
+#        \ \ \    \ \,\L\_\
+#         \ \ \  __\/_\__ \
+#          \ \ \L\ \ /\ \L\ \
+#           \ \____/ \ `\____\
+#            \/___/   \/_____/
+
+#   a = black
+#   b = red
+#   c = green
+#   d = brown
+#   e = blue
+#   f = magenta
+#   g = cyan
+#   h = light gray
+#   x = default
+
+export CLICOLOR=1
+export LSCOLORS=excxgxgxBxgxgxgxgxFxFx
+
+#     _____            __                     __
+#    /\  __`\         /\ \__                 /\ \__
+#    \ \ \/\ \  __  __\ \ ,_\  _____   __  __\ \ ,_\
+#     \ \ \ \ \/\ \/\ \\ \ \/ /\ '__`\/\ \/\ \\ \ \/
+#      \ \ \_\ \ \ \_\ \\ \ \_\ \ \L\ \ \ \_\ \\ \ \_
+#       \ \_____\ \____/ \ \__\\ \ ,__/\ \____/ \ \__\
+#        \/_____/\/___/   \/__/ \ \ \/  \/___/   \/__/
+#                                \ \_\
+#                                 \/_/
+
+colors_loaded=true;
+
+# Attributes
+bold="\033[1m";
+bold_off="\033[22m";
+blink="\033[5m";
+blink_off="\033[25m";
+
+# Text colors
+black="\033[30m";
+red="\033[0;31m";
+orange="\033[1;31m";
+olive="\033[0;32m";
+green="\033[1;32m";
+brown="\033[0;33m";
+yellow="\033[1;33m";
+blue="\033[0;34m";
+sky="\033[1;34m";
+magenta="\033[0;35m";
+purple="\033[0;35m";
+aqua="\033[0;36m";
+cyan="\033[0;36m";
+ecru="\033[0;37";
+white="\033[1;37";
+
+
+# Background colors
+b_black="\033[0;40m";
+b_red="\033[0;41m";
+b_green="\033[0;42m";
+b_brown="\033[0;43m";
+b_blue="\033[0;44m";
+b_magenta="\033[0;45m";
+b_cyan="\033[0;46m";
+b_white="\033[0;47m";
+
+# Resets all
+stop="\033[0m";

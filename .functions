@@ -1,0 +1,181 @@
+#!/bin/bash
+
+##
+##      ______   __     ______     __         ______     ______
+##     /\  ___\ /\ \   /\  ___\   /\ \       /\  ___\   /\__  _\
+##     \ \  __\ \ \ \  \ \ \__ \  \ \ \____  \ \  __\   \/_/\ \/
+##      \ \_\    \ \_\  \ \_____\  \ \_____\  \ \_____\    \ \_\
+##       \/_/     \/_/   \/_____/   \/_____/   \/_____/     \/_/
+##
+
+# dir for figlet
+# /usr/local/bin
+
+# dir for fonts
+# /usr/local/lib
+
+# edit makefile
+# 'make figlet'
+
+function __ () {
+  figlet -f sub-zero -w 120 -c $1 | copy
+}
+
+function _r () {
+ figlet -f roman -w 120 -c $1 | copy
+}
+
+function fig () {
+  figlet -f $1 -w 120 -c $2 | copy;
+}
+
+##    __     __     ______     ______        ______     ______   ______   ______
+##   /\ \  _ \ \   /\  ___\   /\  == \      /\  __ \   /\  == \ /\  == \ /\  ___\
+##   \ \ \/ ".\ \  \ \  __\   \ \  __<      \ \  __ \  \ \  _-/ \ \  _-/ \ \___  \
+##    \ \__/".~\_\  \ \_____\  \ \_____\     \ \_\ \_\  \ \_\    \ \_\    \/\_____\
+##     \/_/   \/_/   \/_____/   \/_____/      \/_/\/_/   \/_/     \/_/     \/_____/
+
+function upright () {
+  #echo "The script you are running has basename `basename $0`, dirname `dirname $0`"
+  #echo "The present working directory is `pwd`"
+
+  URN_PATH=$HOME/Code/;
+  REPO=uprightnetizen.com;
+  RUN=$URN_PATH/$REPO/bin/run;
+
+  if [[ -e $RUN ]]; then
+    $RUN
+  else
+    echo "\n$yellow Upright Netizen wasn't found $stop";
+    echo "Creating repo in $URN_PATH$REPO/ \n";
+    mkdir -p $URN_PATH;
+    cd $URN_PATH;
+    git clone git@github.com:upright-netizen/uprightnetizen.com.git;
+
+    CLONED=$?
+    if [[ $CLONED -eq 0 ]]; then
+      echo "\n$green Upright Netizen Cloned $(stop)in $URN_PATH$REPO/ \n";
+      echo "$olive Running startup script.";
+      echo "--------------------------------\n";
+      $RUN
+    fi
+  fi
+}
+
+function muppet () {
+  cd ~/Code/theMuppetShow/;
+  nodemon app.js;
+  cd -;
+}
+
+function sesame () {
+  SESAME_PATH=$HOME/Code;
+  REPO=Sesame-Street;
+  RUN=$SESAME_PATH/$REPO/app/app.js;
+
+  if [[ -e $RUN ]]; then
+    node $RUN
+  else
+    echo "\n$yellow Sesame-Street wasn't found $stop";
+    echo "Creating repo in $SESAME_PATH/$REPO/ \n";
+    mkdir -p $SESAME_PATH;
+    cd $SESAME_PATH;
+    git clone git@github.com:upright-netizen/Sesame-Street.git;
+
+    CLONED=$?
+    if [[ $CLONED -eq 0 ]]; then
+      echo "\n$green Sesame-Street Cloned $(stop)in $SESAME_PATH$REPO/ \n";
+      echo "$olive Running startup script.";
+      echo "--------------------------------\n";
+      node $RUN
+    fi
+  fi
+}
+
+# Undo a git push
+function undopush () {
+  # Get current git branch
+  branch=$(git symbolic-ref HEAD 2> /dev/null);
+  # Check status of get branch
+  isGitRepo=$?
+
+  if [[ isGitRepo -eq 0 ]]; then
+    echo "$red  Removing pushed commits $stop";
+
+    git push -f origin HEAD^:${branch#refs/heads/};
+
+    echo "$green  done $stop"
+    echo "Your working copy hasn't changed, you can undo changes by pushing again"
+  else
+    echo "$yellow  Not a git repository $stop";
+  fi
+}
+
+
+
+
+##        __  __     ______   __     __
+##       /\ \/\ \   /\__  _\ /\ \   /\ \
+##       \ \ \_\ \  \/_/\ \/ \ \ \  \ \ \____
+##        \ \_____\    \ \_\  \ \_\  \ \_____\
+##         \/_____/     \/_/   \/_/   \/_____/
+
+function c () {
+  cd $1;
+  l;
+}
+
+function iso-shadow () {
+  if [ $# -ne 2 ]; then
+    echo "usage:  `basename $0` ${bold}pixels color${bold_off}";
+    return;
+  fi
+
+  times=$1;
+  color=$2
+  output="-1px 1px $color";
+
+  i=1;
+  while [ $i -ne $times ]; do
+    output="${output}, -${i}px ${i}px $color";
+
+    i=$[$i+1]; # increment
+  done
+
+  echo $output | copy;
+}
+
+# Mass rename a bunch of files with different extensions
+function rename () {
+  if [ $# -ne 2 ]; then
+    echo "usage:  `basename $0` ${yellow}[old name] [new name]${stop}";
+    return;
+  fi
+  old=$1
+  new=$2
+
+  ls $old.* | awk '{print("mv "$(1)" "$(1))}' | sed s/"$old"/"$new"/2 | /bin/sh
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ls ryan.* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
+# ls .* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
+
+# function rename-example1 () {
+#   for mp3 in *;
+#   do new_name=$(echo $mp3 | sed -e 's/daft_punk/Daft Punk/g' | sed -e 's/_/ /g');
+#   echo file $mp3 will be renamed to $new_name;
+#   done
+# }
