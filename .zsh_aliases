@@ -3,13 +3,6 @@ source ~/.castlebase/.colors;
 source ~/.castlebase/.aliases;
 source ~/.castlebase/.functions;
 
-
-#
-#	NoCorrect
-#
-
-# Add to ~/.oh-my-zsh/lib/correction.zsh
-
 #
 # Load System Specific Aliases
 #
