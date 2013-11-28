@@ -1,0 +1,12 @@
+# source files
+for file in ~/.dotfiles/source/*; do
+  [ -e "$file" ] && source "$file"
+done
+unset file
+
+#
+# Load System Specific Aliases
+#
+if [ -f ~/.profile ]; then
+  . ~/.profile
+fi
