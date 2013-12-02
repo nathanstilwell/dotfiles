@@ -1,0 +1,20 @@
+alias gst='git status'
+alias gdc='git diff --cached'
+alias gl='git pull'
+alias gca='git commit -v -a'
+alias gci='git commit -m'
+alias gco='git checkout'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gcount='git shortlog -sn'
+alias glo='git log --oneline'
+alias st='git status -s'
+alias grh='git reset HEAD'
+alias gdt='git difftool'
+alias gdf='git diff HEAD'
+
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(git rev-parse --short HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
