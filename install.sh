@@ -6,10 +6,11 @@ for installer in $DOTS/install/*; do
 done
 unset installer
 
-
 # link dotfiles
 for file in $DOTS/link/.??*; do
-  [ -e "$file" ] && ln -s "$file" ~/;
+  filename=$(basename $file);
+  [[ -e "$file" && -h ~/$filename ]] && rm ~/$filename;
+  [[ -e "$file" ]] && ln -s "$file" ~/;
 done
 unset file
 
