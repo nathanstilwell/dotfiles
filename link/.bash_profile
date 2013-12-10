@@ -1,3 +1,4 @@
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # prompt
 # For more colors : http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
