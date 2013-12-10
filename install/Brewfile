@@ -11,14 +11,10 @@ install tree
 install wget
 
 # casks
-cask install google-chrome
-cask install firefox
 cask install hipchat
 cask install intellij-idea-community
 cask install iterm2
 cask install kaleidoscope
-cask install opera
-cask install opera-next
 cask install spotify
 cask install virtualbox
 cask install vlc
