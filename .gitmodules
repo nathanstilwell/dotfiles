@@ -4,3 +4,6 @@
 [submodule "link/.vim/bundle/vim-tomorrow-theme"]
 	path = link/.vim/bundle/vim-tomorrow-theme
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "link/.vim/bundle/vim-markdown"]
+	path = link/.vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
