@@ -1,17 +1,5 @@
 #!/usr/bin/env bash
 
-: << HOWTO
-
-sv
-  - stat [app folder]
-  - up [app]
-  - down [app]
-  - term [app]
-  - kill [app]
-  - log [app]
-
-HOWTO
-
 function sv_usage {
   cat <<HELP
 
