@@ -47,7 +47,7 @@ function sv {
 
  if [ -z $app ]; then
   if [ $colors_loaded ]; then
-      echo "$yellow Please supply an app in /service. $stop"
+      echo -e "$yellow Please supply an app in /service. $stop"
     else
       echo "Please supply an app in /service."
     fi
