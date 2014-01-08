@@ -1,24 +1,11 @@
 #!/bin/bash
 
 ##
-##      ______   __     ______     __         ______     ______
-##     /\  ___\ /\ \   /\  ___\   /\ \       /\  ___\   /\__  _\
-##     \ \  __\ \ \ \  \ \ \__ \  \ \ \____  \ \  __\   \/_/\ \/
-##      \ \_\    \ \_\  \ \_____\  \ \_____\  \ \_____\    \ \_\
-##       \/_/     \/_/   \/_____/   \/_____/   \/_____/     \/_/
+##    Figlet
 ##
 
-# dir for figlet
-# /usr/local/bin
-
-# dir for fonts
-# /usr/local/lib
-
-# edit makefile
-# 'make figlet'
-
 function __ () {
-  figlet -f sub-zero -w 120 -c $1 | copy
+  figlet -f larry3d -w 120 -c $1 | copy
 }
 
 function _r () {
@@ -29,11 +16,9 @@ function fig () {
   figlet -f $1 -w 120 -c $2 | copy;
 }
 
-##    __     __     ______     ______        ______     ______   ______   ______
-##   /\ \  _ \ \   /\  ___\   /\  == \      /\  __ \   /\  == \ /\  == \ /\  ___\
-##   \ \ \/ ".\ \  \ \  __\   \ \  __<      \ \  __ \  \ \  _-/ \ \  _-/ \ \___  \
-##    \ \__/".~\_\  \ \_____\  \ \_____\     \ \_\ \_\  \ \_\    \ \_\    \/\_____\
-##     \/_/   \/_/   \/_____/   \/_____/      \/_/\/_/   \/_/     \/_/     \/_____/
+##
+##    Web Apps
+##
 
 function upright () {
   #echo "The script you are running has basename `basename $0`, dirname `dirname $0`"
@@ -111,14 +96,25 @@ function undopush () {
   fi
 }
 
+##
+##    Apps
+##
 
+# usage:  td "task name" "natural language date" "note"
+function td() {
 
+  if [ $# -gt 1 ]; then
+    duedate=`php -r "date_default_timezone_set('America/Chicago');echo date('m/d/y',strtotime('$2'));"`
+    duedate=",due date:date \"$duedate\""
+  fi
+  osascript -e "tell application \"Things\"" \
+  -e "make new to do at list \"Inbox\" with properties {name:\"$1\",notes:\"$3\"$duedate}" \
+  -e "end tell"
+}
 
-##        __  __     ______   __     __
-##       /\ \/\ \   /\__  _\ /\ \   /\ \
-##       \ \ \_\ \  \/_/\ \/ \ \ \  \ \ \____
-##        \ \_____\    \ \_\  \ \_\  \ \_____\
-##         \/_____/     \/_/   \/_/   \/_____/
+##
+##    Utils
+##
 
 function c () {
   cd $1;
@@ -156,19 +152,6 @@ function rename () {
 
   ls $old.* | awk '{print("mv "$(1)" "$(1))}' | sed s/"$old"/"$new"/2 | /bin/sh
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # ls ryan.* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
 # ls .* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
