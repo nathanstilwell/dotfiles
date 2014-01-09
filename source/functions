@@ -47,36 +47,6 @@ function upright () {
   fi
 }
 
-function muppet () {
-  cd ~/Code/theMuppetShow/;
-  nodemon app.js;
-  cd -;
-}
-
-function sesame () {
-  SESAME_PATH=$HOME/Code;
-  REPO=Sesame-Street;
-  RUN=$SESAME_PATH/$REPO/app/app.js;
-
-  if [[ -e $RUN ]]; then
-    node $RUN
-  else
-    echo "\n$yellow Sesame-Street wasn't found $stop";
-    echo "Creating repo in $SESAME_PATH/$REPO/ \n";
-    mkdir -p $SESAME_PATH;
-    cd $SESAME_PATH;
-    git clone git@github.com:upright-netizen/Sesame-Street.git;
-
-    CLONED=$?
-    if [[ $CLONED -eq 0 ]]; then
-      echo "\n$green Sesame-Street Cloned $(stop)in $SESAME_PATH$REPO/ \n";
-      echo "$olive Running startup script.";
-      echo "--------------------------------\n";
-      node $RUN
-    fi
-  fi
-}
-
 # Undo a git push
 function undopush () {
   # Get current git branch
