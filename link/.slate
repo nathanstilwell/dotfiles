@@ -36,22 +36,22 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias terminal 'iTerm'
-alias editor 'Sublime Text 2'
+alias editor 'Sublime Text'
 alias ide "IntelliJ IDEA"
 alias spotify "Spotify"
 alias devbrowser "Firefox"
 
 alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2  0
 alias 1-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         0
-alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY          1
+alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY           1
 
 ##
 ## Layout
 ##
 
 # 2 Monitor layout
-layout 2monitors 'iTerm':MAIN_FIRST                       ${lefthalf}
-layout 2monitors 'Sublime Text 2':REPEAT                  ${righthalf}
+#layout 2monitors 'iTerm':MAIN_FIRST                       ${lefthalf}
+#layout 2monitors 'Sublime Text 2':REPEAT                  ${righthalf}
 
 ##
 ## Bind
@@ -91,7 +91,6 @@ bind e:cmd,alt,ctrl focus ${editor}
 bind d:cmd,alt,ctrl focus ${ide}
 bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
-bind space:cmd,ctrl,alt,shift layout 2monitors
 
 
 ##
