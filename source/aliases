@@ -19,4 +19,3 @@ alias load="source ~/.zsh_aliases"
 
 # Applications
 alias mkd='open -a /Applications/Marked.app'
-alias t='tmux'

@@ -1,0 +1,6 @@
+# TMUX aliases
+
+alias t='tmux'
+alias tn='tmux new -s'
+alias tls='tmux list-session'
+alias ta='tmux attach -t'
