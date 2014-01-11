@@ -70,16 +70,18 @@ function undopush () {
 ##    Apps
 ##
 
-# usage:  td "task name" "natural language date" "note"
-function td() {
-
-  if [ $# -gt 1 ]; then
-    duedate=`php -r "date_default_timezone_set('America/Chicago');echo date('m/d/y',strtotime('$2'));"`
-    duedate=",due date:date \"$duedate\""
+#
+# usage:  things "task name" "task notes"
+#
+function things {
+  if [ -z $1 ]; then
+    echo "usage: `basename $0` ${yellow}[task name] [task notes]${stop}";
+  else
+    osascript -e "tell application \"Things\"" \
+      -e "set newToDo to make new to do with properties {name:\"$1\"} at beginning of list \"Today\"" \
+      -e "set notes of newToDo to \"$2\"" \
+      -e "end tell"
   fi
-  osascript -e "tell application \"Things\"" \
-  -e "make new to do at list \"Inbox\" with properties {name:\"$1\",notes:\"$3\"$duedate}" \
-  -e "end tell"
 }
 
 ##
