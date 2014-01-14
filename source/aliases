@@ -19,3 +19,7 @@ alias load="source ~/.zsh_aliases"
 
 # Applications
 alias mkd='open -a /Applications/Marked.app'
+
+# Drives
+alias unmount='diskutil eject'
+alias eject='diskutil eject'
