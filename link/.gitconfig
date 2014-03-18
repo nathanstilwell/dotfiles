@@ -12,9 +12,7 @@
   default = tracking
 
 [alias]
-  pretty = log --graph --oneline --decorate
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  tree = log --graph --decorate --pretty=oneline --abbrev-commit
+  tree = log --graph --decorate --date=relative --abbrev-commit
   mine = log --author 'Nathan Stilwell'
   recent = log -p -n 5
   st = status -sb
@@ -27,7 +25,6 @@
   delete = branch -d
   Delete = branch -D
   dropit = checkout -- .
-  names = log --name-status
 #
 # Borrrowed from Doug Russell
 # https://github.com/rustle/KaleidoscopeVCSTidbits
