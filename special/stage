@@ -12,13 +12,9 @@ HELP
 }
 
 function update_sales {
-  # cd /web/util-data-quality;
-  # rake data_quality:update;
-  # cd -;
-
-  echo "cd /web/util-data-quality;";
-  echo "rake data_quality:update;";
-  echo "cd -;";
+  cd /web/util-data-quality;
+  rake data_quality:update;
+  cd -;
 }
 
 function stage {
