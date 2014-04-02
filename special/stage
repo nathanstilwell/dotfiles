@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+function stage_usage {
+  cat <<HELP
+
+  usage: stage <command>
+
+   command
+       update-sales         rake data_quality:update
+
+HELP
+}
+
+function update_sales {
+  # cd /web/util-data-quality;
+  # rake data_quality:update;
+  # cd -;
+
+  echo "cd /web/util-data-quality;";
+  echo "rake data_quality:update;";
+  echo "cd -;";
+}
+
+function stage {
+  action=$1;
+  if [ -z $action ]; then
+    stage_usage;
+    return;
+ fi
+
+  [ "update-sales" = $action ] && update_sales;
+}
