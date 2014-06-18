@@ -19,9 +19,9 @@ HELP
 
 function sv_log {
   if [ -d /opt/gilt/$1 ]; then
-    tail -f /opt/gilt/$1/log/application.log;
+    tail -f -n 5000 /opt/gilt/$1/log/application.log;
   elif [ -d /web/$1 ]; then
-    tail -f /web/$1/log/application.log;
+    tail -f -n 5000 /web/$1/log/application.log;
   fi
 }
 
