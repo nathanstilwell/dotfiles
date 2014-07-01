@@ -28,6 +28,22 @@ function kill_rsync_folders {
   rm -rf ./
 }
 
+function deploy {
+  app=$1
+  override=${2-"origin/master"}
+  if [ -z $app ]; then
+cat <<USAGE
+    usage: stage deploy <app> <override>
+USAGE
+    return;
+  fi
+
+  sudo rm -rf /tmp/Less-lint/;
+  cd /setup;
+  rake $app[$override];
+  cd -;
+}
+
 function stage {
   action=$1;
   if [ -z $action ]; then
