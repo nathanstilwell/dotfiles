@@ -36,6 +36,11 @@ function dark_crystal_new () {
     echo "$green NPM nstalling Grunt plugins $stop";
     echo
     # 4. npm install necessities
+
+    # make a node_modules folder locally so they don't get installed somewhere else on the path
+    mkdir node_modules;
+
+    # check if they already have grunt-cli
     if [[ -n $(which grunt) ]]; then
       npm install grunt-contrib-jshint grunt-contrib-connect grunt-contrib-watch;
     else
