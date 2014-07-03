@@ -1,0 +1,65 @@
+#
+# A start to Dark Crystal
+#
+
+#
+# TODO:
+# - include colors
+#
+
+function dark_crystal_usage () {
+
+echo
+echo  " usage: dark new <name of thing>";
+echo
+
+}
+
+function dark_crystal_new () {
+  if [ -z $1 ]; then
+    echo "$yellow Please supply the name of a repo to clone. $stop";
+  else
+    newThing=$1
+    # 1. make directory for new thing
+    mkdir $newThing;
+
+    # 2. cd to directory
+    cd $newThing;
+
+    echo
+    echo "$green Making Gruntfile $stop";
+    echo
+    # 3. curl gruntfile
+    curl https://raw.githubusercontent.com/upright-netizen/gruntfiles/master/grunt-connect-watch.js > Gruntfile.js
+
+    echo
+    echo "$green NPM nstalling Grunt plugins $stop";
+    echo
+    # 4. npm install necessities
+    if [[ -n $(which grunt) ]]; then
+      npm install grunt-contrib-jshint grunt-contrib-connect grunt-contrib-watch;
+    else
+      npm install -g grunt-cli;
+      npm install grunt-contrib-jshint grunt-contrib-connect grunt-contrib-watch;
+    fi
+
+    # 5. make index.html
+    echo $newThing > index.html
+
+    echo
+    echo "$green Done. $stop";
+    echo "$olive You can start by running$stop$cyan grunt $stop";
+    echo
+
+  fi
+}
+
+function dark_crystal () {
+  if [ -z $1 ]; then
+    dark_crystal_usage;
+  else
+    [ $1 = "new" ] && dark_crystal_new $2;
+  fi
+}
+
+alias dark='dark_crystal';
