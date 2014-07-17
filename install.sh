@@ -9,11 +9,12 @@ DOTS=~/.dotfiles;
 sudo sh $DOTS/install/set_osx_defaults
 
 # let's crank up some homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+test command -v brew > /dev/null || {
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+}
 
 # install brew cask
-brew tap phinze/homebrew-cask;
-brew install brew-cask;
+brew install caskroom/cask/brew-cask
 
 # then fire up the brew file
 brew bundle $DOTS/install/Brewfile

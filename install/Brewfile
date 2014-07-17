@@ -7,12 +7,14 @@ upgrade
 # command line
 
 install figlet
+install irssi
+install node
+install shellcheck
 install tree
 install wget
 
 # casks
 cask install hipchat
-cask install intellij-idea-community
 cask install iterm2
 cask install kaleidoscope
 cask install spotify
