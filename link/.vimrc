@@ -39,7 +39,7 @@ filetype plugin indent on
 
 syntax enable
 set background=dark
-colorscheme Tomorrow
+colorscheme base16-tomorrow
 
 autocmd BufWritePre * :%s/\s\+$//e
 
