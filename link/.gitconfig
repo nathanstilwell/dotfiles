@@ -25,6 +25,7 @@
   delete = branch -d
   Delete = branch -D
   dropit = checkout -- .
+  who = shortlog -sn
 #
 # Borrrowed from Doug Russell
 # https://github.com/rustle/KaleidoscopeVCSTidbits
