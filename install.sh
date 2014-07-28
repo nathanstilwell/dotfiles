@@ -9,7 +9,7 @@ DOTS=~/.dotfiles;
 sudo sh $DOTS/install/set_osx_defaults
 
 # let's crank up some homebrew
-test command -v brew > /dev/null || {
+test command -v brew &2> /dev/null || {
   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 }
 
@@ -22,8 +22,8 @@ brew bundle $DOTS/install/Brewfile
 
 # link dotfiles
 for file in $DOTS/link/.??*; do
-  filename=$(basename $file);
-  [[ -e "$file" && -h ~/$filename ]] && rm ~/$filename;
+  filename=$(basename "$file");
+  [[ -e "$file" && -h ~/$filename ]] && rm ~/"$filename";
   [[ -e "$file" ]] && ln -s "$file" ~/;
 done
 unset file
