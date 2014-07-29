@@ -18,23 +18,23 @@ HELP
 
 
 function sv_log {
-  if [ -d /opt/gilt/$1 ]; then
-    tail -f -n 5000 /opt/gilt/$1/log/application.log;
-  elif [ -d /web/$1 ]; then
-    tail -f -n 5000 /web/$1/log/application.log;
+  if [ -d /opt/gilt/"$1" ]; then
+    tail -f -n 5000 /opt/gilt/"$1"/log/application.log;
+  elif [ -d /web/"$1" ]; then
+    tail -f -n 5000 /web/"$1"/log/application.log;
   fi
 }
 
 function sv {
   action=$1;
   app=$2;
-  if [ -z $action ]; then
+  if [ -z "$action" ]; then
     sv_usage;
     return;
  fi
 
- if [ -z $app ]; then
-  if [ $colors_loaded ]; then
+ if [ -z "$app" ]; then
+  if [ "$colors_loaded" ]; then
       echo -e "$yellow Please supply an app in /service. $stop"
     else
       echo "Please supply an app in /service."
@@ -42,10 +42,10 @@ function sv {
     return;
  fi
 
-  [ "stat" = $action ] && sudo svstat $app;
-  [ "up" = $action ] && sudo svc -u $app;
-  [ "down" = $action ] && sudo svc -d $app;
-  [ "term" = $action ] && sudo svc -t $app;
-  [ "kill" = $action ] && sudo svc -k $app;
-  [ "log" = $action ] && sv_log $app;
+  [ "stat" = "$action" ] && sudo svstat "$app";
+  [ "up" = "$action" ] && sudo svc -u "$app";
+  [ "down" = "$action" ] && sudo svc -d "$app";
+  [ "term" = "$action" ] && sudo svc -t "$app";
+  [ "kill" = "$action" ] && sudo svc -k "$app";
+  [ "log" = "$action" ] && sv_log "$app";
 }

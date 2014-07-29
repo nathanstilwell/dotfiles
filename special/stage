@@ -20,8 +20,7 @@ function update_sales {
 }
 
 function clean_the_zoo {
-  default=5;
-  /opt/gilt/zookeeper/bin/zkCleanup.sh -n ${5-default};
+  /opt/gilt/zookeeper/bin/zkCleanup.sh -n 5;
 }
 
 function kill_rsync_folders {
@@ -32,7 +31,7 @@ function kill_rsync_folders {
 function deploy {
   app=$1
   override=${2-"origin/master"}
-  if [ -z $app ]; then
+  if [ -z "$app" ]; then
 cat <<USAGE
     usage: stage deploy <app> <override>
 USAGE
@@ -41,19 +40,19 @@ USAGE
 
   sudo rm -rf /tmp/Less-lint/;
   cd /setup;
-  rake $app[$override];
+  rake "$app[$override]";
   cd -;
 }
 
 function stage {
   action=$1;
-  if [ -z $action ]; then
+  if [ -z "$action" ]; then
     stage_usage;
     return;
  fi
 
-  [ "update-sales" = $action ] && update_sales;
-  [ "clean-the-zoo" = $action ] && clean_the_zoo;
-  [ "kill-rsync-folders" = $action ] && kill_rsync_folders;
-  [ "deploy" = $action ] && shift  && deploy $@;
+  [ "update-sales" = "$action" ] && update_sales;
+  [ "clean-the-zoo" = "$action" ] && shift && clean_the_zoo "$@";
+  [ "kill-rsync-folders" = "$action" ] && kill_rsync_folders;
+  [ "deploy" = "$action" ] && shift  && deploy "$@";
 }
