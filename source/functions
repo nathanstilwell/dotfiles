@@ -5,15 +5,15 @@
 ##
 
 function __ () {
-  figlet -f larry3d -w 120 -c $1 | copy
+  figlet -f larry3d -w 120 -c "$1" | copy
 }
 
 function _r () {
- figlet -f roman -w 120 -c $1 | copy
+ figlet -f roman -w 120 -c "$1" | copy
 }
 
 function fig () {
-  figlet -f $1 -w 120 -c $2 | copy;
+  figlet -f "$1" -w 120 -c "$2" | copy;
 }
 
 ##
@@ -54,7 +54,7 @@ function undopush () {
   # Check status of get branch
   isGitRepo=$?
 
-  if [[ isGitRepo -eq 0 ]]; then
+  if [[ $isGitRepo -eq 0 ]]; then
     echo "$red  Removing pushed commits $stop";
 
     git push -f origin HEAD^:${branch#refs/heads/};

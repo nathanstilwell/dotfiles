@@ -14,7 +14,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(gerrit)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 #
 # Load Aliases from Home Directory
