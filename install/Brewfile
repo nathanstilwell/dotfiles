@@ -14,7 +14,6 @@ install tree
 install wget
 
 # casks
-cask install google-chrome
 cask install hipchat
 cask install iterm2
 cask install kaleidoscope
