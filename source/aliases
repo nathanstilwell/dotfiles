@@ -14,7 +14,7 @@ alias .....="cd ../../../.."  # We're going to need a function to do this eventu
 alias f="find . -name"
 alias copy="pbcopy"
 
-alias urn="ssh nathanstilwell@enif.dreamhost.com"
+alias urn="ssh urn"
 alias load="source ~/.zsh_aliases"
 
 # Applications
