@@ -26,10 +26,7 @@
   Delete = branch -D
   dropit = checkout -- .
   who = shortlog -sn
-#
-# Borrrowed from Doug Russell
-# https://github.com/rustle/KaleidoscopeVCSTidbits
-#
+# Borrrowed from Doug Russell - https://github.com/rustle/KaleidoscopeVCSTidbits
   ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
 
 [branch "master"]
@@ -39,22 +36,22 @@
 [gc]
   auto = 0
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
+  prompt = false
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool "ksdiff"]
   cmd = ksdiff $LOCAL $REMOTE
   trustExitCode = true
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [mergetool]
-	prompt = false
-	keepBackup = false
+  prompt = false
+  keepBackup = false
 [merge]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 
 [include]
   path = ~/.gitconfig-extras
