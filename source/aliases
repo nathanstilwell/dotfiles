@@ -19,6 +19,7 @@ alias load="source ~/.zsh_aliases"
 
 # Applications
 alias mkd='open -a /Applications/Marked.app'
+alias h='heroku'
 
 # Drives
 alias unmount='diskutil eject'
