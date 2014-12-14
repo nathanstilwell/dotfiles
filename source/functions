@@ -89,8 +89,20 @@ function things {
 ##
 
 function c () {
-  cd $1;
+  cd "$1";
   l;
+}
+
+function untar {
+  if [ -n "$2" ]; then
+    echo "creating dir $2";
+    mkdir "$2";
+    echo "extracting";
+    tar -C "$2" -zxvf "$1";
+    return;
+  fi
+
+  tar -zxvf "$1";
 }
 
 function iso-shadow () {
