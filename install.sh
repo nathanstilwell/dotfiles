@@ -17,6 +17,7 @@ test command -v brew &2> /dev/null || {
 brew install caskroom/cask/brew-cask
 
 # then fire up the brew file
+# OLD and BUSTED. Do [this](https://github.com/Homebrew/homebrew-brewdler) instead
 brew bundle $DOTS/install/Brewfile
 
 
