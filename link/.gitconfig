@@ -55,3 +55,5 @@
 
 [include]
   path = ~/.gitconfig-extras
+[core]
+	editor = subl -n -w
