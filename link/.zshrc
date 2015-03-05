@@ -12,7 +12,7 @@ export DISABLE_AUTO_UPDATE="true"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(gerrit)
+plugins=(gerrit dock)
 
 source "$ZSH/oh-my-zsh.sh"
 
