@@ -18,7 +18,7 @@ alias urn="ssh urn"
 alias load="source ~/.zsh_aliases"
 
 # Applications
-alias mkd='open -a /Applications/Marked.app'
+alias mkd='open -a /Applications/Marked\ 2.app'
 alias h='heroku'
 alias d='docker'
 alias a='accelerate'
