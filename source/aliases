@@ -23,6 +23,7 @@ alias h='heroku'
 alias d='docker'
 alias a='accelerate'
 alias b='boot2docker'
+alias r='rbenv'
 
 # Drives
 alias unmount='diskutil eject'
