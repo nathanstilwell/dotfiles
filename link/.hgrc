@@ -8,12 +8,10 @@ st = stat
 log = log --stat
 
 [extensions]
-prompt = ~/.oh-my-zsh/plugins/mercurial/hg-prompt/prompt.py
 
 [web]
 cacerts = /etc/hg-dummy-cert.pem
 
 [paths]
-default-push = ssh://hg@bitbucket.org/nathanstilwell/sublime-packages
 
 %include ~/.hgrc-extras
