@@ -19,10 +19,12 @@ alias load="source ~/.zsh_aliases"
 
 # Applications
 alias mkd='open -a /Applications/Marked\ 2.app'
-alias h='heroku'
-alias d='docker'
 alias a='accelerate'
 alias b='boot2docker'
+alias d='docker'
+alias h='heroku'
+alias n='npm'
+alias r='rbenv'
 
 # Drives
 alias unmount='diskutil eject'
