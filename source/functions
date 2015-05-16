@@ -5,15 +5,19 @@
 ##
 
 function __ () {
-  figlet -f larry3d -w 120 -c "$1" | copy
+  figlet -f larry3d -w 120 -c "$1" | pbcopy
 }
 
 function _r () {
- figlet -f roman -w 120 -c "$1" | copy
+ figlet -f roman -w 120 -c "$1" | pbcopy
 }
 
 function fig () {
-  figlet -f "$1" -w 120 -c "$2" | copy;
+  figlet -f "$1" -w 120 -c "$2" | pbcopy;
+}
+
+function shrug {
+   echo "¯\_(ツ)_/¯" | pbcopy;
 }
 
 ##
@@ -122,7 +126,7 @@ function iso-shadow () {
     i=$[$i+1]; # increment
   done
 
-  echo $output | copy;
+  echo $output | pbcopy;
 }
 
 # Mass rename a bunch of files with different extensions
