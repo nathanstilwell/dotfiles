@@ -37,9 +37,8 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias terminal 'iTerm'
 alias editor 'Sublime Text'
-alias ide "IntelliJ IDEA"
 alias spotify "Spotify"
-alias devbrowser "Firefox"
+alias devbrowser "Google Chrome"
 alias chat "HipChat"
 
 alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2  0
@@ -73,28 +72,13 @@ bind j:h,cmd,ctrl ${bottomleft}
 bind k:l,cmd,ctrl ${topright}
 bind j:l,cmd,ctrl ${bottomright}
 
-# Resize - Resizes the window in the specified direction
-# bind h:alt,ctrl,cmd resize -5% -5%
-# bind l:alt,ctrl,cmd resize +5% +5%
-
-# Nudge - Nudges the window in the specified direction
-bind h:cmd,alt,shift nudge -5% +0
-bind l:cmd,alt,shift nudge +5% +0
-bind k:cmd,alt,shift nudge +0 -5%
-bind j:cmd,alt,shift nudge +0 +5%
-
 # Window Hintsg
 bind e:cmd,alt hint hjklyuiopnm
 
 # Apps
 bind t:cmd,alt,ctrl focus ${terminal}
 bind e:cmd,alt,ctrl focus ${editor}
-bind d:cmd,alt,ctrl focus ${ide}
 bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
 bind h:cmd,alt,ctrl focus ${chat}
-
-##
-## Source
-##
 
