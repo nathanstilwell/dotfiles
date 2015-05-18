@@ -15,6 +15,7 @@
   tree = log --graph --decorate --date=relative --abbrev-commit
   mine = log --author 'Nathan Stilwell'
   recent = log -p -n 5
+  last = log -p -n 1
   st = status -sb
   it = grep -n
   co = checkout
