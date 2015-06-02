@@ -9,13 +9,12 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
-alias g='git'
 alias gst='git status -sb'
-alias gl='git pull'
-alias gup='git fetch && git rebase'
-alias gp='git push'
+alias gl='git pull --rebase'
+alias gp='git push origin $(current_branch)'
 alias gci='git commit -v -m'
 alias gdf='git diff HEAD'
+alias gdc='git diff --cached'
 alias gco='git checkout'
 alias gb='git branch'
 alias gba='git branch -a'
@@ -24,6 +23,4 @@ alias grh='git reset HEAD'
 alias gdt='git difftool HEAD'
 alias gsh='git ksshow'
 alias gsu='git submodule update'
-alias ggpull='git pull origin $(current_branch)'
-alias ggpush='git push origin $(current_branch)'
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
