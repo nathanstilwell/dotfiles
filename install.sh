@@ -1,6 +1,13 @@
 #!/bin/bash
 DOTS=~/.dotfiles;
 
+# Check and switch shell to zsh
+# check shell with:
+# env | grep SHELL
+
+# if not zsh then,
+# chsh /bin/zsh
+
 #
 # Install stuff stuff
 #
