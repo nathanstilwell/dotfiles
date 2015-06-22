@@ -35,10 +35,11 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
-alias terminal 'iTerm'
-alias editor 'Sublime Text'
+alias terminal "iTerm"
+alias editor "Sublime Text"
 alias spotify "Spotify"
 alias devbrowser "Google Chrome"
+alias slack "Slack"
 alias chat "HipChat"
 
 alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2  0
@@ -81,4 +82,5 @@ bind e:cmd,alt,ctrl focus ${editor}
 bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
 bind h:cmd,alt,ctrl focus ${chat}
+bind l:cmd,alt,ctrl focus ${slack}
 
