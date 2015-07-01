@@ -23,6 +23,7 @@ alias a='accelerate'
 alias b='boot2docker'
 alias d='docker'
 alias h='heroku'
+alias k='ksdiff'
 alias n='npm'
 alias r='rbenv'
 
