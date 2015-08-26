@@ -13,20 +13,20 @@ upgrade
 
 # command line
 
-install figlet
-install irssi
-install node
-install shellcheck
-install tree
-install wget
+brew 'figlet'
+brew 'irssi'
+brew 'node'
+brew 'shellcheck'
+brew 'tree'
+brew 'wget'
 
 # casks
-cask install hipchat
-cask install iterm2
-cask install kaleidoscope
-cask install spotify
-cask install virtualbox
-cask install vlc
+cask 'hipchat'
+cask 'iterm2'
+cask 'kaleidoscope'
+cask 'spotify'
+cask 'virtualbox'
+cask 'vlc'
 
 # Remove outdated versions from the cellar
 cleanup

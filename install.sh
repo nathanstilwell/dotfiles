@@ -17,16 +17,14 @@ sudo sh $DOTS/install/set_osx_defaults
 
 # let's crank up some homebrew
 test command -v brew &2> /dev/null || {
-  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 # install brew cask
 brew install caskroom/cask/brew-cask
 
 # then fire up the brew file
-# OLD and BUSTED. Do [this](https://github.com/Homebrew/homebrew-brewdler) instead
 brew bundle $DOTS/install/Brewfile
-
 
 # link dotfiles
 for file in $DOTS/link/.??*; do
@@ -35,5 +33,8 @@ for file in $DOTS/link/.??*; do
   [[ -e "$file" ]] && ln -s "$file" ~/;
 done
 unset file
+
+# install oh-my-zsh fork
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nathanstilwell/oh-my-zsh/master/tools/install.sh)"
 
 unset DOTS
