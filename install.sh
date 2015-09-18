@@ -8,16 +8,17 @@ DOTS=~/.dotfiles;
 # if not zsh then,
 # chsh /bin/zsh
 
-#
-# Install stuff stuff
-#
+# in case you forgot to clone --recursive
+git submodule init;
+git submodule update;
 
-# install OSX Defaults a la http://mths.be/osx
-sudo sh $DOTS/install/set_osx_defaults
+#
+# Install stuff
+#
 
 # let's crank up some homebrew
-test command -v brew &2> /dev/null || {
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+command -v brew > /dev/null || {
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)";
 }
 
 # install brew cask
