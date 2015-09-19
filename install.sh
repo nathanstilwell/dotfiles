@@ -24,8 +24,12 @@ command -v brew > /dev/null || {
 # install brew cask
 brew install caskroom/cask/brew-cask
 
+# install brew bundle
+brew tap Homebrew/bundle
+
 # then fire up the brew file
-brew bundle $DOTS/install/Brewfile
+cd $DOTS/install
+brew bundle
 
 # link dotfiles
 for file in $DOTS/link/.??*; do

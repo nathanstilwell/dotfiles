@@ -1,15 +1,4 @@
-
-# Make sure we’re using the latest Homebrew
-update
-
-# Upgrade any already-installed formulae
-upgrade
-
-# command line
-
 brew 'figlet'
 brew 'tree'
 brew 'wget'
 
-# Remove outdated versions from the cellar
-cleanup
