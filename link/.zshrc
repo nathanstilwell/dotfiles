@@ -24,8 +24,3 @@ if [ -f ~/.zsh_aliases ]; then
 fi
 
 
-### Bashhub.com Installation
-if [ -f ~/.bashhub/bashhub.zsh ]; then
-    source ~/.bashhub/bashhub.zsh
-fi
-
