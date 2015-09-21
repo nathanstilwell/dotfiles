@@ -43,18 +43,6 @@ alias slack "Slack"
 alias chat "HipChat"
 alias xcode "Xcode"
 
-alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2  0
-alias 1-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         0
-alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY           1
-
-##
-## Layout
-##
-
-# 2 Monitor layout
-#layout 2monitors 'iTerm':MAIN_FIRST                       ${lefthalf}
-#layout 2monitors 'Sublime Text 2':REPEAT                  ${righthalf}
-
 ##
 ## Bind
 ##
