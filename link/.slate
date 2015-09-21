@@ -41,6 +41,7 @@ alias spotify "Spotify"
 alias devbrowser "Google Chrome"
 alias slack "Slack"
 alias chat "HipChat"
+alias xcode "Xcode"
 
 alias 2-rightbottom move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/2    screenSizeX/2;screenSizeY/2  0
 alias 1-left        move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         0
@@ -68,10 +69,6 @@ bind right:cmd,ctrl,alt throw 1 resize
 bind up:cmd,ctrl,shift ${full}
 bind left:cmd,ctrl ${lefthalf}
 bind right:cmd,ctrl ${righthalf}
-bind k:h,cmd,ctrl ${topleft}
-bind j:h,cmd,ctrl ${bottomleft}
-bind k:l,cmd,ctrl ${topright}
-bind j:l,cmd,ctrl ${bottomright}
 
 # Window Hintsg
 bind e:cmd,alt hint hjklyuiopnm
@@ -83,4 +80,5 @@ bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
 bind h:cmd,alt,ctrl focus ${chat}
 bind l:cmd,alt,ctrl focus ${slack}
+bind x:cmd,alt,ctrl focus ${xcode}
 
