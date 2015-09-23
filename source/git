@@ -12,6 +12,7 @@ function current_branch() {
 alias gst='git status -sb'
 alias gl='git pull --rebase'
 alias gp='git push origin $(current_branch)'
+alias gpf='git push --force origin $(current_branch)'
 alias gci='git commit -v -m'
 alias gdf='git diff HEAD'
 alias gdc='git diff --cached'
