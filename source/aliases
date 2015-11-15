@@ -23,6 +23,7 @@ alias d='docker'
 alias h='heroku'
 alias k='ksdiff'
 alias n='npm'
+alias m='docker-machine'
 alias p='python -m SimpleHTTPServer'
 
 # Drives
