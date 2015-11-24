@@ -101,6 +101,10 @@ function c () {
   l;
 }
 
+function getip {
+  ifconfig en0 | grep -w 'inet' | awk '{print $2}';
+}
+
 function untar {
   if [ -n "$2" ]; then
     echo "creating dir $2";
