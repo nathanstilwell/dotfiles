@@ -9,6 +9,12 @@ function current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function prune {
+  git fetch --prune;
+  git rebase;
+  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+}
+
 alias gb='git branch'
 alias gba='git branch -a'
 alias gci='git commit -v -m'
