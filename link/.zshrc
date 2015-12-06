@@ -14,6 +14,12 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(gerrit dock)
 
+# Shut down zsh autocorrect
+# unsetopt correct_all;
+# echo "unset option correct_all";
+DISABLE_CORRECTION="true";
+
+# Load Oh-my-zsh
 source "$ZSH/oh-my-zsh.sh"
 
 #
