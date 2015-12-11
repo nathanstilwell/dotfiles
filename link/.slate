@@ -20,8 +20,6 @@ config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 
-
-
 ##
 ## Alias
 ##
@@ -38,7 +36,7 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 alias terminal "iTerm"
 alias editor "Sublime Text"
 alias spotify "Spotify"
-alias devbrowser "Google Chrome"
+alias devbrowser "FirefoxDeveloperEdition"
 alias slack "Slack"
 alias chat "HipChat"
 alias xcode "Xcode"
@@ -58,7 +56,7 @@ bind up:cmd,ctrl,shift ${full}
 bind left:cmd,ctrl ${lefthalf}
 bind right:cmd,ctrl ${righthalf}
 
-# Window Hintsg
+# Window Hints
 bind e:cmd,alt hint hjklyuiopnm
 
 # Apps
