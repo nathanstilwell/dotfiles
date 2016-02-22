@@ -3,7 +3,7 @@ DOTS=~/.dotfiles;
 
 # prompt
 # For more colors : http://www.cyberciti.biz/faq/bash-shell-change-the-color-of-my-shell-prompt-under-linux-or-unix/
-export PS1="\[\e[0;31m\\H\e[m in \e[0;36m[\\w]\e[m>\]"
+export PS1="\[\033[0;31m\] \\H \[\033[m\] in \[\033[0;36m\] [\\w] \[\033[m\]> "
 
 # source files
 for file in $DOTS/source/*; do
