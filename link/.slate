@@ -34,7 +34,7 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias terminal "iTerm"
-alias editor "Sublime Text"
+alias editor "Atom"
 alias spotify "Spotify"
 alias devbrowser "FirefoxDeveloperEdition"
 alias slack "Slack"
@@ -48,8 +48,9 @@ alias xcode "Xcode"
 # Move Windows
 
 #move monitors
-bind left:cmd,ctrl,alt throw 0 resize
-bind right:cmd,ctrl,alt throw 1 resize
+bind 1:cmd,ctrl,alt throw 0 resize
+bind 2:cmd,ctrl,alt throw 1 resize
+bind 3:cmd,ctrl,alt throw 2 resize
 
 #move in monitor
 bind up:cmd,ctrl,shift ${full}
@@ -66,4 +67,3 @@ bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
 bind l:cmd,alt,ctrl focus ${slack}
 bind x:cmd,alt,ctrl focus ${xcode}
-
