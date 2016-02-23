@@ -14,11 +14,13 @@ alias .....="cd ../../../.."  # We're going to need a function to do this eventu
 alias f="find . -name"
 alias copy="pbcopy"
 
-alias urn="ssh urn"
 alias load="source ~/.zsh_aliases"
 
 # Applications
 alias mkd='open -a /Applications/Marked\ 2.app'
+
+## App Alphabet
+alias a='apm'
 alias d='docker'
 alias h='heroku'
 alias k='ksdiff'
