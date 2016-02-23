@@ -57,4 +57,4 @@
 [include]
   path = ~/.gitconfig-extras
 [core]
-	editor = subl -n -w
+  editor = atom --wait --new-window
