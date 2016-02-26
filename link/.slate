@@ -33,7 +33,7 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
-alias terminal "iTerm"
+alias terminal "iTerm2"
 alias editor "Atom"
 alias spotify "Spotify"
 alias devbrowser "FirefoxDeveloperEdition"
