@@ -16,7 +16,7 @@ source $DOTS/lib/git_prompt.sh;
 MACHINENAME="\[$ecru$bold\]\\H\[$stop\]";
 DIRNAME="\[$cyan\][\\w]\[$stop\]";
 
-export PS1="$MACHINENAME in $DIRNAME$(git_prompt_short_sha";
+export PS1="$MACHINENAME in $DIRNAME\$(git_prompt)> ";
 
 #
 # Load System Specific Aliases
