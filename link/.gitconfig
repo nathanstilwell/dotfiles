@@ -56,5 +56,3 @@
 
 [include]
   path = ~/.gitconfig-extras
-[core]
-  editor = atom --wait --new-window
