@@ -14,7 +14,9 @@ alias .....="cd ../../../.."  # We're going to need a function to do this eventu
 alias f="find . -name"
 alias copy="pbcopy"
 
+# Util
 alias load="source ~/.zsh_aliases"
+alias _='sudo'
 
 # Applications
 alias mkd='open -a /Applications/Marked\ 2.app'
