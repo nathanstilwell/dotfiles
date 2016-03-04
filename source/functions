@@ -25,62 +25,10 @@ echo " (╯°□°）╯︵ ┻━┻" | pbcopy;
 }
 
 ##
-##    Web Apps
-##
-
-function upright () {
-  #echo "The script you are running has basename `basename $0`, dirname `dirname $0`"
-  #echo "The present working directory is `pwd`"
-
-  URN_PATH=$HOME/Code/;
-  REPO=uprightnetizen.com;
-  RUN=$URN_PATH/$REPO/bin/run;
-
-  if [[ -e $RUN ]]; then
-    $RUN
-  else
-    echo "\n$yellow Upright Netizen wasn't found $stop";
-    echo "Creating repo in $URN_PATH$REPO/ \n";
-    mkdir -p $URN_PATH;
-    cd $URN_PATH;
-    git clone git@github.com:upright-netizen/uprightnetizen.com.git;
-
-    CLONED=$?
-    if [[ $CLONED -eq 0 ]]; then
-      echo "\n$green Upright Netizen Cloned $(stop)in $URN_PATH$REPO/ \n";
-      echo "$olive Running startup script.";
-      echo "--------------------------------\n";
-      $RUN
-    fi
-  fi
-}
-
-# Undo a git push
-function undopush () {
-  # Get current git branch
-  branch=$(git symbolic-ref HEAD 2> /dev/null);
-  # Check status of get branch
-  isGitRepo=$?
-
-  if [[ $isGitRepo -eq 0 ]]; then
-    echo "$red  Removing pushed commits $stop";
-
-    git push -f origin HEAD^:${branch#refs/heads/};
-
-    echo "$green  done $stop"
-    echo "Your working copy hasn't changed, you can undo changes by pushing again"
-  else
-    echo "$yellow  Not a git repository $stop";
-  fi
-}
-
-##
 ##    Apps
 ##
 
-#
 # usage:  things "task name" "task notes"
-#
 function things {
   if [ -z $1 ]; then
     echo "usage: `basename $0` ${yellow}[task name] [task notes]${stop}";
@@ -89,6 +37,22 @@ function things {
       -e "set newToDo to make new to do with properties {name:\"$1\"} at beginning of list \"Today\"" \
       -e "set notes of newToDo to \"$2\"" \
       -e "end tell"
+  fi
+}
+
+function atom-save {
+  if [[ -e ~/.atom && -e ~/.atom/bin ]]; then
+    ~/.atom/bin/save-packages;
+  else
+    echo "Atom editor not installed";
+  fi
+}
+
+function atom-install {
+  if [[ -e ~/.atom && -e ~/.atom/bin ]]; then
+    ~/.atom/bin/install-packages;
+  else
+    echo "Atom editor not installed";
   fi
 }
 
@@ -117,37 +81,23 @@ function untar {
   tar -zxvf "$1";
 }
 
-function iso-shadow () {
-  if [ $# -ne 2 ]; then
-    echo "usage:  `basename $0` ${bold}pixels color${bold_off}";
-    return;
-  fi
-
-  times=$1;
-  color=$2
-  output="-1px 1px $color";
-
-  i=1;
-  while [ $i -ne $times ]; do
-    output="${output}, -${i}px ${i}px $color";
-
-    i=$[$i+1]; # increment
-  done
-
-  echo $output | pbcopy;
-}
-
 # Mass rename a bunch of files with different extensions
-function rename () {
-  if [ $# -ne 2 ]; then
-    echo "usage:  `basename $0` ${yellow}[old name] [new name]${stop}";
-    return;
-  fi
-  old=$1
-  new=$2
 
-  ls $old.* | awk '{print("mv "$(1)" "$(1))}' | sed s/"$old"/"$new"/2 | /bin/sh
-}
+# --------------------------------- Archive ----------------------
+#
+# Here are the functions I don't use anymore, but am keeping around
+# for reference, since I don't actually write that much shell script
+
+# function rename () {
+#   if [ $# -ne 2 ]; then
+#     echo "usage:  `basename $0` ${yellow}[old name] [new name]${stop}";
+#     return;
+#   fi
+#   old=$1
+#   new=$2
+#
+#   ls $old.* | awk '{print("mv "$(1)" "$(1))}' | sed s/"$old"/"$new"/2 | /bin/sh
+# }
 
 # ls ryan.* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
 # ls .* | awk '{print("mv "$1" "$1)}' | sed 's/ryan/steve/2' | /bin/sh
@@ -157,4 +107,50 @@ function rename () {
 #   do new_name=$(echo $mp3 | sed -e 's/daft_punk/Daft Punk/g' | sed -e 's/_/ /g');
 #   echo file $mp3 will be renamed to $new_name;
 #   done
+# }
+
+# Undo a git push - SO DANGEROUS
+# function undopush () {
+#   # Get current git branch
+#   branch=$(git symbolic-ref HEAD 2> /dev/null);
+#   # Check status of get branch
+#   isGitRepo=$?
+#
+#   if [[ $isGitRepo -eq 0 ]]; then
+#     echo "$red  Removing pushed commits $stop";
+#
+#     git push -f origin HEAD^:${branch#refs/heads/};
+#
+#     echo "$green  done $stop"
+#     echo "Your working copy hasn't changed, you can undo changes by pushing again"
+#   else
+#     echo "$yellow  Not a git repository $stop";
+#   fi
+# }
+
+# function upright () {
+#   #echo "The script you are running has basename `basename $0`, dirname `dirname $0`"
+#   #echo "The present working directory is `pwd`"
+#
+#   URN_PATH=$HOME/Code/;
+#   REPO=uprightnetizen.com;
+#   RUN=$URN_PATH/$REPO/bin/run;
+#
+#   if [[ -e $RUN ]]; then
+#     $RUN
+#   else
+#     echo "\n$yellow Upright Netizen wasn't found $stop";
+#     echo "Creating repo in $URN_PATH$REPO/ \n";
+#     mkdir -p $URN_PATH;
+#     cd $URN_PATH;
+#     git clone git@github.com:upright-netizen/uprightnetizen.com.git;
+#
+#     CLONED=$?
+#     if [[ $CLONED -eq 0 ]]; then
+#       echo "\n$green Upright Netizen Cloned $(stop)in $URN_PATH$REPO/ \n";
+#       echo "$olive Running startup script.";
+#       echo "--------------------------------\n";
+#       $RUN
+#     fi
+#   fi
 # }
