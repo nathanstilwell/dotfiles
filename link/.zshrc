@@ -12,7 +12,7 @@ export DISABLE_AUTO_UPDATE="true"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(dock)
+plugins=(dock atlas)
 
 # Shut down zsh autocorrect
 # unsetopt correct_all;
@@ -28,5 +28,3 @@ source "$ZSH/oh-my-zsh.sh"
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
 fi
-
-
