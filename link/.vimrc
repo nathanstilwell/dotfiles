@@ -3,49 +3,11 @@
 set nocompatible
 
 "
-" General Config
+"   Pathogen
 "
-set title
-set number
-set history=1000
-set hidden
-set autochdir
-set encoding=utf-8
-set visualbell
-set autoread
-
-set backspace=indent,eol,start
-set autoindent
-set smartindent
-set tabstop=2 softtabstop=2 shiftwidth=2
-set expandtab
-
-"
-" Turn Off Swap files
-"
-set noswapfile
-set nobackup
-set nowb
-
-"
-" Pathogen
-"
-"execute pathogen#infect()
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+syntax on
 filetype plugin indent on
-
-syntax enable
-set background=dark
-colorscheme base16-default
-
-au BufReadPost *.less set syntax=css
-au BufReadPost *.hbs set syntax=html
-au BufReadPost *.handlebars set syntax=html
-
-autocmd BufWritePre * :%s/\s\+$//e
-
-
-
