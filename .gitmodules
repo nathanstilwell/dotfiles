@@ -7,9 +7,9 @@
 [submodule "link/.vim/bundle/ctrlp.vim"]
 	path = link/.vim/bundle/ctrlp.vim
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
-[submodule "link/.vim/bundle/vim-colors_duotones"]
-	path = link/.vim/bundle/vim-colors_duotones
-	url = git@github.com:atelierbram/vim-colors_duotones.git
 [submodule "link/.vim/bundle/editorconfig-vim"]
 	path = link/.vim/bundle/editorconfig-vim
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "link/.vim/bundle/nerdtree"]
+	path = link/.vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git

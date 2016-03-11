@@ -10,13 +10,6 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "
-"   Colors
-"
-"   using duotone-dark from atelierbram/vim-colors_duotones
-set background=dark
-colorscheme duotone-dark
-
-"
 "   Set up
 "
 
@@ -45,3 +38,20 @@ set listchars=eol:¬,tab:│─,trail:◇,extends:…,precedes:…
 syntax on
 
 filetype plugin indent on
+
+"
+" Ctrl P
+"
+"search open buffers for file
+nnoremap <c-u> :CtrlPBuffer<cr>
+
+let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinSize = 40
+
+"
+"   Nerd Tree
+"
+" Navigate to file in nerdtree
+map <leader>r :NERDTreeFind<cr>
+nmap <leader>ne :NERDTreeToggle<cr>
+
