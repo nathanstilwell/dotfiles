@@ -10,3 +10,6 @@
 [submodule "link/.vim/bundle/vim-colors_duotones"]
 	path = link/.vim/bundle/vim-colors_duotones
 	url = git@github.com:atelierbram/vim-colors_duotones.git
+[submodule "link/.vim/bundle/editorconfig-vim"]
+	path = link/.vim/bundle/editorconfig-vim
+	url = git@github.com:editorconfig/editorconfig-vim.git
