@@ -24,6 +24,7 @@ set incsearch         " incremental search as you type
 set hlsearch          " highlight search results"
 set showmatch         " matching brackets
 set wildmenu          " tab completion for files/buffers
+set nowrap            " don't wrap lines
 set laststatus=2      " Status line
 
 "
@@ -62,6 +63,7 @@ let g:NERDTreeWinSize = 40
 "   Nerd Tree
 "
 " Navigate to file in nerdtree
+let NERDTreeShowHidden=1
 map <leader>r :NERDTreeFind<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
 
