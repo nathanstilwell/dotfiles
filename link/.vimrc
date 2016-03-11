@@ -9,5 +9,12 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+"
+"  Colors
+"
+"  using duotone-dark from atelierbram/vim-colors_duotones
+set background=dark
+colorscheme duotone-dark
+
 syntax on
 filetype plugin indent on
