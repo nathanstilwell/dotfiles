@@ -21,8 +21,11 @@ set ruler             " show current position
 set autochdir         " change to directory of the open file
 set encoding=utf-8    " file encoding
 set incsearch         " incremental search as you type
-set hlsearch          "highlight search results"
+set hlsearch          " highlight search results"
 set showmatch         " matching brackets
+set wildmenu          " tab completion for files/buffers
+set laststatus=2      " Status line
+
 "
 "   Turn off swap files
 "
@@ -40,6 +43,13 @@ syntax on
 filetype plugin indent on
 
 "
+"   Better Split movement
+"
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+"
 " Ctrl P
 "
 "search open buffers for file
@@ -54,4 +64,3 @@ let g:NERDTreeWinSize = 40
 " Navigate to file in nerdtree
 map <leader>r :NERDTreeFind<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
-
