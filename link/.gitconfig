@@ -27,6 +27,7 @@
   Delete = branch -D
   dropit = checkout -- .
   who = shortlog -sn
+  sub = submodule
 # Borrrowed from Doug Russell - https://github.com/rustle/KaleidoscopeVCSTidbits
   ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
 
