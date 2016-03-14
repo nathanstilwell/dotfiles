@@ -30,14 +30,17 @@ set laststatus=2      " Status line
 "
 "   Turn off swap files
 "
+
 set noswapfile
 set nobackup
 set nowritebackup
+
 "
 "   Show whitespace
 "
+
 set list
-set listchars=eol:¬,tab:│─,trail:◇,extends:…,precedes:…
+set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
 syntax on
 
@@ -46,13 +49,16 @@ filetype plugin indent on
 "
 "   Better Split movement
 "
+
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
 "
 " Ctrl P
 "
+
 "search open buffers for file
 nnoremap <c-u> :CtrlPBuffer<cr>
 
@@ -62,12 +68,16 @@ let g:NERDTreeWinSize = 40
 "
 "   Nerd Tree
 "
+
 " Navigate to file in nerdtree
 let NERDTreeShowHidden=1
+
 map <leader>r :NERDTreeFind<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
 
 "
 "   Air Line
 "
+
+" set airline theme
 let g:airline_theme='luna'
