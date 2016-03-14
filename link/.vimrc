@@ -3,18 +3,18 @@
 set nocompatible
 
 "
-"   Pathogen
+"   pathogen
 "
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
 "
-"   Set up
+"   set up
 "
 
 set number            " line numbers
-set history=10000     " moar history
+set history=1000      " moar history
 set hidden            " allow unsaved background buffers
 set autoread          " read when a file is changed
 set ruler             " show current position
@@ -25,10 +25,11 @@ set hlsearch          " highlight search results"
 set showmatch         " matching brackets
 set wildmenu          " tab completion for files/buffers
 set nowrap            " don't wrap lines
-set laststatus=2      " Status line
+set laststatus=2      " turn on status line
+set nohlsearch        " don't show previous search highlights
 
 "
-"   Turn off swap files
+"   turn off swap files
 "
 
 set noswapfile
@@ -36,14 +37,16 @@ set nobackup
 set nowritebackup
 
 "
-"   Show whitespace
+"   show whitespace
 "
 
 set list
 set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
+" turn that syntax highlighting on
 syntax on
 
+" some kind of indention thing
 filetype plugin indent on
 
 "
@@ -72,7 +75,7 @@ let g:NERDTreeWinSize = 40
 " Navigate to file in nerdtree
 let NERDTreeShowHidden=1
 
-map <leader>r :NERDTreeFind<cr>
+nmap <leader>r :NERDTreeFind<cr>
 nmap <leader>ne :NERDTreeToggle<cr>
 
 "
@@ -81,3 +84,13 @@ nmap <leader>ne :NERDTreeToggle<cr>
 
 " set airline theme
 let g:airline_theme='luna'
+
+" show open buffers across the top
+let g:airline#extensions#tabline#enabled = 1
+
+" show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" key map for prev and next buffer
+nmap <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
