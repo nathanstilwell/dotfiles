@@ -94,3 +94,5 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " key map for prev and next buffer
 nmap <leader>l :bnext<cr>
 nmap <leader>h :bprevious<cr>
+" key map for closing a buffer
+nmap <leader>w :bd<cr>
