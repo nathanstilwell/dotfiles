@@ -31,6 +31,3 @@
 [submodule "link/.vim/bundle/command-t"]
 	path = link/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "link/.vim/bundle/vim-colors_duotones"]
-	path = link/.vim/bundle/vim-colors_duotones
-	url = https://github.com/atelierbram/vim-colors_duotones.git
