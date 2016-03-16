@@ -56,6 +56,12 @@ nnoremap <c-l> <c-w>l
 " Clears trailing whitespace
 map <Leader><Space> :%s/\s\+$//<CR>:let @/=''<CR>
 
+" key map for prev and next buffer
+nmap <leader>l :bnext<cr>
+nmap <leader>h :bprevious<cr>
+" key map for closing a buffer
+nmap <leader>w :bd<cr>
+
 "
 "   Ctrl P
 "
@@ -88,9 +94,3 @@ let g:airline#extensions#tabline#enabled = 1
 
 " show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" key map for prev and next buffer
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
-" key map for closing a buffer
-nmap <leader>w :bd<cr>
