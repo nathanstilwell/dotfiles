@@ -1,5 +1,5 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+" Use Vim settings, rather then Vi
+" This must be first, because it changes other options as a side effect
 set nocompatible
 
 "
@@ -28,18 +28,12 @@ set nowrap            " don't wrap lines
 set laststatus=2      " turn on status line
 set nohlsearch        " don't show previous search highlights
 
-"
-"   turn off swap files
-"
-
+" turn off swap files
 set noswapfile
 set nobackup
 set nowritebackup
 
-"
-"   show whitespace
-"
-
+" show whitespace
 set list
 set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
@@ -50,19 +44,23 @@ syntax on
 filetype plugin indent on
 
 "
-"   Better Split movement
+"   Key maps
 "
 
+" Better Split movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" Clears trailing whitespace
+map <Leader><Space> :%s/\s\+$//<CR>:let @/=''<CR>
+
 "
-" Ctrl P
+"   Ctrl P
 "
 
-"search open buffers for file
+" search open buffers for file
 nnoremap <c-u> :CtrlPBuffer<cr>
 
 let g:NERDTreeWinPos = "left"
