@@ -68,9 +68,11 @@ nmap <leader>w :bd<cr>
 
 " search open buffers for file
 nnoremap <c-u> :CtrlPBuffer<cr>
-
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize = 40
+let g:ctrlp_max_depth=40
+let g:ctrlp_max_files=0
+let g:ctrlp_working_path_mode=''
+let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_cache_dir = $HOME . '/.ctrlp'
 
 "
 "   Nerd Tree
@@ -78,6 +80,8 @@ let g:NERDTreeWinSize = 40
 
 " Navigate to file in nerdtree
 let NERDTreeShowHidden=1
+let g:NERDTreeWinPos = "left"
+let g:NERDTreeWinSize = 40
 
 nmap <leader>r :NERDTreeFind<cr>
 nmap <leader>ne :NERDTreeToggle<cr>

@@ -8,6 +8,9 @@
   interactive = auto
   status = auto
 
+[core]
+  excludesfile = /Users/nstilwell/.gitignore-global
+
 [push]
   default = tracking
 
