@@ -31,3 +31,6 @@
 [submodule "link/.vim/bundle/command-t"]
 	path = link/.vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "link/.vim/bundle/gruvbox"]
+	path = link/.vim/bundle/gruvbox
+	url = git@github.com:morhetz/gruvbox.git

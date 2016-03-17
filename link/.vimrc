@@ -44,6 +44,12 @@ syntax on
 filetype plugin indent on
 
 "
+"   Color Scheme
+"
+set background=dark    " Setting dark mode
+colorscheme gruvbox
+
+"
 "   Key maps
 "
 
@@ -91,7 +97,7 @@ nmap <leader>ne :NERDTreeToggle<cr>
 "
 
 " set airline theme
-let g:airline_theme='luna'
+" let g:airline_theme='luna'
 
 " show open buffers across the top
 let g:airline#extensions#tabline#enabled = 1
