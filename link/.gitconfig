@@ -9,7 +9,7 @@
   status = auto
 
 [core]
-  excludesfile = /Users/nstilwell/.gitignore-global
+  excludesfile = ~/.gitignore-global
 
 [push]
   default = tracking
