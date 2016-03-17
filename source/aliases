@@ -34,3 +34,7 @@ alias eject='diskutil eject'
 ## system
 alias load='source ~/.zsh_aliases'
 alias _='sudo'
+
+# Vim Help
+alias fulldiff='git diff origin/master...HEAD'
+alias vimall='vim `fulldiff --name-only`'
