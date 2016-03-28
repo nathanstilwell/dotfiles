@@ -41,7 +41,7 @@ set listchars=tab:│─,trail:◇,extends:…,precedes:…
 syntax on
 
 " some kind of indention thing
-filetype plugin indent off
+filetype plugin indent on
 
 "
 "   Color Scheme
