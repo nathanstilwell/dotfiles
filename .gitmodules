@@ -34,3 +34,6 @@
 [submodule "link/.vim/bundle/gruvbox"]
 	path = link/.vim/bundle/gruvbox
 	url = git@github.com:morhetz/gruvbox.git
+[submodule "link/.vim/bundle/vim-commentary"]
+	path = link/.vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
