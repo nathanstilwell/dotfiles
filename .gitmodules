@@ -37,3 +37,6 @@
 [submodule "link/.vim/bundle/vim-commentary"]
 	path = link/.vim/bundle/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
+[submodule "link/.vim/bundle/syntastic"]
+	path = link/.vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
