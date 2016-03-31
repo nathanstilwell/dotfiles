@@ -20,11 +20,13 @@ alias mkd='open -a /Applications/Marked\ 2.app'
 ## App Alphabet
 alias a='apm'
 alias d='docker'
+alias g='git'
 alias h='heroku'
 alias k='ksdiff'
 alias n='npm'
 alias m='docker-machine'
 alias p='python -m SimpleHTTPServer'
+alias v='vim'
 
 # Drives
 alias unmount='diskutil eject'
