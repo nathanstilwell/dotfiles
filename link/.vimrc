@@ -37,23 +37,20 @@ set nowritebackup
 set list
 set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
-" turn that syntax highlighting on
-syntax on
-
-" some kind of indention thing
-filetype plugin indent on
+syntax on                  " turn that syntax highlighting on
+filetype plugin indent on  " turn on indent plugin
 
 "
 "   Color Scheme
 "
 set background=dark    " Setting dark mode
-colorscheme gruvbox
+colorscheme gruvbox    " https://github.com/morhetz/gruvbox
 
 "
 "   Key maps
 "
 
-" Better Split movement
+" Split movement
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -62,59 +59,9 @@ nnoremap <c-l> <c-w>l
 " Clears trailing whitespace
 map <Leader><Space> :%s/\s\+$//<CR>:let @/=''<CR>
 
-" key map for prev and next buffer
+" prev and next buffer
 nmap <leader>l :bnext<cr>
 nmap <leader>h :bprevious<cr>
-" key map for closing a buffer
+
+" closing a buffer
 nmap <leader>w :bd<cr>
-
-"
-"   Ctrl P
-"
-
-" search open buffers for file
-nnoremap <c-u> :CtrlPBuffer<cr>
-let g:ctrlp_max_depth=40
-let g:ctrlp_max_files=0
-let g:ctrlp_working_path_mode=''
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_cache_dir = $HOME . '/.ctrlp'
-
-"
-"   Nerd Tree
-"
-
-" Navigate to file in nerdtree
-let NERDTreeShowHidden=1
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeWinSize = 40
-
-nmap <leader>r :NERDTreeFind<cr>
-nmap <leader>ne :NERDTreeToggle<cr>
-
-"
-"   Air Line
-"
-
-" set airline theme
-" let g:airline_theme='luna'
-
-" show open buffers across the top
-let g:airline#extensions#tabline#enabled = 1
-
-" show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-"
-"   Syntastic
-"
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
