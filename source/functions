@@ -30,8 +30,8 @@ echo " (╯°□°）╯︵ ┻━┻" | pbcopy;
 
 # usage:  things "task name" "task notes"
 function things {
-  if [ -z $1 ]; then
-    echo "usage: `basename $0` ${yellow}[task name] [task notes]${stop}";
+  if [ -z "$1" ]; then
+    echo "usage: $(basename \"$0\") ${yellow}[task name] [task notes]${stop}";
   else
     osascript -e "tell application \"Things\"" \
       -e "set newToDo to make new to do with properties {name:\"$1\"} at beginning of list \"Today\"" \
@@ -61,7 +61,7 @@ function atom-install {
 ##
 
 function c () {
-  cd "$1";
+  cd "$1" || exit;
   l;
 }
 
