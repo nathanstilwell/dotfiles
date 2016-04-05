@@ -40,3 +40,6 @@
 [submodule "link/.vim/bundle/syntastic"]
 	path = link/.vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
+[submodule "link/.vim/bundle/dockerfile.vim"]
+	path = link/.vim/bundle/dockerfile.vim
+	url = git@github.com:honza/dockerfile.vim.git
