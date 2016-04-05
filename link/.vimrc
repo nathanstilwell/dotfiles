@@ -45,23 +45,3 @@ filetype plugin indent on  " turn on indent plugin
 "
 set background=dark    " Setting dark mode
 colorscheme gruvbox    " https://github.com/morhetz/gruvbox
-
-"
-"   Key maps
-"
-
-" Split movement
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-" Clears trailing whitespace
-map <Leader><Space> :%s/\s\+$//<CR>:let @/=''<CR>
-
-" prev and next buffer
-nmap <leader>l :bnext<cr>
-nmap <leader>h :bprevious<cr>
-
-" closing a buffer
-nmap <leader>w :bd<cr>
