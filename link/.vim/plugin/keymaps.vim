@@ -21,3 +21,7 @@ nmap <leader>w :bd<cr>
 
 " Turn on copy mode (hide lines and whitespace)
 nmap <silent> <leader>p  :set list! <BAR> set number! <CR>
+
+" Working with tabs
+nmap t% :tabedit %<CR>
+nmap td :tabclose<CR>
