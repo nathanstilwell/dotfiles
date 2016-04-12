@@ -40,23 +40,14 @@
 
 [gc]
   auto = 0
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-  prompt = false
 [diff]
-  tool = Kaleidoscope
-[mergetool "ksdiff"]
-  cmd = ksdiff $LOCAL $REMOTE
-  trustExitCode = true
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
+  tool = vimdiff
 [mergetool]
-  prompt = false
-  keepBackup = false
+	keepBackup = false
 [merge]
-  tool = Kaleidoscope
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
 
 [include]
   path = ~/.gitconfig-extras
