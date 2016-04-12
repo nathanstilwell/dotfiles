@@ -25,3 +25,10 @@ nmap <silent> <leader>p  :set list! <BAR> set number! <CR>
 " Working with tabs
 nmap t% :tabedit %<CR>
 nmap td :tabclose<CR>
+
+" For doing merges
+nnoremap <leader><Left> :diffg LO <CR>
+nnoremap <leader><Right> :diffg RE <CR>
+nnoremap <leader><Down> :diffg BA <CR>
+nnoremap <leader><Up> :diffupdate <CR>
+
