@@ -42,6 +42,8 @@
   auto = 0
 [diff]
   tool = vimdiff
+[difftool]
+	prompt = false
 [mergetool]
 	keepBackup = false
 [merge]
