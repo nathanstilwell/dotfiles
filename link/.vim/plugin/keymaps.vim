@@ -19,8 +19,11 @@ nmap <leader>l :bnext<cr>
 nmap <leader>h :bprevious<cr>
 nmap <leader>w :bd<cr>
 
-" Turn on copy mode (hide lines and whitespace)
-nmap <silent> <leader>p  :set list! <BAR> set number! <CR>
+" Turn on copy and paste mode
+" - hide lines and whitespace for conviniently selecting text to copy out of
+"   terminal
+" - set paste to turn off autoindent when pasting from somehwere else
+nmap <silent> <leader>p  :set list! <BAR> set number! <BAR> set invpaste<CR>
 
 " Working with tabs
 nmap t% :tabedit %<CR>
