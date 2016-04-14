@@ -10,9 +10,6 @@
 [submodule "link/.vim/bundle/editorconfig-vim"]
 	path = link/.vim/bundle/editorconfig-vim
 	url = git@github.com:editorconfig/editorconfig-vim.git
-[submodule "link/.vim/bundle/nerdtree"]
-	path = link/.vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
 [submodule "link/.vim/bundle/vim-airline"]
 	path = link/.vim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
