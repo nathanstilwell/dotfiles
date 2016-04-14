@@ -43,3 +43,6 @@
 [submodule "link/.vim/bundle/vim-json"]
 	path = link/.vim/bundle/vim-json
 	url = git@github.com:elzr/vim-json.git
+[submodule "link/.vim/bundle/vim-indent-guides"]
+	path = link/.vim/bundle/vim-indent-guides
+	url = git@github.com:nathanaelkane/vim-indent-guides.git
