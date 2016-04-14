@@ -27,6 +27,7 @@ alias n='npm'
 alias m='docker-machine'
 alias p='python -m SimpleHTTPServer'
 alias v='vim'
+alias s='screen -DRU'
 
 # Drives
 alias unmount='diskutil eject'
