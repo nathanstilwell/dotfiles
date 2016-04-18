@@ -36,4 +36,5 @@ nnoremap <leader><Down> :diffg BA <CR>
 nnoremap <leader><Up> :diffupdate <CR>
 
 " Netrw Stuff
-nnoremap <leader>e :Explore <CR>
+nnoremap <leader>e :e . <CR>
+nnoremap <leader>E :Explore <CR>
