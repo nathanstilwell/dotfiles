@@ -10,6 +10,12 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "
+"   Color Scheme
+"
+set background=dark    " Setting dark mode
+colorscheme gruvbox    " https://github.com/morhetz/gruvbox
+
+"
 "   set up
 "
 
@@ -39,10 +45,4 @@ set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
 syntax on                  " turn that syntax highlighting on
 filetype plugin indent on  " turn on indent plugin
-
-"
-"   Color Scheme
-"
-set background=dark    " Setting dark mode
-colorscheme gruvbox    " https://github.com/morhetz/gruvbox
 
