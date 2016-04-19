@@ -34,6 +34,9 @@ set nowrap            " don't wrap lines
 set laststatus=2      " turn on status line
 set nohlsearch        " don't show previous search highlights
 
+syntax on                  " turn that syntax highlighting on
+filetype plugin indent on  " turn on indent plugin
+
 " turn off swap files
 set noswapfile
 set nobackup
@@ -43,6 +46,8 @@ set nowritebackup
 set list
 set listchars=tab:│─,trail:◇,extends:…,precedes:…
 
-syntax on                  " turn that syntax highlighting on
-filetype plugin indent on  " turn on indent plugin
-
+" code folding
+set foldmethod=indent   " fold based on indent
+set foldnestmax=5       " deepest fold is 10 levels
+set nofoldenable        " dont fold by default
+set foldlevel=1         " when foldleve is positive, some folds are open
