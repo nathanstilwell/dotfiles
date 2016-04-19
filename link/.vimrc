@@ -1,4 +1,4 @@
-" Use Vim settings, rather then Vi
+"! Use Vim settings, rather then Vi
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
@@ -45,3 +45,4 @@ filetype plugin indent on  " turn on indent plugin
 "
 set background=dark    " Setting dark mode
 colorscheme gruvbox    " https://github.com/morhetz/gruvbox
+
