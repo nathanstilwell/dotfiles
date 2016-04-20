@@ -1,4 +1,4 @@
-"! Use Vim settings, rather then Vi
+" Use Vim settings, rather then Vi
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
@@ -51,3 +51,6 @@ set foldmethod=indent   " fold based on indent
 set foldnestmax=5       " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
 set foldlevel=1         " when foldleve is positive, some folds are open
+
+" Make backspace work
+set backspace=indent,eol,start
