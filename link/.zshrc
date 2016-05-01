@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="block-prompt-gruvbox-dark"
+export ZSH_THEME="ace-of-spades"
 
 # Comment this out to disable weekly auto-update checks
 export DISABLE_AUTO_UPDATE="true"
