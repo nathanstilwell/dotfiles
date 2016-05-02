@@ -24,9 +24,11 @@ config windowHintsSpread true
 ## Alias
 ##
 
-alias full      move screenOriginX;screenOriginY               screenSizeX;screenSizeY
-alias lefthalf  move screenOriginX;screenOriginY               screenSizeX/2;screenSizeY
-alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias full       move screenOriginX;screenOriginY               screenSizeX;screenSizeY
+alias lefthalf   move screenOriginX;screenOriginY               screenSizeX/2;screenSizeY
+alias righthalf  move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias tophalf    move screenOriginX;screenOriginY               screenSizeX;screenSizeY/2
+alias bottomhalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
 
 alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
 alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
@@ -54,8 +56,11 @@ bind 3:cmd,ctrl,alt throw 2 resize
 
 #move in monitor
 bind up:cmd,ctrl,shift ${full}
-bind left:cmd,ctrl ${lefthalf}
+
+bind up:cmd,ctrl    ${tophalf}
+bind left:cmd,ctrl  ${lefthalf}
 bind right:cmd,ctrl ${righthalf}
+bind down:cmd,ctrl  ${bottomhalf}
 
 # Window Hints
 bind e:cmd,alt hint hjklyuiopnm
