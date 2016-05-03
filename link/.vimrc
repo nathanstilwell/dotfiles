@@ -44,7 +44,7 @@ set nowritebackup
 
 " show whitespace
 set list
-set listchars=tab:│─,trail:◇,extends:…,precedes:…
+set listchars=tab:▸▸,trail:•,extends:→,precedes:←
 
 " code folding
 set foldmethod=indent   " fold based on indent
