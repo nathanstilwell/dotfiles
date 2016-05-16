@@ -52,3 +52,6 @@
 [submodule "link/.vim/bundle/vim-fugitive"]
 	path = link/.vim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "link/.vim/bundle/vim-velocity"]
+	path = link/.vim/bundle/vim-velocity
+	url = git@github.com:lepture/vim-velocity.git
