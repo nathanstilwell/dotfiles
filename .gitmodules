@@ -55,3 +55,6 @@
 [submodule "link/.vim/bundle/vim-velocity"]
 	path = link/.vim/bundle/vim-velocity
 	url = git@github.com:lepture/vim-velocity.git
+[submodule "link/.vim/bundle/matchit.zip"]
+	path = link/.vim/bundle/matchit.zip
+	url = git://github.com/vim-scripts/matchit.zip.git
