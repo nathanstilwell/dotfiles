@@ -54,3 +54,7 @@ set foldlevel=1         " when foldleve is positive, some folds are open
 
 " Make backspace work
 set backspace=indent,eol,start
+
+" Something to make Facebook Reason / opam stuff work
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
