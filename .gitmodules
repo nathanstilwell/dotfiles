@@ -58,3 +58,6 @@
 [submodule "link/.vim/bundle/matchit.zip"]
 	path = link/.vim/bundle/matchit.zip
 	url = git://github.com/vim-scripts/matchit.zip.git
+[submodule "link/.vim/bundle/vim-javascript"]
+	path = link/.vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
