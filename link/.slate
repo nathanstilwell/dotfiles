@@ -62,6 +62,11 @@ bind left:cmd,ctrl  ${lefthalf}
 bind right:cmd,ctrl ${righthalf}
 bind down:cmd,ctrl  ${bottomhalf}
 
+bind k:h,cmd,ctrl ${topleft}
+bind j:h,cmd,ctrl ${bottomleft}
+bind k:l,cmd,ctrl ${topright}
+bind j:l,cmd,ctrl ${bottomright}
+
 # Window Hints
 bind e:cmd,alt hint hjklyuiopnm
 
