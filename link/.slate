@@ -41,6 +41,7 @@ alias spotify "Spotify"
 alias devbrowser "FirefoxDeveloperEdition"
 alias slack "Slack"
 alias xcode "Xcode"
+alias hyperterm "HyperTerm"
 
 ##
 ## Bind
@@ -76,3 +77,4 @@ bind s:cmd,alt,ctrl focus ${spotify}
 bind b:cmd,alt,ctrl focus ${devbrowser}
 bind l:cmd,alt,ctrl focus ${slack}
 bind x:cmd,alt,ctrl focus ${xcode}
+bind h:cmd,alt,ctrl focus ${hyperterm}
