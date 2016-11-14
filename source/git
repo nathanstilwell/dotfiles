@@ -17,7 +17,7 @@ function prune {
 
 alias gb='git branch'
 alias gba='git branch -a'
-alias gci='git commit -v -m'
+alias gci='git commit -S -v -m'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
 alias gdc='git diff --cached'
