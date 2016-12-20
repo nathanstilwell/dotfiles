@@ -19,6 +19,7 @@ alias mkd='open -a /Applications/Marked\ 2.app'
 
 ## App Alphabet
 alias a='apm'
+alias b='brew'
 alias d='docker'
 # alias g='git'
 alias g='gcloud'
