@@ -26,10 +26,12 @@ alias g='gcloud'
 alias h='heroku'
 # alias k='ksdiff'
 alias k='kubectl'
+alias m='make'
 alias n='npm'
 alias p='python -m SimpleHTTPServer'
 alias v='vim'
 alias s='screen -DRU'
+alias y='yarn'
 
 # Drives
 alias unmount='diskutil eject'
