@@ -58,10 +58,10 @@ bind 3:cmd,ctrl,alt throw 2 resize
 #move in monitor
 bind up:cmd,ctrl,shift ${full}
 
-bind up:cmd,ctrl    ${tophalf}
-bind left:cmd,ctrl  ${lefthalf}
-bind right:cmd,ctrl ${righthalf}
-bind down:cmd,ctrl  ${bottomhalf}
+bind up:cmd,ctrl,alt    ${tophalf}
+bind left:cmd,ctrl,alt  ${lefthalf}
+bind right:cmd,ctrl,alt ${righthalf}
+bind down:cmd,ctrl,alt  ${bottomhalf}
 
 bind k:h,cmd,ctrl ${topleft}
 bind j:h,cmd,ctrl ${bottomleft}
