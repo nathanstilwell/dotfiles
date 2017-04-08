@@ -81,6 +81,10 @@ function untar {
   tar -zxvf "$1";
 }
 
+function profile {
+  for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done;
+}
+
 # Mass rename a bunch of files with different extensions
 
 # --------------------------------- Archive ----------------------
