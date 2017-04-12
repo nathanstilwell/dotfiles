@@ -5,9 +5,38 @@ set nocompatible
 "
 "   pathogen
 "
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+" runtime bundle/vim-pathogen/autoload/pathogen.vim
+" call pathogen#infect()
+" call pathogen#helptags()
+
+"
+"  Plug - https://github.com/junegunn/vim-plug/
+"
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/syntastic'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+
+" Dockerfile.vim
+" command-t
+" ctrlp.vim
+" editorconfig-vim
+" vim-commentary
+" vim-fugitive
+" "vim-git
+" vim-indent-guides
+" vim-javascript
+" vim-json
+" vim-markdown
+" vim-mustache-handlebars
+" vim-pathogen
+" vim-scala
+" vim-surround
+" vim-velocity
+
+call plug#end()
 
 "
 "   Color Scheme
