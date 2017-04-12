@@ -2,12 +2,6 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
-"
-"   pathogen
-"
-" runtime bundle/vim-pathogen/autoload/pathogen.vim
-" call pathogen#infect()
-" call pathogen#helptags()
 
 "
 "  Plug - https://github.com/junegunn/vim-plug/
@@ -18,23 +12,19 @@ Plug 'dracula/vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-
-" Dockerfile.vim
-" command-t
-" ctrlp.vim
-" editorconfig-vim
-" vim-commentary
-" vim-fugitive
-" "vim-git
-" vim-indent-guides
-" vim-javascript
-" vim-json
-" vim-markdown
-" vim-mustache-handlebars
-" vim-pathogen
-" vim-scala
-" vim-surround
-" vim-velocity
+Plug 'wincent/command-t'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-markdown'
+Plug 'derekwyatt/vim-scala'
+Plug 'tpope/vim-surround'
+Plug 'derekwyatt/vim-scala'
 
 call plug#end()
 
