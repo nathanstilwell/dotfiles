@@ -1,4 +1,4 @@
 branch=$1;
 echo "burning $branch";
-git branch --delete $branch;
+git branch -D $branch;
 git push origin --delete $branch;
