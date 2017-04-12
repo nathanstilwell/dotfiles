@@ -14,7 +14,7 @@ set nocompatible
 "
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
@@ -41,8 +41,7 @@ call plug#end()
 "
 "   Color Scheme
 "
-set background=dark    " Setting dark mode
-colorscheme gruvbox    " https://github.com/morhetz/gruvbox
+color dracula
 
 "
 "   set up
