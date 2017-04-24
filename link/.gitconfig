@@ -44,13 +44,13 @@
 [diff]
   tool = vimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
-	prompt = false
+  tool = vimdiff
+  conflictstyle = diff3
+  prompt = false
 
 [include]
   path = ~/.gitconfig-extras
