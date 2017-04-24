@@ -1,4 +1,10 @@
 .netrwhist
 .netrwbook
 
+# vim
 link/.vim/plugged
+
+# zsh
+zsh/log
+zsh/cache
+zsh/*.swp

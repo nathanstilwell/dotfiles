@@ -52,6 +52,10 @@ set nowrap            " don't wrap lines
 set laststatus=2      " turn on status line
 set nohlsearch        " don't show previous search highlights
 
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 syntax on                  " turn that syntax highlighting on
 filetype plugin indent on  " turn on indent plugin
 
@@ -73,6 +77,3 @@ set foldlevel=1         " when foldleve is positive, some folds are open
 " Make backspace work
 set backspace=indent,eol,start
 
-" Something to make Facebook Reason / opam stuff work
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
