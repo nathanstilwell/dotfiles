@@ -10,8 +10,9 @@ alias ll='ls -alhF'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'  # We're going to need a function to do this eventually
+alias .....='cd ../../../..'
 alias f='find . -name'
+alias dir='dirs -v | head -10'
 alias copy='pbcopy'
 
 # Applications
@@ -41,6 +42,7 @@ alias eject='diskutil eject'
 ## system
 alias load='source ~/.zsh_aliases'
 alias _='sudo'
+alias history='fc -l 1'
 
 # Vim Help
 alias fulldiff='git diff origin/master...HEAD'
