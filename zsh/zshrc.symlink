@@ -1,0 +1,20 @@
+# path to dotfiles
+#
+export DOTS=$HOME/.dotfiles
+export ZSH=$DOTS/zsh
+local THEME="ace-of-spades.prompt"
+
+# add a function path
+for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
+
+# Load all of the config files in ~/oh-my-zsh that end in .zsh
+for config_file ($ZSH/**/*.zsh); do
+  source $config_file
+done
+
+# load theme
+test -f "$ZSH/$THEME" && source "$ZSH/$THEME"
+
+# Load System Specific Configs
+#
+[ -e ~/.profile ] && . ~/.profile;
