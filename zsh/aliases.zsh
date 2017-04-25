@@ -17,13 +17,14 @@ alias copy='pbcopy'
 
 # Applications
 alias mkd='open -a /Applications/Marked\ 2.app'
+command -v hub > /dev/null && alias git='hub'
 
 ## App Alphabet
 alias a='apm'
 alias b='brew'
 alias d='docker'
 # alias g='git'
-alias g='gcloud'
+# alias g='gcloud'
 alias h='heroku'
 # alias k='ksdiff'
 alias k='kubectl'
