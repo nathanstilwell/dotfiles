@@ -12,7 +12,6 @@ Plug 'dracula/vim'
 Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-Plug 'wincent/command-t'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
@@ -25,6 +24,8 @@ Plug 'tpope/vim-markdown'
 Plug 'derekwyatt/vim-scala'
 Plug 'tpope/vim-surround'
 Plug 'derekwyatt/vim-scala'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
