@@ -26,8 +26,8 @@ alias d='docker'
 # alias g='git'
 # alias g='gcloud'
 alias h='heroku'
-# alias k='ksdiff'
-alias k='kubectl'
+alias k='ksdiff'
+# alias k='kubectl'
 alias m='make'
 alias n='npm'
 alias p='python -m SimpleHTTPServer'
@@ -41,7 +41,7 @@ alias eject='diskutil eject'
 
 # Util
 ## system
-alias load='source ~/.zsh_aliases'
+alias load='source ~/.zshrc'
 alias _='sudo'
 alias history='fc -l 1'
 
