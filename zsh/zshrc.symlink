@@ -8,7 +8,7 @@ local THEME="ace-of-spades.prompt"
 for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
 
 # Load all of the config files in ~/oh-my-zsh that end in .zsh
-for config_file ($ZSH/**/*.zsh); do
+for config_file ($DOTS/**/*.zsh); do
   source $config_file
 done
 
@@ -18,3 +18,5 @@ test -f "$ZSH/$THEME" && source "$ZSH/$THEME"
 # Load System Specific Configs
 #
 [ -e ~/.profile ] && . ~/.profile;
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

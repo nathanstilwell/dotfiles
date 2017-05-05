@@ -1,3 +1,4 @@
+#!/bin/env zsh
 # get the name of the branch we are on
 function git_prompt_info() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
@@ -137,7 +138,9 @@ function current_branch() {
 function prune {
   git fetch --prune;
   git rebase;
-  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d;
+  for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`;
+    do hub branch -D $branch;
+  done
 }
 
 alias gb='git branch'
