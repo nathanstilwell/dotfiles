@@ -54,3 +54,5 @@
 
 [include]
   path = ~/.gitconfig-extras
+[credential]
+	helper = osxkeychain
