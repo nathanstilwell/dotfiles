@@ -32,7 +32,6 @@
   dropit = checkout -- .
   who = shortlog -sn
   sub = submodule
-# Borrrowed from Doug Russell - https://github.com/rustle/KaleidoscopeVCSTidbits
   ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
 
 [branch "master"]
@@ -41,18 +40,31 @@
 
 [gc]
   auto = 0
+
 [diff]
-  tool = vimdiff
+  tool = Kaleidoscope
+
 [difftool]
   prompt = false
+
 [mergetool]
   keepBackup = false
+  prompt = false
+
 [merge]
-  tool = vimdiff
+  tool = Kaleidoscope
   conflictstyle = diff3
   prompt = false
 
 [include]
   path = ~/.gitconfig-extras
+
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
