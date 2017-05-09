@@ -11,7 +11,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias f='find . -name'
+alias f='find . | fzf'
 alias dir='dirs -v | head -10'
 alias copy='pbcopy'
 
