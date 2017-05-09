@@ -1,1 +1,7 @@
 term "screen-256color"
+
+startup_message off
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.1099} %-w%{.bg}%n %t%{-}%+w %=%H %c:%s "
