@@ -32,6 +32,7 @@ alias m='make'
 alias n='npm'
 alias p='python -m SimpleHTTPServer'
 alias v='vim'
+alias r='rbenv'
 alias s='screen -DRU'
 alias y='yarn'
 
