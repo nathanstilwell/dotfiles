@@ -11,7 +11,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias f='find . | fzf'
 alias dir='dirs -v | head -10'
 alias copy='pbcopy'
 
@@ -19,10 +18,11 @@ alias copy='pbcopy'
 alias mkd='open -a /Applications/Marked\ 2.app'
 command -v hub > /dev/null && alias git='hub'
 
-## App Alphabet
+## Alphabet
 alias a='apm'
 alias b='brew'
 alias d='docker'
+alias f='find . | fzf'
 # alias g='git'
 # alias g='gcloud'
 alias h='heroku'
