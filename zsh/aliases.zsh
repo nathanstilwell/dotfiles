@@ -34,6 +34,7 @@ alias p='python -m SimpleHTTPServer'
 alias v='vim'
 alias r='rbenv'
 alias s='screen -DRU'
+alias t='travis'
 alias y='yarn'
 
 # Drives
