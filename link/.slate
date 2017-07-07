@@ -36,6 +36,7 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias editor "Atom"
+alias discord "Discord"
 alias firefox "Firefox"
 alias devbrowser "FirefoxDeveloperEdition"
 alias hyperterm "HyperTerm"
@@ -72,6 +73,7 @@ bind j:l,cmd,ctrl ${bottomright}
 bind e:cmd,alt hint hjklyuiopnm
 
 # Apps
+bind d:cmd,alt,ctrl focus ${discord}
 bind e:cmd,alt,ctrl focus ${editor}
 bind h:cmd,alt,ctrl focus ${hyperterm}
 bind t:cmd,alt,ctrl focus ${terminal}
