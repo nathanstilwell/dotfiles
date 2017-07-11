@@ -12,6 +12,7 @@
 alias a='apm'
 alias b='brew'
 alias d='docker'
+alias e='echo'
 alias f='find . | fzf'
 # alias g='git'
 # alias g='gcloud'
