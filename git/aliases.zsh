@@ -1,5 +1,6 @@
 alias gb='git branch'
 alias gba='git branch -a'
+alias gbv='git branch -vvv'
 alias gc='git commit -S -v'
 alias gci='git commit -S -v -m'
 alias gco='git checkout'
