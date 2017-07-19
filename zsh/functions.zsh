@@ -53,11 +53,6 @@ function take() {
   cd $1
 }
 
-function c () {
-  cd "$1" || exit;
-  l;
-}
-
 function getip {
   ifconfig en0 | grep -w 'inet' | awk '{print $2}';
 }
