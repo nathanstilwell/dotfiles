@@ -2,7 +2,7 @@
 #
 export DOTS=$HOME/.dotfiles
 export ZSH=$DOTS/zsh
-local THEME="ace-of-spades.prompt"
+local THEME="$DOTS/theme/ace-of-spades.prompt"
 
 # add a function path
 for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
@@ -18,7 +18,7 @@ autoload -U compinit
 compinit;
 
 # load theme
-test -f "$ZSH/$THEME" && source "$ZSH/$THEME"
+test -f "$THEME" && source "$THEME"
 
 # Load System Specific Configs
 #
