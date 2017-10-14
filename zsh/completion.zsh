@@ -74,3 +74,6 @@ if [ "x$COMPLETION_WAITING_DOTS" = "xtrue" ]; then
   bindkey "^I" expand-or-complete-with-dots
 fi
 
+# Load and run compinit
+autoload -U compinit
+compinit;
