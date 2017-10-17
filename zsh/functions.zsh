@@ -1,21 +1,5 @@
 #!/bin/bash
 
-##
-##    Figlet
-##
-
-function __ () {
-  command -v figlet && figlet -f larry3d -w 120 -c "$1" | pbcopy
-}
-
-function _r () {
-  command -v figlet && figlet -f roman -w 120 -c "$1" | pbcopy
-}
-
-function fig () {
-  command -v figlet && figlet -f "$1" -w 120 -c "$2" | pbcopy;
-}
-
 function shrug {
    echo "¯\_(ツ)_/¯" | pbcopy;
 }
