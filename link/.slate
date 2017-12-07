@@ -37,12 +37,13 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias editor "Atom"
 alias discord "Discord"
-alias firefox "Firefox"
 alias devbrowser "FirefoxDeveloperEdition"
+alias firefox "Firefox"
 alias hyperterm "HyperTerm"
-alias terminal "iTerm2"
 alias slack "Slack"
 alias spotify "Spotify"
+alias terminal "iTerm2"
+alias things "Things"
 alias xcode "Xcode"
 
 ##
@@ -76,6 +77,7 @@ bind e:cmd,alt hint hjklyuiopnm
 bind d:cmd,alt,ctrl focus ${discord}
 bind e:cmd,alt,ctrl focus ${editor}
 bind h:cmd,alt,ctrl focus ${hyperterm}
+bind i:cmd,alt,ctrl focus ${things}
 bind t:cmd,alt,ctrl focus ${terminal}
 bind l:cmd,alt,ctrl focus ${slack}
 bind s:cmd,alt,ctrl focus ${spotify}
