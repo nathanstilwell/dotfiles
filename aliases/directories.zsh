@@ -18,6 +18,7 @@ alias dir='dirs -v | head -10'
 alias copy='pbcopy'
 alias md='mkdir -p'
 alias rd=rmdir
+alias here='pwd | pbcopy'
 
 alias 1='cd -'
 alias 2='cd -2'
