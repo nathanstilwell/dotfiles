@@ -18,4 +18,5 @@ alias grh='git reset HEAD'
 alias gsh='git ksshow'
 alias gst='git status -sb'
 alias gsu='git submodule update'
+alias gcne='git commit --amend --no-edit'
 
