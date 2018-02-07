@@ -18,4 +18,4 @@ alias _='sudo'
 alias history='fc -l 1'
 
 ## edit dotfiles
-alias dotfiles='vim ~/.dotfiles'
+alias dots='vim ~/.dotfiles'
