@@ -27,8 +27,8 @@
   ca = commit -a -m
   df = diff
   scorch = clean -fdx
-  delete = branch -d
-  Delete = branch -D
+  belete = branch -d
+  Belete = branch -D
   dropit = checkout -- .
   who = shortlog -sn
   sub = submodule
