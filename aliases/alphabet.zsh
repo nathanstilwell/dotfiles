@@ -9,6 +9,7 @@
 
 
 ## Alphabet
+alias _='bat'
 alias a='apm'
 alias b='brew'
 alias c='curl'

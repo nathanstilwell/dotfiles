@@ -10,7 +10,7 @@
 ##
 
 function __ () {
-  command -v figlet > /dev/null && figlet -f larry3d -w 120 -c "$1" | pbcopy
+  command -v figlet > /dev/null && figlet -f 3d -w 120 -c "$1" | pbcopy
 }
 
 function _r () {
