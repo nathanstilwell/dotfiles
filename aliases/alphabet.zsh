@@ -7,8 +7,9 @@
 #                            ░██     ░██ ███░██     ░██  ░██░░████████░██████ ░░██████  ░░██
 #                            ░░      ░░ ░░░ ░░      ░░   ░░  ░░░░░░░░ ░░░░░    ░░░░░░    ░░
 
-
+## Still available - ! \# $ ^ + ] %
 ## Alphabet
+alias @='sudo'
 alias _='bat'
 alias a='apm'
 alias b='brew'
@@ -28,4 +29,5 @@ alias v='vim'
 alias r='rbenv'
 alias s='screen -DRU'
 alias t='travis'
+alias x='rm -rf'
 alias y='yarn'
