@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # path to dotfiles
 #
 export DOTS=$HOME/.dotfiles
@@ -5,9 +7,13 @@ export ZSH=$DOTS/zsh
 local THEME="$DOTS/theme/ace-of-spades.prompt"
 
 # add a function path
-for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
+for topic_folder in $DOTS/*; do
+  if [ -d $topic_folder ]; then
+    fpath=($topic_folder $fpath);
+  fi
+done
 
-# Load all of the config files in ~/oh-my-zsh that end in .zsh
+# Load all of the config files that end in .zsh
 for config_file ($DOTS/**/*.zsh); do
   # echo "$config_file" # debugging
   source $config_file
