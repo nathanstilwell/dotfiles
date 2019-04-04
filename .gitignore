@@ -3,7 +3,7 @@
 .netrwbook
 
 # vim
-link/.vim/plugged
+vim/vim.dotfile/plugged
 
 # zsh
 zsh/log
