@@ -87,6 +87,9 @@ echo -e "Ask for password after screen saver"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+echo -e "Show hidden files in Finder"
+defaults write com.apple.finder AppleShowAllFiles YES
+
 # Cleanup
 unset TARGET
 unset DOTS
