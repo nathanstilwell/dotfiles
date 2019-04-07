@@ -16,14 +16,6 @@ echo
   chsh -s /bin/zsh;
 }
 
-# link dotfiles (DEPRECATED)
-# for file in $DOTS/link/.??*; do
-#   filename=$(basename "$file");
-#   [[ -e "$file" && -h ~/$filename ]] && rm ~/"$filename";
-#   [[ -e "$file" ]] && ln -s "$file" ~/;
-# done
-# unset file
-
 echo
 echo -e "${bold:?}## Symlinking dotfiles to ~";
 echo -e "--------------------------------------------${bold_off:?}"
