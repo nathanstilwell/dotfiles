@@ -13,7 +13,7 @@ echo
 # if not zsh then change shell,
 [ "$SHELL" != "/bin/zsh" ] && {
   echo "Current user shell is $SHELL, changing user shell to zsh.";
-  # chsh -s /bin/zsh;
+  chsh -s /bin/zsh;
 }
 
 # link dotfiles (DEPRECATED)
