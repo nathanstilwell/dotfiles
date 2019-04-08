@@ -115,6 +115,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo -e "Crank up the key repeat";
 defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 echo -e "Ask for password after screen saver"
 defaults write com.apple.screensaver askForPassword -int 1
@@ -122,6 +123,18 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 echo -e "Show hidden files in Finder"
 defaults write com.apple.finder AppleShowAllFiles YES
+
+echo -e "Show only open applications in the Dock"
+defaults write com.apple.dock static-only -bool true
+
+echo -e "Put Dock on the left"
+defaults write com.apple.dock -string "left"
+
+echo -e "Automatically hide and show the Dock"
+defaults write com.apple.dock autohide -bool true
+
+echo -e "Make Dock icons small"
+defaults write com.apple.dock tilesize -int 24
 
 # Cleanup
 unset TARGET
