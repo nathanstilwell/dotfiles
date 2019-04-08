@@ -54,9 +54,12 @@ command -v brew > /dev/null || {
   echo "Homebrew is already installed";
 }
 
-# then fire up the brew file
-# cd $DOTS/install
-# brew bundle
+[[ -e "$HOME/Brewfile" ]] && {
+  echo -e "${bold:?}Running ${green:?}brew bundle${stop:?}";
+  cd "$HOME" || return;
+  brew bundle;
+  cd - || return;
+}
 
 #
 # Install Fonts
@@ -81,16 +84,13 @@ mkdir $TEMP_DIR;
 # download and unpack fonts
 command -v wget > /dev/null && {
   echo -e "${green:?}fetching fonts from $font_url ${stop:?}";
-  echo -e "${red:?} wget -P $TEMP_DIR $font_url ${stop:?}";
   wget -P $TEMP_DIR $font_url
   echo
 
   echo -e "${green:?}unzipping fonts to temp dir ${stop:?}";
-  echo -e "${red:?}tar -zxvf $TEMP_DIR/$font_url_file --directory $TEMP_DIR ${stop:?}";
   tar -zxvf "$TEMP_DIR/$font_url_file" --directory $TEMP_DIR
 
   echo -e "${green:?}copying fonts from $TEMP_DIR to $LOCAL_FONT_DIR${stop:?}";
-  echo -e "$red cp -v $TEMP_DIR/**/*.ttf $LOCAL_FONT_DIR $stop";
   # shellcheck disable=SC2086
   cp -v $TEMP_DIR/**/*.ttf $LOCAL_FONT_DIR;
 }
