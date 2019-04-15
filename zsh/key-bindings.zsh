@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # TODO: Explain what some of this does..
 
 bindkey -e

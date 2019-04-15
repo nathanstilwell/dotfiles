@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 #usage: title short_tab_title looooooooooooooooooooooggggggg_windows_title
 #http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#ss3.1
 #Fully support screen, iterm, and probably most modern xterm and rxvt

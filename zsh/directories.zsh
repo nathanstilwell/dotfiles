@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Setting up Directory Stacks
 # see http://zsh.sourceforge.net/Intro/intro_6.html for info
 #
