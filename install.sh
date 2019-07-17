@@ -7,12 +7,32 @@ DOTS=$HOME/.dotfiles;
 source "$DOTS/utils/colors.sh";
 
 echo
-echo -e "~~ Replace me with some cool ASCII art ~~";
 echo
+echo -e "${red:?}    ██                    ██              ██  ██ ██                 ";
+echo -e "${orange:?}   ░██                   ░██             ░██ ░██░░            █████ ";
+echo -e "${yellow:?}   ░██ ███████   ██████ ██████  ██████   ░██ ░██ ██ ███████  ██░░░██";
+echo -e "${green:?}   ░██░░██░░░██ ██░░░░ ░░░██░  ░░░░░░██  ░██ ░██░██░░██░░░██░██  ░██";
+echo -e "${cyan}   ░██ ░██  ░██░░█████   ░██    ███████  ░██ ░██░██ ░██  ░██░░██████";
+echo -e "${blue}   ░██ ░██  ░██ ░░░░░██  ░██   ██░░░░██  ░██ ░██░██ ░██  ░██ ░░░░░██";
+echo -e "${purple}   ░██ ███  ░██ ██████   ░░██ ░░████████ ███ ███░██ ███  ░██  █████ ";
+echo -e "${magenta}   ░░ ░░░   ░░ ░░░░░░     ░░   ░░░░░░░░ ░░░ ░░░ ░░ ░░░   ░░  ░░░░░  ";
+echo
+echo -e "${red:?}       ███████              ██     ████ ██  ██                ";
+echo -e "${orange:?}      ░██░░░░██            ░██    ░██░ ░░  ░██                ";
+echo -e "${yellow:?}      ░██    ░██  ██████  ██████ ██████ ██ ░██  █████   ██████";
+echo -e "${green:?}      ░██    ░██ ██░░░░██░░░██░ ░░░██░ ░██ ░██ ██░░░██ ██░░░░ ";
+echo -e "${cyan}      ░██    ░██░██   ░██  ░██    ░██  ░██ ░██░███████░░█████ ";
+echo -e "${blue}      ░██    ██ ░██   ░██  ░██    ░██  ░██ ░██░██░░░░  ░░░░░██";
+echo -e "${purple}      ░███████  ░░██████   ░░██   ░██  ░██ ███░░██████ ██████ ";
+echo -e "${magenta}      ░░░░░░░    ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░  ";
+echo -e "${stop:?}";    
 
 # if not zsh then change shell,
 [ "$SHELL" != "/bin/zsh" ] && {
-  echo "Current user shell is $SHELL, changing user shell to zsh.";
+  echo
+  echo -e "${bold:?}## Changing Shell";
+  echo -e "--------------------------------------------${bold_off:?}"
+  echo -e "Current user shell is ${green:?}$SHELL${stop:?}, changing user shell to ${green:?}zsh${stop:?}.";
   chsh -s /bin/zsh;
 }
 
