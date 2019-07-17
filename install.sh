@@ -48,7 +48,7 @@ echo
 echo -e "${bold:?}## Homebrew";
 echo -e "--------------------------------------------${bold_off:?}"
 command -v brew > /dev/null || {
-  echo "${bold:?}Installing homebrew${stop:?}";
+  echo -e "${bold:?}Installing homebrew${stop:?}";
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 } && {
   echo "Homebrew is already installed";
