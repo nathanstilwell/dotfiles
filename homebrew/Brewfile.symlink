@@ -23,5 +23,5 @@ brew "tree"
 brew "wget"
 cask "mattr-slate"
 cask "ngrok"
-cask "alfred":
+cask "alfred"
 cask "visual-studio-code"
