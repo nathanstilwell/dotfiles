@@ -7,12 +7,32 @@ DOTS=$HOME/.dotfiles;
 source "$DOTS/utils/colors.sh";
 
 echo
-echo -e "~~ Replace me with some cool ASCII art ~~";
 echo
+echo -e "${red:?}    ██                    ██              ██  ██ ██                 ";
+echo -e "${orange:?}   ░██                   ░██             ░██ ░██░░            █████ ";
+echo -e "${yellow:?}   ░██ ███████   ██████ ██████  ██████   ░██ ░██ ██ ███████  ██░░░██";
+echo -e "${green:?}   ░██░░██░░░██ ██░░░░ ░░░██░  ░░░░░░██  ░██ ░██░██░░██░░░██░██  ░██";
+echo -e "${cyan}   ░██ ░██  ░██░░█████   ░██    ███████  ░██ ░██░██ ░██  ░██░░██████";
+echo -e "${blue}   ░██ ░██  ░██ ░░░░░██  ░██   ██░░░░██  ░██ ░██░██ ░██  ░██ ░░░░░██";
+echo -e "${purple}   ░██ ███  ░██ ██████   ░░██ ░░████████ ███ ███░██ ███  ░██  █████ ";
+echo -e "${magenta}   ░░ ░░░   ░░ ░░░░░░     ░░   ░░░░░░░░ ░░░ ░░░ ░░ ░░░   ░░  ░░░░░  ";
+echo
+echo -e "${red:?}       ███████              ██     ████ ██  ██                ";
+echo -e "${orange:?}      ░██░░░░██            ░██    ░██░ ░░  ░██                ";
+echo -e "${yellow:?}      ░██    ░██  ██████  ██████ ██████ ██ ░██  █████   ██████";
+echo -e "${green:?}      ░██    ░██ ██░░░░██░░░██░ ░░░██░ ░██ ░██ ██░░░██ ██░░░░ ";
+echo -e "${cyan}      ░██    ░██░██   ░██  ░██    ░██  ░██ ░██░███████░░█████ ";
+echo -e "${blue}      ░██    ██ ░██   ░██  ░██    ░██  ░██ ░██░██░░░░  ░░░░░██";
+echo -e "${purple}      ░███████  ░░██████   ░░██   ░██  ░██ ███░░██████ ██████ ";
+echo -e "${magenta}      ░░░░░░░    ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░  ";
+echo -e "${stop:?}";    
 
 # if not zsh then change shell,
 [ "$SHELL" != "/bin/zsh" ] && {
-  echo "Current user shell is $SHELL, changing user shell to zsh.";
+  echo
+  echo -e "${bold:?}## Changing Shell";
+  echo -e "--------------------------------------------${bold_off:?}"
+  echo -e "Current user shell is ${green:?}$SHELL${stop:?}, changing user shell to ${green:?}zsh${stop:?}.";
   chsh -s /bin/zsh;
 }
 
@@ -48,7 +68,7 @@ echo
 echo -e "${bold:?}## Homebrew";
 echo -e "--------------------------------------------${bold_off:?}"
 command -v brew > /dev/null || {
-  echo "${bold:?}Installing homebrew${stop:?}";
+  echo -e "${bold:?}Installing homebrew${stop:?}";
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 } && {
   echo "Homebrew is already installed";
@@ -116,7 +136,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 echo -e "Crank up the key repeat";
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 echo -e "Ask for password after screen saver"
 defaults write com.apple.screensaver askForPassword -int 1
