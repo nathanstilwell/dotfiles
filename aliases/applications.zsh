@@ -25,3 +25,7 @@ alias all-dirty-files="git status --porcelain | awk '{print \$2}'"
 
 # edit all dirty files
 alias atomdirty='atom `all-dirty-files`'
+
+command -v keybase > /dev/null && {
+  alias kb='keybase'
+}
