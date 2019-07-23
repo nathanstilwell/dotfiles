@@ -11,7 +11,7 @@
 ## Alphabet
 alias @='sudo'
 alias _='bat'
-alias a='apm'
+# alias a='apm'
 alias b='brew'
 alias c='curl'
 alias d='docker'
