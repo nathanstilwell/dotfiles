@@ -1,2 +1,3 @@
 .editorconfig
 .ctrlp
+**/*.todo
