@@ -7,10 +7,11 @@
 #                            ░██     ░██ ███░██     ░██  ░██░░████████░██████ ░░██████  ░░██
 #                            ░░      ░░ ░░░ ░░      ░░   ░░  ░░░░░░░░ ░░░░░    ░░░░░░    ░░
 
-## Still available - ! \# $ ^ + ] %
 ## Alphabet
 alias @='sudo'
 alias _='bat'
+alias \#='get2fa'
+alias ,='getpwd'
 # alias a='apm'
 alias b='brew'
 alias c='curl'
@@ -33,3 +34,8 @@ alias s='screen -DRU'
 alias t='tree'
 alias x='rm -rfP'
 alias y='yarn'
+
+## Global Alphabet
+alias -g C='| pbcopy'
+alias -g G='| grep'
+alias -g L='| less'
