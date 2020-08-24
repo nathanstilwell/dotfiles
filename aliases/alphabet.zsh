@@ -38,4 +38,4 @@ alias y='yarn'
 ## Global Alphabet
 alias -g C='| pbcopy'
 alias -g G='| grep'
-alias -g L='| less'
+alias -g __='| bat'
