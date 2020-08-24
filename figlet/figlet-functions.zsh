@@ -9,7 +9,7 @@
 ##      ░░       ░░  ░░░░░  ░░░  ░░░░░░    ░░
 ##
 
-function __ () {
+function _f () {
   command -v figlet > /dev/null && figlet -f 3d -w 120 -c "$1" | pbcopy
 }
 
