@@ -21,12 +21,7 @@
   recent = log -p -n 5 ':(exclude)package-lock.json'
   last = log -p -n 1 ':(exclude)package-lock.json'
   one = log --pretty=oneline --abbrev-commit
-  st = status -sb
   it = grep -n
-  co = checkout
-  ci = commit -m
-  ca = commit -a -m
-  df = diff
   scorch = clean -fdx
   belete = branch -d
   Belete = branch -D
