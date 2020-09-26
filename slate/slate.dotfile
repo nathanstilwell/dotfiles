@@ -39,7 +39,7 @@ alias editor "Atom"
 alias discord "Discord"
 alias devbrowser "FirefoxDeveloperEdition"
 alias firefox "Firefox"
-alias hyperterm "HyperTerm"
+alias hyper "Hyper"
 alias slack "Slack"
 alias spotify "Spotify"
 alias terminal "iTerm2"
@@ -58,7 +58,7 @@ bind 2:cmd,ctrl,alt throw 1 resize
 bind 3:cmd,ctrl,alt throw 2 resize
 
 #move in monitor
-bind up:cmd,ctrl,shift ${full}
+bind up:cmd,ctrl,alt,shift ${full}
 
 bind up:cmd,ctrl,alt    ${tophalf}
 bind left:cmd,ctrl,alt  ${lefthalf}
@@ -71,12 +71,12 @@ bind k:l,cmd,ctrl ${topright}
 bind j:l,cmd,ctrl ${bottomright}
 
 # Window Hints
-bind e:cmd,alt hint hjklyuiopnm
+bind e:ctrl,alt,shift hint hjklyuiopnm
 
 # Apps
 bind d:cmd,alt,ctrl focus ${discord}
 # bind e:cmd,alt,ctrl focus ${editor}
-bind h:cmd,alt,ctrl focus ${hyperterm}
+bind h:cmd,alt,ctrl focus ${hyper}
 bind i:cmd,alt,ctrl focus ${things}
 bind t:cmd,alt,ctrl focus ${terminal}
 bind l:cmd,alt,ctrl focus ${slack}
