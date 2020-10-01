@@ -80,7 +80,7 @@ bind h:cmd,alt,ctrl focus ${hyper}
 bind i:cmd,alt,ctrl focus ${things}
 bind t:cmd,alt,ctrl focus ${terminal}
 bind l:cmd,alt,ctrl focus ${slack}
-bind s:cmd,alt,ctrl focus ${spotify}
+bind p:cmd,alt,ctrl focus ${spotify}
 bind x:cmd,alt,ctrl focus ${xcode}
 
 ## Browsers
