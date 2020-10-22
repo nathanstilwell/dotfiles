@@ -8,8 +8,6 @@ set nocompatible
 "
 call plug#begin('~/.vim/plugged')
 
-Plug 'dracula/vim'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-commentary'
@@ -27,9 +25,12 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 "
-"   Color Scheme
+"   Dracula
 "
-color dracula
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
 
 "
 "   set up
