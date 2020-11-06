@@ -8,3 +8,6 @@ for config_file in $DOTS/**/*.fish
   # echo "sourcing $config_file";
   source $config_file;
 end
+
+# Load System Specific Configs
+test -e ~/.profile.fish && source ~/.profile.fish;
