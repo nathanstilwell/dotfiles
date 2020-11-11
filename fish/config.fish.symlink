@@ -1,6 +1,4 @@
-# the goods
-
-# source ~/.config/fish/aliases.fish;
+set -U fish_greeting ""
 
 set --local DOTS "$HOME/.dotfiles";
 
