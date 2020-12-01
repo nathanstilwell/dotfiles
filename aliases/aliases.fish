@@ -27,7 +27,9 @@ abbr y  yarn
 alias f="find . | fzf"
 alias p="python -m SimpleHTTPServer"
 alias s="screen -DRU"
-alias x="rm -rfP"
+alias x="rm -rf"
+alias X="rm -rfP"
+
 
 # Applications
 alias mkd="open -a /Applications/Marked\ 2.app"
