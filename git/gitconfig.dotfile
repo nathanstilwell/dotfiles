@@ -52,6 +52,9 @@
   conflictstyle = diff3
   prompt = false
 
+[rebase]
+  autosquash = true
+
 [include]
   path = ~/.gitconfig-extras
 
