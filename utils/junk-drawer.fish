@@ -23,6 +23,10 @@ function take --description "Create a directory and change to it"
   end
 end
 
+function untar --description "Unpack a tarball"
+  command tar -zxvf $argv
+end
+
 function getip
   ifconfig en0 | grep -w 'inet' | awk '{print $2}';
 end
