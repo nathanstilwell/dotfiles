@@ -2,10 +2,15 @@ set -U fish_greeting ""
 
 set --local DOTS "$HOME/.dotfiles";
 
+set -x SHELL "/usr/local/bin/fish";
+
 for config_file in $DOTS/**/*.fish
-#  echo "sourcing $config_file";
+  # echo "sourcing $config_file";
   source $config_file;
 end
+
+# Starship prompt - https://starship.rs/guide/#🚀-installation
+starship init fish | source
 
 # Load System Specific Configs
 test -e ~/.profile.fish && source ~/.profile.fish;
