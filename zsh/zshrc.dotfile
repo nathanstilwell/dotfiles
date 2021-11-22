@@ -4,7 +4,7 @@
 #
 export DOTS=$HOME/.dotfiles
 export ZSH=$DOTS/zsh
-local THEME="$DOTS/theme/ace-of-spades.prompt"
+# local THEME="$DOTS/theme/ace-of-spades.prompt"
 
 # add a function path
 for topic_folder in $DOTS/*; do
@@ -20,9 +20,14 @@ for config_file ($DOTS/**/*.zsh); do
 done
 
 # load theme
-test -f "$THEME" && source "$THEME"
+# test -f "$THEME" && source "$THEME"
+## Starship
+eval "$(starship init zsh)"
 
 # Load System Specific Configs
 #
 [ -e ~/.profile ] && . ~/.profile;
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
