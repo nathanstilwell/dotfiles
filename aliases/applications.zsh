@@ -9,8 +9,6 @@
 
 
 alias mkd='open -a /Applications/Marked\ 2.app'
-command -v hub > /dev/null && alias git='hub'
-alias typ='typings'
 alias ng='ngrok'
 
 # Vim edit diff from master
