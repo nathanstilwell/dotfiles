@@ -12,28 +12,28 @@ abbr _ bat
 abbr b brew
 abbr c curl
 abbr d docker
-abbr e  echo
-abbr g  git
-abbr h  heroku
-abbr k  ksdiff
-abbr m  make
-abbr n  npm
-abbr o  open
-abbr v  vim
-abbr r  rbenv
-abbr t  tree
-abbr y  yarn
+abbr e echo
+abbr g git
+abbr h heroku
+abbr k ksdiff
+abbr m make
+abbr n npm
+abbr o open
+abbr p pnpm
+abbr v vim
+abbr r rbenv
+abbr t tree
+abbr y yarn
 
 alias f="find . | fzf"
-alias p="python -m SimpleHTTPServer"
 alias s="screen -DRU"
 alias x="rm -rf"
-alias X="rm -rfP"
+alias xx="rm -rfP"
 
 
 # Applications
 alias mkd="open -a /Applications/Marked\ 2.app"
-command -v hub > /dev/null && alias git="hub"
+alias allow="sudo xattr -dr com.apple.quarantine "
 
 # Directories
 alias l="ls -lp"

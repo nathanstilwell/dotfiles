@@ -7,7 +7,7 @@ function prune --description "Delete git branches that have lost remotes"
   git fetch --all --prune;
   git rebase;
   for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
-    hub branch -D $branch;
+    git branch -D $branch;
   end
 end
 
