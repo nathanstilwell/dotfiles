@@ -105,13 +105,20 @@ echo -e "Show only open applications in the Dock"
 defaults write com.apple.dock static-only -bool true
 
 echo -e "Put Dock on the left"
-defaults write com.apple.dock -string "left"
+defaults write com.apple.dock orientation left
 
 echo -e "Automatically hide and show the Dock"
 defaults write com.apple.dock autohide -bool true
 
 echo -e "Make Dock icons small"
 defaults write com.apple.dock tilesize -int 24
+
+echo
+echo -e "${bold:?}======================================"
+echo -e "Install Complete - 🎉🎉🎉"
+echo
+echo -e "Restart your computer please."
+echo -e "======================================${bold_off:?}"
 
 # Cleanup
 unset TARGET
