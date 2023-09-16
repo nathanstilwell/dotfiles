@@ -81,50 +81,6 @@ command -v brew > /dev/null || {
   cd - || return;
 }
 
-#
-# Install Fonts
-#
-echo
-echo -e "${bold:?}## Installing Fonts";
-echo -e "--------------------------------------------${bold_off:?}"
-
-# fetch font details
-font_url_path="https://osdn.net/dl/mplus-fonts";
-font_url_file="mplus-TESTFLIGHT-063.tar.xz";
-font_url="$font_url_path/$font_url_file";
-
-# setup temp directory
-
-TEMP_DIR="./tmp";
-LOCAL_FONT_DIR="$HOME/Library/Fonts";
-# SYSTEM_FONT_DIR="/Library/Fonts";
-
-mkdir $TEMP_DIR;
-
-# download and unpack fonts
-command -v wget > /dev/null && {
-  echo -e "${green:?}fetching fonts from $font_url ${stop:?}";
-  wget -P $TEMP_DIR $font_url
-  echo
-
-  echo -e "${green:?}unzipping fonts to temp dir ${stop:?}";
-  tar -zxvf "$TEMP_DIR/$font_url_file" --directory $TEMP_DIR
-
-  echo -e "${green:?}copying fonts from $TEMP_DIR to $LOCAL_FONT_DIR${stop:?}";
-  # shellcheck disable=SC2086
-  cp -v $TEMP_DIR/**/*.ttf $LOCAL_FONT_DIR;
-}
-
-command -v wget > /dev/null || {
-  echo -e "${red:?} Couldn't download with wget. Please download fonts from $font_url ${stop:?}";
-}
-
-# cleanup
-rm -r $TEMP_DIR
-unset font_url_path
-unset font_url_file
-unset font_url
-
 # Mac Sane Defaults
 echo
 echo -e "${bold:?}## Setting Mac Defaults";
