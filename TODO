@@ -2,4 +2,3 @@ Things that didn't happen during install
 
 + Mac Doc didn't get hidden or moved to the left
 + Fonts weren't installed
-+ Homebrew didn't install from Brewfile, `brew bundle`
