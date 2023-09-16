@@ -27,14 +27,6 @@ echo -e "${purple:?}      ░███████  ░░██████   �
 echo -e "${magenta:?}      ░░░░░░░    ░░░░░░     ░░    ░░   ░░ ░░░  ░░░░░░ ░░░░░░  ";
 echo -e "${stop:?}";
 
-# if not zsh then change shell,
-[ "$SHELL" != "/bin/zsh" ] && {
-  echo
-  echo -e "${bold:?}## Changing Shell";
-  echo -e "--------------------------------------------${bold_off:?}"
-  echo -e "Current user shell is ${green:?}$SHELL${stop:?}, changing user shell to ${green:?}zsh${stop:?}.";
-  chsh -s /bin/zsh;
-}
 
 echo
 echo -e "${bold:?}## Symlinking dotfiles to ~";
@@ -79,6 +71,15 @@ command -v brew > /dev/null || {
   cd "$HOME" || return;
   brew bundle;
   cd - || return;
+}
+
+# if not fish then change shell,
+[ "$SHELL" != "/usr/local/bin/fish" ] && {
+  echo
+  echo -e "${bold:?}## Changing Shell";
+  echo -e "--------------------------------------------${bold_off:?}"
+  echo -e "Current user shell is ${green:?}$SHELL${stop:?}, changing user shell to ${green:?}fish${stop:?}.";
+  chsh -s /usr/local/bin/fish;
 }
 
 # Mac Sane Defaults
