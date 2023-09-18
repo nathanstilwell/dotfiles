@@ -1,0 +1,88 @@
+# Extra "Nerd Font characters"
+#
+# 󱠿  
+
+format = """
+[╭─](green)$go$nodejs[$fill─⇾ $time $battery](green)
+[│](green) $directory$git_branch$git_status
+[╰ ](green)$character
+"""
+
+
+right_format = "$battery"
+command_timeout = 5000
+
+# Prompt character
+[character]
+success_symbol = "[△](bold green)"
+error_symbol = "[▲](bold red)"
+
+[fill]
+symbol = "─"
+style = "green"
+
+[aws]
+symbol = "󰸏 "
+
+[battery]
+format = "[$symbol]($style)"
+full_symbol = "󰁹 "
+empty_symbol = "󰂎 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰁽 "
+unknown_symbol = "󰂑 "
+
+[[battery.display]]
+threshold = 40
+style = "yellow"
+
+[time]
+disabled = false
+format="[$time](style)"
+time_format = "%d %b %Y 󱠿 %T"
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
