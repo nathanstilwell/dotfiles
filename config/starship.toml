@@ -5,7 +5,7 @@
 #
 
 format = """
-[╭─](green)$golang$nodejs[$fill─⇾ $time $battery](green)
+[╭─](green)$golang$nodejs[$fill───$memory_usage─⇾ $time $battery](green)
 [│](green) $directory$git_branch$git_status
 [╰ ](green)$character
 """
@@ -54,6 +54,12 @@ version_format = "v${major}.${minor}"
 symbol = ""
 format = " [ $symbol ](bg:green fg:black) [($version)]($style)"
 
+[memory_usage]
+symbol = " "
+disabled = false
+threshold = 75
+format = "[](green)[ ${ram_pct} ](bg:green fg:black bold)[](green) "
+
 ##
 ## Other stuff I'm less likely to use
 ##
@@ -75,9 +81,6 @@ symbol = " "
 
 [java]
 symbol = " "
-
-[memory_usage]
-symbol = " "
 
 [perl]
 symbol = " "
