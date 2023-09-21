@@ -1,13 +1,14 @@
 # Extra "Nerd Font characters"
 #
 # 󱠿  
+# Ok, check this out - https://github.com/ryanoasis/powerline-extra-symbols
+#
 
 format = """
-[╭─](green)$go$nodejs[$fill─⇾ $time $battery](green)
+[╭─](green)$golang$nodejs[$fill─⇾ $time $battery](green)
 [│](green) $directory$git_branch$git_status
 [╰ ](green)$character
 """
-
 
 right_format = "$battery"
 command_timeout = 5000
@@ -20,9 +21,6 @@ error_symbol = "[▲](bold red)"
 [fill]
 symbol = "─"
 style = "green"
-
-[aws]
-symbol = "󰸏 "
 
 [battery]
 format = "[$symbol]($style)"
@@ -42,19 +40,35 @@ format="[$time](style)"
 time_format = "%d %b %Y 󱠿 %T"
 
 [directory]
-read_only = " "
+truncation_length = 10
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = ""
+format = "[ $symbol ($version)]($style)"
+version_format = "v${major}.${minor}"
+
+[nodejs]
+symbol = ""
+format = " [ $symbol ](bg:green fg:black) [($version)]($style)"
+
+##
+## Other stuff I'm less likely to use
+##
+
+[aws]
+symbol = "󰸏 "
+
+[package]
+symbol = " "
 
 [docker_context]
 symbol = " "
 
 [elm]
 symbol = " "
-
-[git_branch]
-symbol = " "
-
-[golang]
-symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -64,9 +78,6 @@ symbol = " "
 
 [memory_usage]
 symbol = " "
-
-[package]
-symbol = " "
 
 [perl]
 symbol = " "
