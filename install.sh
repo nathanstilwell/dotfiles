@@ -64,6 +64,9 @@ command -v brew > /dev/null || {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 } && {
   echo "Homebrew is already installed";
+  brewpath="$(brew --prefix)/bin/brew";
+  eval "$($brewpath shellenv)" # just in case `brew` isn't on the PATH
+  unset $brewpath;
 }
 
 [[ -e "$HOME/Brewfile" ]] && {
@@ -74,12 +77,14 @@ command -v brew > /dev/null || {
 }
 
 # if not fish then change shell,
-[ "$SHELL" != "/usr/local/bin/fish" ] && {
+[ "$SHELL" != "$(brew --prefix)/bin/fish" ] && {
   echo
   echo -e "${bold:?}## Changing Shell";
   echo -e "--------------------------------------------${bold_off:?}"
   echo -e "Current user shell is ${green:?}$SHELL${stop:?}, changing user shell to ${green:?}fish${stop:?}.";
-  chsh -s /usr/local/bin/fish;
+
+  echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
+  chsh -s "$(brew --prefix)/bin/fish";
 }
 
 # Mac Sane Defaults
