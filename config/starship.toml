@@ -57,8 +57,8 @@ format = " [ $symbol ](bg:green fg:black) [($version)]($style)"
 [memory_usage]
 symbol = " "
 disabled = false
-threshold = 75
-format = "[](green)[ ${ram_pct} ](bg:green fg:black bold)[](green) "
+threshold = 25
+format = "[](green)[ ${ram} :: ${ram_pct} ](bg:green fg:black bold)[](green) "
 
 ##
 ## Other stuff I'm less likely to use
