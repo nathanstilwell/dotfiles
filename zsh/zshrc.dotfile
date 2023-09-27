@@ -22,7 +22,7 @@ done
 # load theme
 # test -f "$THEME" && source "$THEME"
 ## Starship
-eval "$(starship init zsh)"
+command -v starship && eval "$(starship init zsh)"
 
 # Load System Specific Configs
 #
