@@ -87,6 +87,15 @@ command -v brew > /dev/null || {
   chsh -s "$(brew --prefix)/bin/fish";
 }
 
+# Install fisher for fish plugins
+
+command -v fisher > /dev/null || {
+  echo
+  echo -e "${bold:?}## Installing Fisher";
+  echo -e "--------------------------------------------${bold_off:?}"
+  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+}
+
 # Mac Sane Defaults
 echo
 echo -e "${bold:?}## Setting Mac Defaults";

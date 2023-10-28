@@ -1,13 +1,13 @@
 # Extra "Nerd Font characters"
 #
-# 󱠿  
+# 󱠿   
 # Ok, check this out - https://github.com/ryanoasis/powerline-extra-symbols
 #
 
 format = """
 [╭─](green)$golang$nodejs[$fill───$memory_usage─⇾ $time $battery](green)
 [│](green) $directory$git_branch$git_status
-[╰ ](green)$character
+[╰ ](green)$character 
 """
 
 right_format = "$battery"
@@ -47,16 +47,16 @@ symbol = " "
 
 [golang]
 symbol = ""
-format = "[ $symbol ($version)]($style)"
+format = "[ $symbol ($version) ]($style)"
 version_format = "v${major}.${minor}"
 
 [nodejs]
 symbol = ""
-format = " [ $symbol ](bg:green fg:black) [($version)]($style)"
+format = " [ $symbol ](bg:green fg:black) [($version) ]($style)"
 
 [memory_usage]
 symbol = " "
-disabled = false
+disabled = true
 threshold = 25
 format = "[](green)[ ${ram} :: ${ram_pct} ](bg:green fg:black bold)[](green) "
 
