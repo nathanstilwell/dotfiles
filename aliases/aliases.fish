@@ -34,6 +34,7 @@ alias xx="rm -rfP"
 # Applications
 alias mkd="open -a /Applications/Marked\ 2.app"
 alias allow="sudo xattr -dr com.apple.quarantine "
+abbr fig figlet
 
 # Directories
 alias l="ls -lp"
