@@ -25,7 +25,6 @@ abbr r rbenv
 abbr t tree
 abbr y yarn
 
-alias f="find . | fzf"
 alias s="screen -DRU"
 alias x="rm -rf"
 alias xx="rm -rfP"
