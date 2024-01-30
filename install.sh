@@ -94,6 +94,10 @@ command -v fisher > /dev/null || {
   echo -e "${bold:?}## Installing Fisher";
   echo -e "--------------------------------------------${bold_off:?}"
   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+  echo -e "${bold:?}## Installing PatrickF1/fzf.fish";
+  echo -e "--------------------------------------------${bold_off:?}"
+  fisher install PatrickF1/fzf.fish
 }
 
 # Mac Sane Defaults
