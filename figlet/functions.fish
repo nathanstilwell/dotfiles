@@ -19,3 +19,6 @@
 #   // use "3d" font
 #   figlet -f 3d [text];
 #
+function fig --description="Figlet with custom fonts" --argument font text
+  figlet -d ~/.local/share/figlet/fonts -w 120 -f $font -c $text
+end
