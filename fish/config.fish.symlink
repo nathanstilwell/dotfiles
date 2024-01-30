@@ -2,12 +2,13 @@ set -U fish_greeting ""
 
 set --local DOTS "$HOME/.dotfiles";
 
-set -x SHELL "/usr/local/bin/fish";
-
 for config_file in $DOTS/**/*.fish
   # echo "sourcing $config_file";
   source $config_file;
 end
+
+# set SHELL after PATH is updated above
+set -x SHELL (brew --prefix)/bin/fish;
 
 # Starship prompt - https://starship.rs/guide/#🚀-installation
 command -v starship >> /dev/null && begin;
