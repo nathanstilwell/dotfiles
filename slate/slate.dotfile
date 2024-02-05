@@ -87,4 +87,3 @@ bind x:cmd,alt,ctrl focus ${xcode}
 
 ## Browsers
 bind r:cmd,alt,ctrl focus ${arc}
-bind f:cmd,alt,ctrl focus ${firefox}
