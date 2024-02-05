@@ -35,14 +35,17 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
+alias arc "Arc"
 alias discord "Discord"
 alias firefox "Firefox"
 alias hyper "Hyper"
+alias linear "Linear"
 alias slack "Slack"
 alias spotify "Spotify"
 alias terminal "iTerm2"
 alias things "Things"
 alias warp "Warp"
+alias vscode "Visual Studio Code"
 alias xcode "Xcode"
 
 ##
@@ -74,13 +77,14 @@ bind e:ctrl,alt,shift hint hjklyuiopnm
 
 # Apps
 bind c:cmd,alt,ctrl focus ${discord}
-bind h:cmd,alt,ctrl focus ${hyper}
 bind i:cmd,alt,ctrl focus ${things}
-bind t:cmd,alt,ctrl focus ${terminal}
 bind l:cmd,alt,ctrl focus ${slack}
+bind n:cmd,alt,ctrl focus ${linear}
 bind p:cmd,alt,ctrl focus ${spotify}
-bind w:cmd,alt,ctrl focus ${warp}
+bind t:cmd,alt,ctrl focus ${terminal}
+bind v:cmd,alt,ctrl focus ${vscode}
 bind x:cmd,alt,ctrl focus ${xcode}
 
 ## Browsers
+bind r:cmd,alt,ctrl focus ${arc}
 bind f:cmd,alt,ctrl focus ${firefox}
