@@ -30,3 +30,7 @@ alias gsu="git submodule update"
 alias gu="git restore --staged"
 export OP_PLUGIN_ALIASES_SOURCED=1
 alias gh="op plugin run -- gh"
+
+## WIP workflow
+alias wip='git commit -am "WIP" --no-verify';
+alias unwip='git reset --soft HEAD^';
