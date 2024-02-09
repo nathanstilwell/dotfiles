@@ -14,3 +14,19 @@ function npm-burn -d "delete node_modules and lock files from javascript project
     rm yarn.lock;
   end
 end
+
+function __fzf_npm_life_cycle_scripts -d "use fzf to find and run life cycle scripts"
+    if test -e package.json && command -v pnpm >> /dev/null
+        set -l scripts (cat package.json \
+        | jq -r '.scripts | to_entries | map("  \(.key) -- \(.value)") | .[] ' \
+        | fzf --prompt 'run script: ' --layout=reverse --height=~40% --info=inline --border);
+
+        if test -n "$scripts"
+            set script_name (string trim $scripts | awk -F ' -- ' '{print $1}')
+            echo "pnpm run $script_name"
+            pnpm run $script_name
+        end
+    end
+end
+
+bind \cn __fzf_npm_life_cycle_scripts
