@@ -1,6 +1,22 @@
 [user]
   name = Nathan Stilwell
 
+[alias]
+  tree = log --graph --decorate --date=relative --abbrev-commit
+  mine = log --author 'Nathan Stilwell'
+  recent = log -p -n 5 ':(exclude)package-lock.json'
+  last = log -p -n 1 ':(exclude)package-lock.json'
+  one = log --pretty=oneline --abbrev-commit
+  it = grep -n
+  scorch = clean -fdx
+  belete = branch -d
+  Belete = branch -D
+  dropit = checkout -- .
+  who = shortlog -sn
+  sub = submodule
+  fixup = "!git log -n 50 --pretty=format:'%h %s 〖%an〗' --no-merges | fzf --cycle --reverse | cut -c -7 | xargs -o git commit --fixup"
+  squaff = "!git log -n 50 --pretty=format:'%h%d - %s 〖%an〗' | fzf --cycle --reverse | cut -c -7 | xargs -o git rebase -i"
+
 [color]
   ui = auto
   branch = auto
@@ -15,56 +31,30 @@
 [push]
   default = tracking
 
-[alias]
-  tree = log --graph --decorate --date=relative --abbrev-commit
-  mine = log --author 'Nathan Stilwell'
-  recent = log -p -n 5 ':(exclude)package-lock.json'
-  last = log -p -n 1 ':(exclude)package-lock.json'
-  one = log --pretty=oneline --abbrev-commit
-  it = grep -n
-  scorch = clean -fdx
-  belete = branch -d
-  Belete = branch -D
-  dropit = checkout -- .
-  who = shortlog -sn
-  sub = submodule
-  ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
-  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+[init]
+	defaultBranch = main
+
+[rerere]
+	enabled = true
+	autoUpdate = true
 
 [branch "master"]
   remote = origin
   merge = refs/heads/master
 
-[gc]
-  auto = 0
-
-[diff]
-  tool = Kaleidoscope
-
-[difftool]
-  prompt = false
-
-[mergetool]
-  keepBackup = false
-  prompt = false
-
-[merge]
-  tool = Kaleidoscope
-  conflictstyle = diff3
-  prompt = false
+[branch "main"]
+  remote = origin
+  merge = refs/heads/master
 
 [rebase]
   autosquash = true
 
 [include]
   path = ~/.gitconfig-extras
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustexitcode = true
 
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[init]
-	defaultBranch = main
+
+[maintenance]
+  auto = false
+  strategy = incremental
