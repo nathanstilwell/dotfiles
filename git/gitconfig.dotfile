@@ -1,20 +1,6 @@
 [user]
   name = Nathan Stilwell
 
-[color]
-  ui = auto
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-
-[core]
-  excludesfile = ~/.gitignore-global
-  editor = /usr/bin/vim
-
-[push]
-  default = tracking
-
 [alias]
   tree = log --graph --decorate --date=relative --abbrev-commit
   mine = log --author 'Nathan Stilwell'
@@ -31,40 +17,44 @@
   ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
+[core]
+  excludesfile = ~/.gitignore-global
+  editor = /usr/bin/vim
+
+[push]
+  default = tracking
+
+[init]
+	defaultBranch = main
+
+[rerere]
+	enabled = true
+	autoUpdate = true
+
 [branch "master"]
   remote = origin
   merge = refs/heads/master
 
-[gc]
-  auto = 0
-
-[diff]
-  tool = Kaleidoscope
-
-[difftool]
-  prompt = false
-
-[mergetool]
-  keepBackup = false
-  prompt = false
-
-[merge]
-  tool = Kaleidoscope
-  conflictstyle = diff3
-  prompt = false
+[branch "main"]
+  remote = origin
+  merge = refs/heads/master
 
 [rebase]
   autosquash = true
 
 [include]
   path = ~/.gitconfig-extras
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustexitcode = true
 
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[init]
-	defaultBranch = main
+
+[maintenance]
+  auto = false
+  strategy = incremental
