@@ -6,7 +6,7 @@
   mine = log --author 'Nathan Stilwell'
   recent = log -p -n 5 ':(exclude)package-lock.json'
   last = log -p -n 1 ':(exclude)package-lock.json'
-  one = log --pretty=oneline --abbrev-commit
+  one = log --pretty=format:'%Cgreen%h%Creset%C(yellow)%d%Creset - %s %C(bold blue)[%an]%Creset'
   it = grep -n
   scorch = clean -fdx
   belete = branch -d
@@ -15,7 +15,8 @@
   who = shortlog -sn
   sub = submodule
   ksshow = "!f() { local SHA=${1:-HEAD}; git difftool -y -t Kaleidoscope $SHA^..$SHA; }; f"
-  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+  fixup = "!git log -n 50 --pretty=format:'%h %s 〖%an〗' --no-merges | fzf --cycle --reverse | cut -c -7 | xargs -o git commit --fixup"
+  squaff = "!git log -n 50 --pretty=format:'%h%d - %s 〖%an〗' | fzf --cycle --reverse | cut -c -7 | xargs -o git rebase -i"
 
 [color]
   ui = auto
