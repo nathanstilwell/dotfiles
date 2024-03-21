@@ -16,6 +16,7 @@
   sub = submodule
   fixup = "!git log -n 50 --pretty=format:'%h %s 〖%an〗' --no-merges | fzf --cycle --reverse | cut -c -7 | xargs -o git commit --fixup"
   squaff = "!git log -n 50 --pretty=format:'%h%d - %s 〖%an〗' | fzf --cycle --reverse | cut -c -7 | xargs -o git rebase -i"
+  logsig = log --show-signature
 
 [color]
   ui = auto
