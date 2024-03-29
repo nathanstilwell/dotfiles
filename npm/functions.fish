@@ -29,6 +29,5 @@ function __fzf_npm_life_cycle_scripts -d "use fzf to find and run life cycle scr
   end
 end
 
-# Maybe these should go in config.fish or `fish_user_key_bindings`
-bind '' self-insert
+# Binding noted in fzf.fish
 bind \cN __fzf_npm_life_cycle_scripts
