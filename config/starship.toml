@@ -1,15 +1,18 @@
 # Extra "Nerd Font characters"
+# 󱠿       󰯈    
+# in case you forget again,
+# you can type unicode character by switching
+# the keyboard layout to "Unicode Hex Input"
+# and then holding option and typing the hex code
 #
-# 󱠿       󰯈
 # Ok, check this out - https://github.com/ryanoasis/powerline-extra-symbols
 #
 
 format = """
-[╭─](green)$golang$nodejs[$fill───$memory_usage─⇾ $time $battery](green)
-[│](green) $directory$git_branch$git_status
-[╰ ](green)$character
+[  ](fg:#44475A bg:#282A37)$nodejs[$fill$time](bg:#44475A)
+[ ](fg:#44475A bg:#282A37)$directory${custom.directory_fill}$git_branch$git_commit $git_status
+[](fg:#44475A bg:#282A37)[   ](bg:#44475A)[](fg:#44475A bg:#282A37)$character
 """
-
 right_format = "$battery"
 command_timeout = 5000
 
@@ -17,18 +20,13 @@ command_timeout = 5000
 #   Top Line
 #
 
-[golang]
-symbol = ""
-format = "[ $symbol ($version) ]($style)"
-version_format = "v${major}.${minor}"
-
 [nodejs]
 symbol = ""
-format = " [ $symbol ](bg:green fg:black) [($version) ]($style)"
+format = "[  ](fg:green bg:#44475A)[ $symbol ](bg:green fg:#44475A)[](fg:green bg:bright-blue)[($version) ](bg:bright-blue fg:black)[](fg:bright-blue bg:#44475A)"
 
 [fill]
-symbol = "─"
-style = "green"
+symbol = " "
+style = "bg:#44475A"
 
 [memory_usage]
 symbol = " "
@@ -38,8 +36,8 @@ format = "[](green)[ ${ram} :: ${ram_pct} ](bg:green fg:black bold)[](gree
 
 [time]
 disabled = false
-format="[$time](style)"
-time_format = "%d %b %Y 󱠿 %T"
+format="[](fg:black bg:#44475A)[ $time ](bg:black fg:white)[](fg:black bg:#282A37)"
+time_format = "%d %b %Y  %T"
 
 [battery]
 format = "[$symbol]($style)"
@@ -50,20 +48,50 @@ discharging_symbol = "󰁽 "
 unknown_symbol = "󰂑 "
 
 [[battery.display]]
-threshold = 40
-style = "yellow"
+threshold = 100
+discharging_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+style = "fg:bright-green bg:#282A37"
+
+[[battery.display]]
+threshold = 80
+discharging_symbol = "󰁽 "
+charging_symbol = "󰂄 "
+style = "fg:green bg:#282A37"
+
+[[battery.display]]
+threshold = 30
+discharging_symbol = "󰁽 "
+charging_symbol = "󰂄 "
+style = "fg:yellow bg:#282A37"
+
+[[battery.display]]
+threshold = 10
+discharging_symbol = "󰂎 "
+charging_symbol = "󰂄 "
+style = "fg:red bg:#282A37"
 
 #
-#   Middel Line
+#   Middle Line
 #
+
+[custom.directory_fill]
+when = '''test (git rev-parse --is-inside-work-tree 2> /dev/null) -n "true"'''
+format = '[](fg:cyan bg:#282A37)'
 
 [directory]
 truncation_length = 10
+format = '[ ](bg:#44475A fg:cyan)[ $path ](bg:cyan fg:black)'
 
 [git_branch]
 symbol = " "
 always_show_remote = true
-format = '[$symbol$branch( 󰤉$remote_name)]($style) '
+format = '[](bg:cyan fg:purple)[ $symbol$branch( 󰤉$remote_name) ](bg:purple fg:black)[](fg:purple bg:#282A37)'
+only_attached = true
+
+[git_commit]
+format = '[](bg:cyan fg:purple)[  $hash](bg:purple fg:black)[](fg:purple bg:#282A37)'
+only_detached = true
 
 [git_status]
 format = '([($conflicted)($untracked)($modified)($deleted)($staged)($renamed)($stashed) $ahead_behind]($style) )'
@@ -71,27 +99,30 @@ style = 'purple'
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = '\[⇡${ahead_count} ⇣${behind_count}\]'
-conflicted = "[=](red)"
+conflicted = "[󰋔](red)"
 untracked = "[?](red)"
 modified = "[M](red)"
 deleted = "[D](red)"
 staged = "[+](green)"
 renamed = "[R](green)"
-stashed = '\$'
-
+stashed = '󱗞 '
 #
 # Prompt character
 #
+
 [character]
-success_symbol = "[△](bold green)"
-error_symbol = "[▲](bold red)"
-
-
-
+success_symbol = "[ △ ](bold green)"
+error_symbol = "[ ▲ ](bold red)"
 
 ##
 ## Other stuff I'm less likely to use
 ##
+
+[golang]
+symbol = ""
+disabled = true
+format = "[ $symbol ($version) ]($style)"
+version_format = "v${major}.${minor}"
 
 [aws]
 symbol = "󰸏 "
