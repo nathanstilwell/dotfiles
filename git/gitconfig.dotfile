@@ -41,6 +41,7 @@
 
 [rebase]
   autosquash = true
+  instructionFormat = %d %an ────⇾ %s
 
 [include]
   path = ~/.gitconfig-extras
