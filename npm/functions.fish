@@ -28,6 +28,3 @@ function __fzf_npm_life_cycle_scripts -d "use fzf to find and run life cycle scr
     commandline -f repaint;
   end
 end
-
-# Binding noted in fzf.fish
-bind \cN __fzf_npm_life_cycle_scripts
