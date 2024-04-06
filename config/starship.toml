@@ -1,5 +1,8 @@
 # Extra "Nerd Font characters"
-# 󱠿       󰯈    
+# 󱠿   󰯈    
+# ╭─────────
+# │    
+# ╰───
 # in case you forget again,
 # you can type unicode character by switching
 # the keyboard layout to "Unicode Hex Input"
@@ -9,11 +12,11 @@
 #
 
 format = """
-[  ](fg:#44475A bg:#282A37)$nodejs[$fill$time](bg:#44475A)
-[ ](fg:#44475A bg:#282A37)$directory${custom.directory_fill}$git_branch$git_commit $git_status
-[](fg:#44475A bg:#282A37)[   ](bg:#44475A)[](fg:#44475A bg:#282A37)$character
+[╭──](fg:#44475A)$nodejs$fill$memory_usage$time
+[│](fg:#44475A)$directory${custom.directory_fill}$git_branch$git_commit $git_status
+[╰─](fg:#44475A)$character
 """
-right_format = "$battery"
+#right_format = "$battery"
 command_timeout = 5000
 
 #
@@ -22,54 +25,54 @@ command_timeout = 5000
 
 [nodejs]
 symbol = ""
-format = "[  ](fg:green bg:#44475A)[ $symbol ](bg:green fg:#44475A)[](fg:green bg:bright-blue)[($version) ](bg:bright-blue fg:black)[](fg:bright-blue bg:#44475A)"
+format = "[ ](yellow)[ $symbol ](bg:yellow fg:black)[](fg:yellow bg:bright-black)[ ($version) ](bg:bright-black fg:yellow)[ ](bright-black)"
 
 [fill]
-symbol = " "
-style = "bg:#44475A"
+symbol = "─"
+style = "fg:#44475A"
 
 [memory_usage]
 symbol = " "
-disabled = true
-threshold = 25
-format = "[](green)[ ${ram} :: ${ram_pct} ](bg:green fg:black bold)[](green) "
+disabled = false
+threshold = 1
+format = "[ ](bright-black)[ ${ram}  ${ram_pct} ](bg:bright-black fg:yellow)[](fg:yellow bg:bright-black)[$symbol](fg:black bg:yellow)[](fg:yellow bg:bright-black)"
 
 [time]
 disabled = false
-format="[](fg:black bg:#44475A)[ $time ](bg:black fg:white)[](fg:black bg:#282A37)"
-time_format = "%d %b %Y  %T"
+format="[ $time ](bg:bright-black fg:yellow)[](fg:yellow bg:bright-black)[ ⧗ ](bg:yellow fg:black)[](yellow) "
+time_format = "%d %b %Y %T"
 
 [battery]
-format = "[$symbol]($style)"
-full_symbol = "󰁹 "
-empty_symbol = "󰂎 "
-charging_symbol = "󰂄 "
-discharging_symbol = "󰁽 "
-unknown_symbol = "󰂑 "
+format = "[](fg:black bg:green)[$symbol]()[]()[ $percentage ]($style bg:black)"
+full_symbol = " 󰁹"
+empty_symbol = " 󰂎"
+charging_symbol = " 󰂄"
+discharging_symbol = "󰁽"
+unknown_symbol = "󰂑"
 
 [[battery.display]]
 threshold = 100
-discharging_symbol = "󰁹 "
-charging_symbol = "󰂄 "
-style = "fg:bright-green bg:#282A37"
+discharging_symbol = "󰁹"
+charging_symbol = "󰂄"
+style = "fg:bright-green"
 
 [[battery.display]]
 threshold = 80
-discharging_symbol = "󰁽 "
-charging_symbol = "󰂄 "
-style = "fg:green bg:#282A37"
+discharging_symbol = "󰁽"
+charging_symbol = "󰂄"
+style = "fg:green"
 
 [[battery.display]]
 threshold = 30
-discharging_symbol = "󰁽 "
-charging_symbol = "󰂄 "
-style = "fg:yellow bg:#282A37"
+discharging_symbol = "󰁽"
+charging_symbol = "󰂄"
+style = "fg:yellow"
 
 [[battery.display]]
 threshold = 10
-discharging_symbol = "󰂎 "
-charging_symbol = "󰂄 "
-style = "fg:red bg:#282A37"
+discharging_symbol = "󰂎"
+charging_symbol = "󰂄"
+style = "fg:red "
 
 #
 #   Middle Line
@@ -77,25 +80,24 @@ style = "fg:red bg:#282A37"
 
 [custom.directory_fill]
 when = '''test (git rev-parse --is-inside-work-tree 2> /dev/null) -n "true"'''
-format = '[](fg:cyan bg:#282A37)'
+format = '[](fg:cyan )'
 
 [directory]
 truncation_length = 10
-format = '[ ](bg:#44475A fg:cyan)[ $path ](bg:cyan fg:black)'
+format = '[ ]( fg:cyan)[ $path ](bg:cyan fg:black)'
 
 [git_branch]
 symbol = " "
 always_show_remote = true
-format = '[](bg:cyan fg:purple)[ $symbol$branch( 󰤉$remote_name) ](bg:purple fg:black)[](fg:purple bg:#282A37)'
+format = '[](bg:cyan fg:purple)[ $symbol$branch( 󰤉$remote_name) ](bg:purple fg:black)[](fg:purple )'
 only_attached = true
 
 [git_commit]
-format = '[](bg:cyan fg:purple)[  $hash](bg:purple fg:black)[](fg:purple bg:#282A37)'
+format = '[](bg:cyan fg:purple)[  $hash](bg:purple fg:black)[](fg:purple )'
 only_detached = true
 
 [git_status]
-format = '([($conflicted)($untracked)($modified)($deleted)($staged)($renamed)($stashed) $ahead_behind]($style) )'
-style = 'purple'
+format = '([($conflicted)($untracked)($modified)($deleted)($staged)($renamed)($stashed) $ahead_behind](fg:purple))'
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = '\[⇡${ahead_count} ⇣${behind_count}\]'
@@ -106,6 +108,11 @@ deleted = "[D](red)"
 staged = "[+](green)"
 renamed = "[R](green)"
 stashed = '󱗞 '
+
+#
+# Bottom Line
+#
+
 #
 # Prompt character
 #
