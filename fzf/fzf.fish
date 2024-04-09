@@ -20,6 +20,9 @@
 # capture unbound keys -- see https://fishshell.com/docs/current/cmds/bind.html
 bind '' self-insert
 
+# disable default fzf file / directory filter
+set -gx FZF_CTRL_T_COMMAND ""
+
 # Configure key bindings for patrickf1/fzf.fish
 fzf_configure_bindings --directory=\ct --git_log=\cg --history=\cr --processes=\cp
 
