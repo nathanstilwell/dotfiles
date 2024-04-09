@@ -59,3 +59,24 @@ function __fzf_git_stage_files --description "Fuzzy search for files to stage"
     commandline -f repaint
   end
 end
+
+function __fzf_git_checkout_branch --description "Fuzzy select a branch to checkout"
+  if git rev-parse --git-dir >> /dev/null 2>&1
+    set -f branch_output (
+      git branch --list --format='%(refname:short) %(if:notequals=)%(upstream:short)%(then) 󰤉 %(end)' |
+      _fzf_wrapper --ansi \
+        --prompt="Checkout Branch> " \
+        --pointer=" " \
+        --query=(commandline --current-token) \
+        --preview="git log --oneline --graph --decorate --color=always {1}" \
+        --reverse
+    )
+
+    if test $status -eq 0
+        set -f branch (echo $branch_output | awk '{print $1}')
+        git checkout $branch;
+    end
+
+    commandline -f repaint
+  end
+end
