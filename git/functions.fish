@@ -73,7 +73,7 @@ function __fzf_git_checkout_branch --description "Fuzzy select a branch to check
     )
 
     if test $status -eq 0
-        set -f branch (echo $branch_output | awk '{print $1}')
+        set -f branch (string trim $branch_output | awk '{print $1}')
         git checkout $branch;
     end
 
