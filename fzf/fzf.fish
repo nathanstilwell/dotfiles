@@ -32,5 +32,8 @@ bind \cs __fzf_git_stage_files
 # Bind Ctrl+B to checkout a git branch
 bind \cb __fzf_git_checkout_branch
 
+# Bind Ctrl+O to open files in vscode
+bind \cO __fzf_vscode_open_files
+
 # Npm life cycle scripts bound to Ctrl+N.
 bind \cN __fzf_npm_life_cycle_scripts
