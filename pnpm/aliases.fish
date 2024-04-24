@@ -1,1 +1,1 @@
-abbr px pnpx
+alias px="pnpm exec"
