@@ -11,7 +11,7 @@
   scorch = clean -fdx
   belete = branch -d
   Belete = branch -D
-  dropit = checkout -- .
+  dropit = restore .
   who = shortlog -sn
   sub = submodule
   fixup = "!git log -n 50 --pretty=format:'%h %s 〖%an〗' --no-merges | fzf --cycle --reverse | cut -c -7 | xargs -o git commit --fixup"
