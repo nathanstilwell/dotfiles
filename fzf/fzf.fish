@@ -30,7 +30,7 @@ fzf_configure_bindings --directory=\ct --git_log=\cg --history=\cr --processes=\
 bind \cs __fzf_git_stage_files
 
 # Bind Ctrl+B to checkout a git branch
-bind \cb __fzf_git_checkout_branch
+bind \cb __fzf_git_switch_branch
 
 # Bind Ctrl+O to open files in vscode
 bind \cO __fzf_vscode_open_files
