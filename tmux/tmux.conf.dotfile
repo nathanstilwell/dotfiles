@@ -11,43 +11,75 @@ set-option -g prefix C-f
 bind-key C-f send-prefix
 
 # split panes with | and -
-bind | split-window -h
-bind - split-window -v
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
-# switch panes using Alt-arrow without prefix
-bind h select-pane -L
-bind l select-pane -R
-bind k select-pane -U
-bind j select-pane -D
+# Shift + Alt + vim keys to switch windows
+bind -n M-H previous-window
+bind -n M-L next-window
 
-# temporary
+# temporary: `<prefix>-r` to reload tmux conf
 bind r source-file ~/.tmux.conf
 
 #
 # Settings
 #
 
-# The mouse, because why not?
-set -g mouse on
+# High powered terminal colors
+set-option -sa terminal-overrides ",xterm*:Tc"
 
 # Don't rename windows
 set-option -g allow-rename off
+
+# Set window number index to 1
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+set-option -g renumber-window on
+
+# set status bar top
+set -g status-position top
+
+#
+# Theme (maybe?)
+#
+
+# [status]
+# wild guess on format, #[fg=<color>, bg=<color>] #(<command>)
+# See `man tmux` -> "FORMATS" for more information
+#
+set -g status-style 'bg=default'
+set -g status-left " ▽ " # chop status
+set -g status-right "" # chop status right
+set -w window-status-separator ''
+set -g window-status-format '#[fg=blue] #W '
+set -g window-status-last-style 'underscore'
+set -g window-status-current-format '#[fg=pink] #W'
+
+set -g pane-active-border-style 'fg=magenta,bg=default'
+set -g pane-border-style 'fg=brightblack,bg=default'
+
+# this seems to be broken with too many arguments
+# set-hook -g pane-mode-changed 'if -F "#{m/r:(copy|view)-mode,#{pane_mode}}" "set -g status-left-style 'bg=yellow, fg=black'" "set -g status-left-style 'bg=default,fg=yellow'"'
 
 #
 # Plugins
 #
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'dracula/tmux'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
-## Dracula Plugin Config
-set -g @dracula-show-location false
-set -g @dracula-show-left-icon ▲
-# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, tmux-ram-usage, network, network-bandwidth, network-ping, ssh-session, attached-clients, network-vpn, weather, time, mpc, spotify-tui, kubernetes-context, synchronize-panes
-set -g @dracula-plugins "network"
-# available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
-# set -g @dracula-[plugin-name]-colors "[background] [foreground]"
-set -g @dracula-network-colors "yellow dark_gray"
+## tmux-yank
+#   This allows for copying from terminal output by going into "copy mode" (`<prefix> + [`),
+#   using vim keys to move around, pressing `v` for visual selection or `C-v` for rect selection,
+#   then copying to the clipboard with `y`.
+# set vi mode
+set-window-option -g mode-keys vi
+# keybindings
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
 
 
