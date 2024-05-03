@@ -41,26 +41,28 @@ set-option -g renumber-window on
 set -g status-position top
 
 #
-# Theme (maybe?)
+# Theme-ish
 #
 
 # [status]
-# wild guess on format, #[fg=<color>, bg=<color>] #(<command>)
-# See `man tmux` -> "FORMATS" for more information
-#
 set -g status-style 'bg=default'
-set -g status-left " ▽ " # chop status
+# set -g status-left " ▽ "
+set -g status-left " ▽ "
+set-hook -g pane-mode-changed {
+  if -F "#{==:#{pane_mode},copy-mode}" {
+    set -g status-left-style 'fg=black,bg=yellow'
+  } {
+    set -g status-left-style 'fg=yellow,bg=default'
+  }
+}
 set -g status-right "" # chop status right
-set -w window-status-separator ''
 set -g window-status-format '#[fg=blue] #W '
 set -g window-status-last-style 'underscore'
 set -g window-status-current-format '#[fg=pink] #W'
 
+# [pane]
 set -g pane-active-border-style 'fg=magenta,bg=default'
 set -g pane-border-style 'fg=brightblack,bg=default'
-
-# this seems to be broken with too many arguments
-# set-hook -g pane-mode-changed 'if -F "#{m/r:(copy|view)-mode,#{pane_mode}}" "set -g status-left-style 'bg=yellow, fg=black'" "set -g status-left-style 'bg=default,fg=yellow'"'
 
 #
 # Plugins
