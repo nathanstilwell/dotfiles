@@ -9,20 +9,21 @@
 ## Alphabet
 abbr @ sudo
 abbr _ bat
+abbr a asdf
 abbr b brew
 abbr c curl
 abbr d docker
 abbr e echo
 abbr g git
-abbr h heroku
-abbr k ksdiff
+# abbr h heroku # deprecated
+# abbr k ksdiff # deprecated
 abbr m make
 abbr n npm
 abbr o open
 abbr p pnpm
-abbr v vim
-abbr r rbenv
+# abbr r rbenv # deprecated
 abbr t tree
+abbr v nvim
 abbr y yarn
 
 alias s="screen -DRU"
