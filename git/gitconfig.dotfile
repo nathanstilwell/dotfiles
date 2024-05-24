@@ -27,7 +27,7 @@
 
 [core]
   excludesfile = ~/.gitignore-global
-  editor = /usr/bin/vim
+  editor = /opt/homebrew/bin/nvim
 
 [push]
   default = tracking

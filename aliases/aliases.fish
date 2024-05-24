@@ -24,6 +24,7 @@ abbr p pnpm
 # abbr r rbenv # deprecated
 abbr t tree
 abbr v nvim
+abbr vim nvim
 abbr y yarn
 
 alias s="screen -DRU"
@@ -55,4 +56,4 @@ alias eject='diskutil eject'
 alias load="source ~/.config/fish/config.fish";
 
 ## edit dotfiles
-alias dots='vim ~/.dotfiles'
+alias dots='nvim ~/.dotfiles'
