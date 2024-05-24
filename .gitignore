@@ -2,10 +2,3 @@
 .netrwhist
 .netrwbook
 
-# vim
-vim/vim.dotfile/plugged
-
-# zsh
-zsh/log
-zsh/cache
-zsh/*.swp
