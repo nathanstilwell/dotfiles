@@ -9,12 +9,12 @@
 #  ░░   ░░  ░░░░░░  ░░      ░░░░░░░  ░░ ░░░   ░░  ░░░░░░ ░░░░░░
 
 #
-# Ctrl+T -- search directory
-# Ctrl+G -- search git log
-# Ctrl+S -- search git status
-# Ctrl+R -- search history
-# Ctrl+P -- search processess
-# Ctrl+N -- search npm lifecycle scripts
+# Ctrl+t -- search directory
+# Ctrl+g -- search git log
+# Ctrl+s -- search git status
+# Ctrl+r -- search history
+# Ctrl+p -- search processess
+# Ctrl+n -- search npm lifecycle scripts
 #
 
 # capture unbound keys -- see https://fishshell.com/docs/current/cmds/bind.html
@@ -33,7 +33,7 @@ bind \cs __fzf_git_stage_files
 bind \cb __fzf_git_switch_branch
 
 # Bind Ctrl+O to open files in vscode
-bind \cO __fzf_vscode_open_files
+bind \co __fzf_vscode_open_files
 
 # Npm life cycle scripts bound to Ctrl+N.
-bind \cN __fzf_npm_life_cycle_scripts
+bind \cn __fzf_npm_life_cycle_scripts
