@@ -41,11 +41,13 @@ alias firefox "Firefox"
 alias hyper "Hyper"
 alias linear "Linear"
 alias messages "Messages"
+alias music "Music"
 alias slack "Slack"
 alias spotify "Spotify"
 alias terminal "iTerm2"
 alias things "Things"
 alias vscode "Visual Studio Code"
+alias wez "WezTerm"
 alias xcode "Xcode"
 
 ##
@@ -76,16 +78,14 @@ bind j:l,cmd,ctrl ${bottomright}
 bind e:ctrl,alt,shift hint hjklyuiopnm
 
 # Apps
+bind r:cmd,alt,ctrl focus ${arc}
 bind c:cmd,alt,ctrl focus ${discord}
 bind h:cmd,alt,ctrl focus ${hyper}
 bind i:cmd,alt,ctrl focus ${things}
 bind l:cmd,alt,ctrl focus ${slack}
 bind m:cmd,alt,ctrl focus ${messages}
 bind n:cmd,alt,ctrl focus ${linear}
-bind p:cmd,alt,ctrl focus ${spotify}
-bind t:cmd,alt,ctrl focus ${terminal}
+bind p:cmd,alt,ctrl focus ${music}
+bind t:cmd,alt,ctrl focus ${wez}
 bind v:cmd,alt,ctrl focus ${vscode}
-bind x:cmd,alt,ctrl focus ${xcode}
 
-## Browsers
-bind r:cmd,alt,ctrl focus ${arc}
