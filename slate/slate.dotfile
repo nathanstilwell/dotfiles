@@ -35,6 +35,7 @@ alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
+alias 1pass "1Password"
 alias arc "Arc"
 alias discord "Discord"
 alias firefox "Firefox"
@@ -44,9 +45,8 @@ alias messages "Messages"
 alias music "Music"
 alias slack "Slack"
 alias spotify "Spotify"
-alias terminal "iTerm2"
+alias iterm "iTerm2"
 alias things "Things"
-alias vscode "Visual Studio Code"
 alias wez "WezTerm"
 alias xcode "Xcode"
 
@@ -78,14 +78,16 @@ bind j:l,cmd,ctrl ${bottomright}
 bind e:ctrl,alt,shift hint hjklyuiopnm
 
 # Apps
+## Application keys bound:
+## w, r, t, c, h, n, m, i, l, p
+bind w:cmd,alt,ctrl focus ${wez}
 bind r:cmd,alt,ctrl focus ${arc}
-bind c:cmd,alt,ctrl focus ${discord}
-bind h:cmd,alt,ctrl focus ${hyper}
+bind t:cmd,alt,ctrl focus ${iterm}
+bind c:cmd,alt,ctrl focus ${1pass}
+# bind h:cmd,alt,ctrl focus ${hyper}
+bind n:cmd,alt,ctrl focus ${linear}
+bind m:cmd,alt,ctrl focus ${messages}
 bind i:cmd,alt,ctrl focus ${things}
 bind l:cmd,alt,ctrl focus ${slack}
-bind m:cmd,alt,ctrl focus ${messages}
-bind n:cmd,alt,ctrl focus ${linear}
 bind p:cmd,alt,ctrl focus ${music}
-bind t:cmd,alt,ctrl focus ${wez}
-bind v:cmd,alt,ctrl focus ${vscode}
 
