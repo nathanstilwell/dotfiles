@@ -17,7 +17,7 @@ config.font = wezterm.font_with_fallback({
   "M PLUS 1 CODE Light",
   { family = "Symbols Nerd Font Mono", scale = 0.7 },
 })
-config.font_size = 18.0
+config.font_size = 16.0
 
 -- Window Padding
 config.window_padding = {
