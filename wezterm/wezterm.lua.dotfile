@@ -12,6 +12,14 @@ local config = wezterm.config_builder()
 -- Dracula
 config.color_scheme = "Dracula"
 
+-- WezTerm Menus
+config.command_palette_font_size = 16.0
+config.command_palette_rows = 30
+config.command_palette_fg_color = '#acaeb4'
+config.command_palette_bg_color = '#1e2129'
+config.char_select_fg_color = '#acaeb4'
+config.char_select_bg_color = '#1e2129'
+
 -- Font
 config.font = wezterm.font_with_fallback({
   "M PLUS 1 CODE Light",
@@ -41,6 +49,21 @@ config.keys = {
     key = 'f',
     mods = 'CMD|CTRL',
     action = wezterm.action.ToggleFullScreen,
+  },
+  {
+    key = 'x',
+    mods = 'CMD|CTRL',
+    action = wezterm.action.ActivateCopyMode,
+  },
+  {
+    key = 'u',
+    mods = 'SUPER',
+    action = wezterm.action.CharSelect,
+  },
+  {
+    key = 'p',
+    mods = 'SUPER',
+    action = wezterm.action.ActivateCommandPalette,
   },
 }
 
