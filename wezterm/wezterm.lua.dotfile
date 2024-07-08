@@ -57,12 +57,12 @@ config.keys = {
   },
   {
     key = 'u',
-    mods = 'SUPER',
+    mods = 'CMD|CTRL',
     action = wezterm.action.CharSelect,
   },
   {
     key = 'p',
-    mods = 'SUPER',
+    mods = 'CMD|CTRL',
     action = wezterm.action.ActivateCommandPalette,
   },
 }
