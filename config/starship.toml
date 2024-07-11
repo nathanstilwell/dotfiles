@@ -1,5 +1,5 @@
 # Extra "Nerd Font characters"
-# 󱠿   󰯈    
+# 󱠿   󰯈
 # ╭─────────
 # │    
 # ╰───
@@ -13,7 +13,7 @@
 
 format = """
 [╭──](fg:#44475A)$nodejs$fill$memory_usage$time
-[│](fg:#44475A)$directory${custom.directory_fill}$git_branch$git_commit $git_status
+[│](fg:#44475A)$directory$git_branch$git_commit $git_status
 [╰─](fg:#44475A)$character
 """
 #right_format = "$battery"
@@ -77,10 +77,6 @@ style = "fg:red "
 #
 #   Middle Line
 #
-
-[custom.directory_fill]
-when = '''test (git rev-parse --is-inside-work-tree 2> /dev/null) -n "true"'''
-format = '[](fg:cyan )'
 
 [directory]
 truncation_length = 10
