@@ -23,8 +23,8 @@ function __fzf_npm_life_cycle_scripts -d "use fzf to find and run life cycle scr
 
     if test -n "$scripts"
       set -f script_name (string trim $scripts | awk -F ' -- ' '{print $1}')
-      pnpm run $script_name $argv;
+      commandline --replace "pnpm run $script_name $argv";
     end
-    commandline -f repaint;
+    commandline -f repaint
   end
 end

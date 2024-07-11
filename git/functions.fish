@@ -54,7 +54,7 @@ function __fzf_git_stage_files --description "Fuzzy search for files to stage"
                 set --append cleaned_paths (string sub --start=4 $escaped)
             end
         end
-        git add $cleaned_paths;
+        command --replace "git add $cleaned_paths";
     end
     commandline -f repaint
   end
@@ -74,7 +74,7 @@ function __fzf_git_switch_branch --description "Fuzzy select a branch to switch 
 
     if test $status -eq 0
         set -f branch (string trim $branch_output | awk '{print $1}')
-        git switch $branch;
+        commandline --replace "git switch $branch";
     end
 
     commandline -f repaint
