@@ -29,7 +29,8 @@ function __fzf_vscode_open_files --description "Open files in VSCode"
 
 
   if test $status -eq 0
-      code (string escape -- $file_paths_selected | string join ' ')
+      set -f escaped_file_paths (string escape -- $file_paths_selected | string join ' ');
+      commandline --replace "code $escaped_file_paths"
   end
 
   commandline --function repaint
