@@ -4,6 +4,12 @@ keybinds clear-defaults=true {
   shared_except "locked" {
     bind "Alt g" { SwitchToMode "Locked"; }
     bind "Alt x" { Quit; }
+    bind "Alt f" {
+      LaunchPlugin "filepicker" {
+        floating true
+        close_on_selection true
+      }
+    }
   }
   shared_except "normal" "locked" {
     bind "Esc" { SwitchToMode "Normal"; }
@@ -36,6 +42,8 @@ keybinds clear-defaults=true {
     bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
     bind "h" "Left" { GoToPreviousTab; }
     bind "l" "Right" { GoToNextTab; }
+    bind "Left" { MoveTab "Left"; }
+    bind "Right" { MoveTab "Right"; }
     bind "n" { NewTab; SwitchToMode "Normal"; }
     bind "1" { GoToTab 1; SwitchToMode "Normal"; }
     bind "2" { GoToTab 2; SwitchToMode "Normal"; }
@@ -143,7 +151,7 @@ plugins {
         welcome_screen true
     }
     filepicker location="zellij:strider" {
-        cwd "/"
+        cwd "/Users/nathan.stilwell/"
     }
 }
 
