@@ -109,6 +109,10 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function ()
   hs.application.launchOrFocus("Linear")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "B", function ()
+  hs.application.launchOrFocus("Google Chrome")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "M", function ()
   hs.application.launchOrFocus("Messages")
 end)
