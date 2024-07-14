@@ -54,7 +54,7 @@ function __fzf_git_stage_files --description "Fuzzy search for files to stage"
                 set --append cleaned_paths (string sub --start=4 $escaped)
             end
         end
-        command --replace "git add $cleaned_paths";
+        commandline --replace "git add $cleaned_paths";
     end
     commandline -f repaint
   end
