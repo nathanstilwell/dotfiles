@@ -10,6 +10,9 @@ end
 # set SHELL after PATH is updated above
 set -x SHELL (brew --prefix)/bin/fish;
 
+# set EDITOR
+set -x EDITOR "/opt/homebrew/bin/nvim";
+
 # Starship prompt - https://starship.rs/guide/#🚀-installation
 command -v starship >> /dev/null && begin;
   function starship_transient_prompt_func
