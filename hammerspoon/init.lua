@@ -101,6 +101,10 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "T", function ()
   hs.application.launchOrFocus("iTerm")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "I", function ()
+  hs.application.launchOrFocus("Things")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "C", function ()
   hs.application.launchOrFocus("1Password")
 end)
