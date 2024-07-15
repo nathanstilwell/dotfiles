@@ -85,36 +85,20 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "2", moveWindowToDisplay(2))
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "3", moveWindowToDisplay(3))
 
 -- Focus Applications
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "W", function ()
-  hs.application.launchOrFocus("WezTerm")
-end)
-
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "E", function ()
-  hs.application.launchOrFocus("Visual Studio Code")
-end)
-
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "R", function ()
-  hs.application.launchOrFocus("Arc")
-end)
-
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "T", function ()
-  hs.application.launchOrFocus("iTerm")
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "B", function ()
+  hs.application.launchOrFocus("Google Chrome")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "C", function ()
   hs.application.launchOrFocus("1Password")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function ()
-  hs.application.launchOrFocus("Linear")
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "E", function ()
+  hs.application.launchOrFocus("Visual Studio Code")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "B", function ()
-  hs.application.launchOrFocus("Google Chrome")
-end)
-
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "M", function ()
-  hs.application.launchOrFocus("Messages")
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "H", function ()
+  hs.application.launchOrFocus("Hammerspoon")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "I", function ()
@@ -126,10 +110,27 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "L", function ()
   hs.application.launchOrFocus("Slack")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "M", function ()
+  hs.application.launchOrFocus("Messages")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "N", function ()
+  hs.application.launchOrFocus("Linear")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "P", function ()
   hs.application.launchOrFocus("Music")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "H", function ()
-  hs.application.launchOrFocus("Hammerspoon")
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "R", function ()
+  hs.application.launchOrFocus("Arc")
 end)
+
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "T", function ()
+  hs.application.launchOrFocus("iTerm")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "W", function ()
+  hs.application.launchOrFocus("WezTerm")
+end)
+
