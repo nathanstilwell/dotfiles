@@ -101,10 +101,6 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "T", function ()
   hs.application.launchOrFocus("iTerm")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "alt"}, "I", function ()
-  hs.application.launchOrFocus("Things")
-end)
-
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "C", function ()
   hs.application.launchOrFocus("1Password")
 end)
@@ -122,7 +118,8 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "M", function ()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "I", function ()
-  hs.application.launchOrFocus("Things")
+  -- No idea why this is necessary
+  hs.application.launchOrFocusByBundleID("com.culturedcode.ThingsMac")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "L", function ()
@@ -133,3 +130,6 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "P", function ()
   hs.application.launchOrFocus("Music")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "H", function ()
+  hs.application.launchOrFocus("Hammerspoon")
+end)
