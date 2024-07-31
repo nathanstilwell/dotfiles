@@ -13,6 +13,9 @@ function npm-burn -d "delete node_modules and lock files from javascript project
   if test -e yarn.lock
     rm yarn.lock;
   end
+  if test -e pnpm-lock.yaml
+    rm pnpm-lock.lock;
+  end
 end
 
 function __fzf_npm_life_cycle_scripts -d "use fzf to find and run life cycle scripts"
