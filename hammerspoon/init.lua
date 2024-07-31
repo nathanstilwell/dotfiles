@@ -1,4 +1,7 @@
+--
 -- Shared functions
+--
+
 function fullScreenWindow(win)
   local f = win:frame()
   local screen = win:screen()
@@ -20,7 +23,10 @@ function moveWindowToDisplay(d)
   end
 end
 
+--
 -- Window Movement in Monitor
+--
+
 hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "Up", function ()
   local win = hs.window.focusedWindow()
   fullScreenWindow(win)
@@ -78,13 +84,18 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Right", function ()
   win:setFrame(f)
 end)
 
+--
 -- Move to Monitor
+--
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "1", moveWindowToDisplay(1))
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "2", moveWindowToDisplay(2))
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "3", moveWindowToDisplay(3))
 
+--
 -- Focus Applications
+--
+
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "B", function ()
   hs.application.launchOrFocus("Google Chrome")
 end)
@@ -93,8 +104,16 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "C", function ()
   hs.application.launchOrFocus("1Password")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "D", function ()
+  hs.application.launchOrFocus("Google Chrome Canary")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "E", function ()
   hs.application.launchOrFocus("Visual Studio Code")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "G", function ()
+  hs.application.launchOrFocus("Figma")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "H", function ()
@@ -134,3 +153,8 @@ hs.hotkey.bind({"cmd", "ctrl", "alt"}, "W", function ()
   hs.application.launchOrFocus("WezTerm")
 end)
 
+-- Sleep Displays
+
+hs.hotkey.bind({"cmd", "ctrl", "alt"}, "7", function ()
+  hs.execute("pmset displaysleepnow")
+end)
