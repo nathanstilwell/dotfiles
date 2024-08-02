@@ -22,7 +22,8 @@ abbr n npm
 abbr o open
 abbr p pnpm
 # abbr r rbenv # deprecated
-abbr t tree
+# abbr t tree # trying broot as tree replacement
+alias t="br -hs"
 abbr v nvim
 abbr vim nvim
 abbr y yarn
