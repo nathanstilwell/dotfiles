@@ -39,8 +39,7 @@ alias mkd="open -a /Applications/Marked\ 2.app"
 alias allow="sudo xattr -dr com.apple.quarantine "
 
 # Directories
-alias l="ls -lp"
-alias ll="ls -alhF"
+alias l="ls -alhF"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
