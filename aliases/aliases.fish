@@ -27,8 +27,9 @@ alias t="br -hs"
 abbr v nvim
 abbr vim nvim
 abbr y yarn
+abbr z zellij
 
-alias s="screen -DRU"
+# alias s="screen -DRU" # deprecated
 alias x="rm -rf"
 alias xx="rm -rfP"
 
