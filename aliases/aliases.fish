@@ -40,6 +40,7 @@ alias allow="sudo xattr -dr com.apple.quarantine "
 
 # Directories
 alias l="ls -alhF"
+alias ll="echo 'nope'" # duping for `ll` until I break the habit
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
