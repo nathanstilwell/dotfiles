@@ -1,6 +1,18 @@
 --
 -- Shared functions
 --
+function resizeWindow(dx, dy, dw, dh)
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+
+    f.x = max.x + (max.w * dx)
+    f.y = max.y + (max.h * dy)
+    f.w = max.w * dw
+    f.h = max.h * dh
+    win:setFrame(f)
+end
 
 function fullScreenWindow(win)
   local f = win:frame()
@@ -33,55 +45,19 @@ hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "Up", function ()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Up", function ()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w
-  f.h = max.h / 2
-  win:setFrame(f)
+  resizeWindow(0, 0, 1.0, 0.5)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Down", function ()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y + (max.h / 2)
-  f.w = max.w
-  f.h = max.h / 2
-  win:setFrame(f)
+  resizeWindow(0, 0.5, 1.0, 0.5)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Left", function ()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
+  resizeWindow(0, 0, 0.5, 1.0)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Right", function ()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 2)
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
+  resizeWindow(0.5, 0, 0.5, 1.0)
 end)
 
 --
