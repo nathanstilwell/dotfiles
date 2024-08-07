@@ -1,16 +1,16 @@
 --
 -- Shared functions
 --
-function resizeWindow(dx, dy, dw, dh)
+function resizeWindow(dw, dh, dx, dy)
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
 
-    f.x = max.x + (max.w * dx)
-    f.y = max.y + (max.h * dy)
-    f.w = max.w * dw
-    f.h = max.h * dh
+    f.w = dw and max.w * dw or f.w
+    f.h = dh and max.h * dh or f.h
+    f.x = dx and max.x + (max.w * dx) or f.x
+    f.y = dy and max.y + (max.h * dy) or f.y
     win:setFrame(f)
 end
 
@@ -45,19 +45,19 @@ hs.hotkey.bind({"cmd", "ctrl", "alt", "shift"}, "Up", function ()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Up", function ()
-  resizeWindow(0, 0, 1.0, 0.5)
+  resizeWindow(1.0, 0.5, 0, 0)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Down", function ()
-  resizeWindow(0, 0.5, 1.0, 0.5)
+  resizeWindow(1.0, 0.5, 0, 0.5)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Left", function ()
-  resizeWindow(0, 0, 0.5, 1.0)
+  resizeWindow(0.5)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "alt"}, "Right", function ()
-  resizeWindow(0.5, 0, 0.5, 1.0)
+  resizeWindow(0.5, nil, 0.5)
 end)
 
 --
