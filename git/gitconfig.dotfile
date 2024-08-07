@@ -27,7 +27,6 @@
 
 [core]
   excludesfile = ~/.gitignore-global
-  editor = /usr/local/bin/nvim
 
 [push]
   default = tracking
