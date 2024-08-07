@@ -10,8 +10,9 @@ end
 # set SHELL after PATH is updated above
 set -x SHELL (brew --prefix)/bin/fish;
 
-# set EDITOR
-set -x EDITOR "/usr/local/bin/nvim";
+#
+# don't set EDITOR here! Set it in a system specific .profile.fish
+#
 
 # Starship prompt - https://starship.rs/guide/#🚀-installation
 command -v starship >> /dev/null && begin;
