@@ -1,4 +1,3 @@
-alias g1="git log --pretty=oneline --abbrev-commit"
 alias gb="git branch"
 alias gba="git branch -a"
 alias gbv="git branch -vvv"
