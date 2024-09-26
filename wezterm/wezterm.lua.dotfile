@@ -44,13 +44,13 @@ config.native_macos_fullscreen_mode = false
 
 -- Key Bindings
 config.keys = {
--- overriding some default behavior
+  -- overriding some default behavior
   {
     key = 'Enter',
     mods = 'ALT',
     action = wezterm.action.DisableDefaultAssignment,
   },
--- just a couple things I need WezTerm to do
+  -- just a couple things I need WezTerm to do
   {
     key = 'f',
     mods = 'CMD|CTRL',
