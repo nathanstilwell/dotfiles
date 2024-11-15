@@ -13,7 +13,7 @@ local config = wezterm.config_builder()
 config.color_scheme = "Dracula"
 
 -- WezTerm Menus
-config.command_palette_font_size = 16.0
+config.command_palette_font_size = 24.0
 config.command_palette_rows = 30
 config.command_palette_fg_color = '#acaeb4'
 config.command_palette_bg_color = '#1e2129'
