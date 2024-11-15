@@ -1,6 +1,18 @@
-// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds clear-defaults=true {
+/**
+     ████████          ██  ██ ██    ██
+    ░░░░░░██          ░██ ░██░░    ░░
+         ██    █████  ░██ ░██ ██    ██
+        ██    ██░░░██ ░██ ░██░██   ░██
+       ██    ░███████ ░██ ░██░██   ░██
+      ██     ░██░░░░  ░██ ░██░██ ██░██
+     ████████░░██████ ███ ███░██░░███
+    ░░░░░░░░  ░░░░░░ ░░░ ░░░ ░░  ░░░
+*/
+
+keybinds clear-defaults=true { // `clear-defaults=true` to override the default keybindings completely
+
 // Switching modes
+
   shared_except "locked" {
     bind "Alt g" { SwitchToMode "Locked"; }
     bind "Alt x" { Quit; }
@@ -26,6 +38,7 @@ keybinds clear-defaults=true {
 
 
 // Mode bindings
+
   locked {
       bind "Alt g" { SwitchToMode "Normal"; }
   }
@@ -136,6 +149,8 @@ keybinds clear-defaults=true {
     bind "o" { SearchToggleOption "WholeWord"; }
   }
 }
+
+theme "dracula"
 
 plugins {
     tab-bar location="zellij:tab-bar"
