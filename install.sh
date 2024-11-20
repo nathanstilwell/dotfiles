@@ -62,8 +62,11 @@ echo -e "--------------------------------------------${bold_off:?}"
 command -v brew > /dev/null || {
   echo -e "${bold:?}Installing homebrew${stop:?}";
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-} && {
-  echo "Homebrew is already installed";
+  eval "$(/opt/homebrew/bin/brew shellenv)" # add `brew` to the PATH
+}
+
+command -v brew > /dev/null && {
+  echo "Homebrew is installed";
   brewpath="$(brew --prefix)/bin/brew";
   eval "$($brewpath shellenv)" # just in case `brew` isn't on the PATH
   unset $brewpath;
@@ -77,7 +80,7 @@ command -v brew > /dev/null || {
 }
 
 # if not fish then change shell,
-[ "$SHELL" != "$(brew --prefix)/bin/fish" ] && {
+[ "$SHELL" != "$(brew --prefix)/bin/fish" ] && command -v fish > /dev/null && {
   echo
   echo -e "${bold:?}## Changing Shell";
   echo -e "--------------------------------------------${bold_off:?}"
@@ -88,17 +91,17 @@ command -v brew > /dev/null || {
 }
 
 # Install fisher for fish plugins
+# TODO: can't install fisher if not in fish shell?
+# [ "$SHELL" == "$(brew --prefix)/bin/fish" ] && command -v fisher > /dev/null || {
+#   echo
+#   echo -e "${bold:?}## Installing Fisher";
+#   echo -e "--------------------------------------------${bold_off:?}"
+#   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-command -v fisher > /dev/null || {
-  echo
-  echo -e "${bold:?}## Installing Fisher";
-  echo -e "--------------------------------------------${bold_off:?}"
-  curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-
-  echo -e "${bold:?}## Installing PatrickF1/fzf.fish";
-  echo -e "--------------------------------------------${bold_off:?}"
-  fisher install PatrickF1/fzf.fish
-}
+#   echo -e "${bold:?}## Installing PatrickF1/fzf.fish";
+#   echo -e "--------------------------------------------${bold_off:?}"
+#   fisher install PatrickF1/fzf.fish
+# }
 
 # Mac Sane Defaults
 echo
