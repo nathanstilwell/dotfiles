@@ -99,7 +99,6 @@ command -v brew > /dev/null && {
   echo "Homebrew is installed";
   brewpath="$(brew --prefix)/bin/brew";
   eval "$($brewpath shellenv)" # just in case `brew` isn't on the PATH
-  unset $brewpath;
 }
 
 [[ -e "$HOME/Brewfile" ]] && {
