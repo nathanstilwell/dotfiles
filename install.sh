@@ -120,21 +120,22 @@ command -v brew > /dev/null && {
   chsh -s "$(brew --prefix)/bin/fish";
 }
 
-# Install fisher for fish plugins
-[ "$SHELL" == "$(brew --prefix)/bin/fish" ] && command -v fisher > /dev/null || {
-  echo
-  echo -e "${bold:?}## Installing Fisher";
-  echo -e "--------------------------------------------${bold_off:?}"
-  fish <<'END_FISH'
-      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+# TODO: move this to `configuration.sh` script
+# # Install fisher for fish plugins
+# [ "$SHELL" == "$(brew --prefix)/bin/fish" ] && command -v fisher > /dev/null || {
+#   echo
+#   echo -e "${bold:?}## Installing Fisher";
+#   echo -e "--------------------------------------------${bold_off:?}"
+#   fish <<'END_FISH'
+#       curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-      echo -e "## Installing PatrickF1/fzf.fish";
-      echo -e "--------------------------------------------";
-      fisher install PatrickF1/fzf.fish
-  END_FISH
+#       echo -e "## Installing PatrickF1/fzf.fish";
+#       echo -e "--------------------------------------------";
+#       fisher install PatrickF1/fzf.fish
+#   END_FISH
 
-  ln -s "$DOTS/fish/__fish_config__" "$CONFIG/fish/config.fish";
-}
+#   ln -s "$DOTS/fish/__fish_config__" "$CONFIG/fish/config.fish";
+# }
 
 # Mac Sane Defaults
 echo
