@@ -121,17 +121,20 @@ command -v brew > /dev/null && {
 }
 
 # Install fisher for fish plugins
-# TODO: can't install fisher if not in fish shell?
-# [ "$SHELL" == "$(brew --prefix)/bin/fish" ] && command -v fisher > /dev/null || {
-#   echo
-#   echo -e "${bold:?}## Installing Fisher";
-#   echo -e "--------------------------------------------${bold_off:?}"
-#   curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+[ "$SHELL" == "$(brew --prefix)/bin/fish" ] && command -v fisher > /dev/null || {
+  echo
+  echo -e "${bold:?}## Installing Fisher";
+  echo -e "--------------------------------------------${bold_off:?}"
+  fish <<'END_FISH'
+      curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
-#   echo -e "${bold:?}## Installing PatrickF1/fzf.fish";
-#   echo -e "--------------------------------------------${bold_off:?}"
-#   fisher install PatrickF1/fzf.fish
-# }
+      echo -e "## Installing PatrickF1/fzf.fish";
+      echo -e "--------------------------------------------";
+      fisher install PatrickF1/fzf.fish
+  END_FISH
+
+  ln -s "$DOTS/fish/__fish_config__" "$CONFIG/fish/config.fish";
+}
 
 # Mac Sane Defaults
 echo
@@ -175,3 +178,4 @@ echo -e "======================================${bold_off:?}"
 # Cleanup
 unset TARGET
 unset DOTS
+unset CONFIG
