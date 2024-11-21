@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TARGET=$HOME;
+CONFIG=$HOME/.config;
 DOTS=$HOME/.dotfiles;
 
 # shellcheck source=/dev/null #[SC1090] I don't care
@@ -36,7 +37,12 @@ for link in "$DOTS"/**/*.dotfile; do
   filename=$(basename "$link");
 
   [[ -e $link ]] && {
-    dotfilename=".$(echo "$filename" | cut -d. -f1)";
+    dotfilename=".${filename%'.dotfile'}";
+
+    [[ -e $TARGET/$dotfilename ]] && {
+      echo -e "${yellow:?}Link already exists, skipping${stop:?} $dotfilename";
+      continue;
+    }
     echo -e "Symlinking ${green:?}$filename${stop:?} -> ${green:?}$TARGET/$dotfilename${stop:?}";
     ln -s "$link" "$TARGET/$dotfilename";
   };
@@ -50,9 +56,33 @@ for link in "$DOTS"/**/*.symlink; do
   filename=$(basename "$link");
 
   [[ -e $link ]] && {
-    symlinkname="$(echo "$filename" | cut -d. -f1)";
+    symlinkname="${filename%'.symlink'}";
+
+    [[ -e $TARGET/$symlinkname ]] && {
+      echo -e "${yellow:?}Link already exists, skipping${stop:?} $symlinkname";
+      continue;
+    }
     echo -e "Symlinking ${green:?}$filename${stop:?} -> ${green:?}$TARGET/$symlinkname${stop:?}";
     ln -s "$link" "$TARGET/$symlinkname";
+  };
+done
+
+echo
+echo -e "${bold:?}## Linking symlinks to ~/.config";
+echo -e "--------------------------------------------${bold_off:?}"
+
+for link in "$DOTS"/**/*.config; do
+  filename=$(basename "$link");
+
+  [[ -e $link ]] && {
+    configname="${filename%'.config'}";
+
+    [[ -e $CONFIG/$configname ]] && {
+      echo -e "${yellow:?}Link already exists, skipping${stop:?} $configname";
+      continue;
+    }
+    echo -e "Symlinking ${green:?}$filename${stop:?} -> ${green:?}$CONFIG/$configname${stop:?}";
+    ln -s "$link" "$CONFIG/$configname";
   };
 done
 
