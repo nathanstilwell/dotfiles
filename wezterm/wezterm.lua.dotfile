@@ -22,7 +22,7 @@ config.char_select_bg_color = '#1e2129'
 
 -- Font
 config.font = wezterm.font_with_fallback({
-  "M+1Code Nerd Font Mono Light",
+  { family = "M PLUS 1 Code", weight = "Light" },
   { family = "Symbols Nerd Font Mono", scale = 0.7 },
 })
 config.font_size = 16.0
