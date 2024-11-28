@@ -3,41 +3,58 @@
 set -l DOTS $HOME/.dotfiles;
 set -l CONFIG $HOME/.config;
 
+set -l fishdir $CONFIG/fish
 set -l usershell (dscl . -read ~/ UserShell)
 set -l fishpath (brew --prefix)/bin/fish
 set -l current_shell (string split " " $usershell)[2]
+set -l fish_prefix "🐟";
+
+# -------------------- Set section title here ------------------
 
 # if not fish then change shell,
 if test $current_shell != $fishpath
   set_color -o purple;
   echo
-  echo "Changing Shell to Fish 🐟";
-  echo "--------------------------"
+  echo "$fish_prefix Changing Shell to Fish";
   set_color normal;
-  echo
   echo Current user shell is (set_color -o purple)$current_shell(set_color normal), changing user shell to (set_color -o purple)$fishpath(set_color normal).
-  echo
 
+  # set condition to check for brew on path, and /etc/shells contains fish already
   echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
   chsh -s "$(brew --prefix)/bin/fish";
+  echo
 else
-  set_color -o purple;
-  echo
-  echo "Shell is already set to Fish 🐟, moving on.";
-  echo
+  set_color purple;
+  echo $fish_prefix Default shell is /bin/fish 󰡕;
   set_color normal
 end
 
 # if not Fisher install fisher and plugins
-if not command -v fisher > /dev/null
+if not test -e $fishdir/fish_plugins;
   echo
   set_color -o purple
-  echo "Installing Fisher"
-  echo "-----------------"
+  echo "$fish_prefix Installing Fisher"
   set_color normal;
 
   curl -sL https://git.io/fisher | source
   fisher install jorgebucaran/fisher PatrickF1/fzf.fish
+  echo
+else
+  set_color purple
+  echo $fish_prefix fisher and plugins installed 󰡕
+  set_color normal
 end
 
-# Copy fish config
+# Linking fish config
+if test -L $fishdir/config.fish && test (realpath $fishdir/config.fish) = "$DOTS/fish/__fish_config__";
+  set_color purple;
+  echo $fish_prefix Fish config is symlinked 󰡕;
+  set_color normal;
+else if test -e $fishdir/fish.config
+  echo
+  echo Backing up existing fish config, (set_color yellow)fish.config ⤑ fish.config.old(set_color normal)
+  mv $fishdir/fish.config $fishdir/fish.config.old
+  echo Linking (set_color purple)$DOTS/__fish_config__(set_color normal)
+  ln -s $DOTS/__fish_config__ $fishdir/fish.config
+  echo
+end

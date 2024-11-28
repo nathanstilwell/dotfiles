@@ -1,0 +1,52 @@
+#!/opt/homebrew/bin/fish
+
+# Mac App list by app_id
+# 904280696   Things
+# 411643860   DaisyDisk
+# 803453959   Slack
+
+# paths
+set -l DOTS $HOME/.dotfiles
+
+# a list of mac applications
+set -l app_list 904280696 411643860 803453959;
+# a list of Homebrew casks that can't tell if they are Already installed for whatever reason
+set -l cask_list "arc" "wezterm"
+
+set -l hb_light F9D094
+set -l hb_dark 2e2a24
+set -l mac 0362fc
+
+# echo
+# echo (set_color -b $hb_light;set_color -o $hb_dark)   Homebrew   (set_color normal);
+# echo
+# if not command -v brew > /dev/null;
+#   echo Installing homebrew...;
+#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#   # add brew to the $PATH is missing
+#   if not command -a (brew --prefix)/bin/brew > /dev/null;
+# 	fish_add_path -U (brew --prefix)/bin/brew
+#   end
+# else
+#   echo (set_color $hb_light)Homebrew is installed(set_color normal)
+# end
+
+if command -v brew > /dev/null;
+  echo
+  echo Installing (set_color $hb_light)moar Homebrew casks(set_color normal);
+  cd $HOME;
+  for cask in $cask_list
+    brew install --cask $cask
+  end
+  cd -;
+end
+
+echo
+echo (set_color -b $mac;set_color -o FFF)    App Store    (set_color normal)
+echo
+if command -v mas > /dev/null;
+  for app in $app_list
+    mas install $app
+  end
+end
+
