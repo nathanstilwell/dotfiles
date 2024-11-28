@@ -1,0 +1,15 @@
+#!/opt/homebrew/bin/fish
+
+set -l default_browser (defaults read ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure | awk -F'"' '/http;/{print window[(NR)-1]}{window[NR]=$2}')
+
+if test $default_browser != "company.thebrowser.browser";
+  echo Default browser is set to (set_color blue)$default_browser(set_color normal)
+  echo Setting default browser to (set_color -o blue)Arc(set_color normal)(set_color blue)\(company.thebrowser.browser\)(set_color normal)
+  # set default browser to Arc Browser
+  defaultbrowser browser
+else
+  echo Default browser is set to (set_color -io blue)Arc(set_color normal)
+end
+
+# TODO: Set Arc defaults from cli?
+# - turn off "little arc" links
