@@ -1,0 +1,43 @@
+#!/opt/homebrew/bin/fish
+
+set -l DOTS $HOME/.dotfiles;
+set -l CONFIG $HOME/.config;
+
+set -l usershell (dscl . -read ~/ UserShell)
+set -l fishpath (brew --prefix)/bin/fish
+set -l current_shell (string split " " $usershell)[2]
+
+# if not fish then change shell,
+if test $current_shell != $fishpath
+  set_color -o purple;
+  echo
+  echo "Changing Shell to Fish 🐟";
+  echo "--------------------------"
+  set_color normal;
+  echo
+  echo Current user shell is (set_color -o purple)$current_shell(set_color normal), changing user shell to (set_color -o purple)$fishpath(set_color normal).
+  echo
+
+  echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
+  chsh -s "$(brew --prefix)/bin/fish";
+else
+  set_color -o purple;
+  echo
+  echo "Shell is already set to Fish 🐟, moving on.";
+  echo
+  set_color normal
+end
+
+# if not Fisher install fisher and plugins
+if not command -v fisher > /dev/null
+  echo
+  set_color -o purple
+  echo "Installing Fisher"
+  echo "-----------------"
+  set_color normal;
+
+  curl -sL https://git.io/fisher | source
+  fisher install jorgebucaran/fisher PatrickF1/fzf.fish
+end
+
+# Copy fish config

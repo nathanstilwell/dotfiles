@@ -1,0 +1,141 @@
+#!/bin/bash
+
+DOT_TARGET=$HOME;
+CONFIG=$HOME/.config;
+DOTS=$HOME/.dotfiles;
+
+source "$DOTS/utils/colors.sh";
+
+underline() {
+  message=$1
+  format=${2:-""}
+  msg_len=${#message}
+  echo -ne $format
+  printf %${msg_len}s |tr " " "-"; echo -e ${stop:?};
+}
+
+h2() {
+  message=$1
+  echo
+  echo -e "${green:?}$message${stop:?}";
+  underline "$message" "${green}";
+  echo
+}
+
+h3() {
+  message=$1
+  echo
+  echo -e "${yellow:?}$message${stop:?}";
+  underline "$message" ${yellow};
+  echo
+}
+
+h4() {
+  message=$1
+  echo
+  echo -e "${magenta:?}$message${stop:?}";
+  underline "$message" ${magenta};
+  echo
+}
+
+### Start
+
+echo "[COOL ASCII HEADER HERE]";
+
+h2 "Setup";
+
+## Check that git ssh is set up
+echo -n "Checking git ssh connection ....";
+ssh -T git@github.com >/dev/null 2>&1;
+sshCheck=$?
+if [ $sshCheck -ne 1 ]; then
+    echo -e "${red:?} Git ssh did not authenticate. ${stop:?}"
+    exit 1;
+fi
+echo -e "${green:?} git ssh is setup. ${stop:?}";
+
+## Check for dotfiles
+echo -n "Checking for dotfiles....";
+if [ ! -d $DOTS ]; then
+  echo -e "${yellow:?}\n Did not find dotfiles. ${stop}";
+  read -p "Would you like to clone dotfiles now?" -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    cd $HOME;
+    git clone git@github.com:nathanstilwell/dotfiles.git .dotfiles;
+  fi
+else
+  echo -e "${green:?} dotfiles found ${stop:?}";
+fi
+
+h3 "Linking dotfiles to ~";
+for link in "$DOTS"/**/*.dotfile; do
+  filename=$(basename "$link");
+
+  [[ -e $link ]] && {
+    dotfilename=".${filename%'.dotfile'}";
+
+    [[ -e $DOT_TARGET/$dotfilename ]] && {
+      echo -e "link already exists, ${yellow:?}skipping${stop:?} $dotfilename";
+      continue;
+    }
+    echo -e "symlinking ${green:?}$filename${stop:?} -> ${green:?}$TARGET/$dotfilename${stop:?}";
+
+    echo "[debug] filename: $filename";
+    echo "[debug] dotfile path: $DOT_TARGET/$dotfilename";
+    ln -s "$link" "$DOT_TARGET/$dotfilename";
+  };
+done
+
+h3 "Linking symlinks to ~";
+for link in "$DOTS"/**/*.symlink; do
+  filename=$(basename "$link");
+
+  [[ -e $link ]] && {
+    symlinkname="${filename%'.symlink'}";
+
+    [[ -e $DOT_TARGET/$symlinkname ]] && {
+      echo -e "Link already exists, ${yellow:?}skipping${stop:?} $symlinkname";
+      continue;
+    }
+    echo -e "Symlinking ${green:?}$filename${stop:?} -> ${green:?}$DOT_TARGET/$symlinkname${stop:?}";
+    ln -s "$link" "$DOT_TARGET/$symlinkname";
+  };
+done
+
+h3 "Linking symlinks to ~";
+for link in "$DOTS"/**/*.config; do
+  filename=$(basename "$link");
+
+  [[ -e $link ]] && {
+    configname="${filename%'.config'}";
+
+    [[ -e $CONFIG/$configname ]] && {
+      echo -e "Link already exists, ${yellow:?}skipping${stop:?} $configname";
+      continue;
+    }
+    echo -e "Symlinking ${green:?}$filename${stop:?} -> ${green:?}$CONFIG/$configname${stop:?}";
+    ln -s "$link" "$CONFIG/$configname";
+  };
+done
+
+
+h4 "Homebrew"
+command -v brew > /dev/null || {
+  echo -e "${bold:?}Installing homebrew${stop:?}";
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)" # add `brew` to the PATH
+}
+
+command -v brew > /dev/null && {
+  echo "Homebrew is installed";
+  brewpath="$(brew --prefix)/bin/brew";
+  eval "$($brewpath shellenv)" # just in case `brew` isn't on the PATH
+}
+
+[[ -e "$HOME/Brewfile" ]] && {
+  echo -e "${bold:?}Running ${green:?}brew bundle${stop:?}";
+  cd "$HOME" || return;
+  brew bundle;
+  cd - || return;
+}
