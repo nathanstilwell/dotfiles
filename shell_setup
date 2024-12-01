@@ -9,7 +9,11 @@ set -l fishpath (brew --prefix)/bin/fish
 set -l current_shell (string split " " $usershell)[2]
 set -l fish_prefix "🐟";
 
+source $DOTS/util_headings
+
 # -------------------- Set section title here ------------------
+heading "Shell Setup" purple black
+echo
 
 # if not fish then change shell,
 if test $current_shell != $fishpath
@@ -17,15 +21,22 @@ if test $current_shell != $fishpath
   echo
   echo "$fish_prefix Changing Shell to Fish";
   set_color normal;
-  echo Current user shell is (set_color -o purple)$current_shell(set_color normal), changing user shell to (set_color -o purple)$fishpath(set_color normal).
+  echo -n Current user shell is (set_color -o purple)$current_shell(set_color normal),
+  echo changing user shell to (set_color -o purple)$fishpath(set_color normal)
 
   # set condition to check for brew on path, and /etc/shells contains fish already
-  echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
+  set hasFish (cat /etc/shells | grep "/bin/fish");
+  if test -z $hasFish;
+    echo (set_color yellow)Fish path not found in (set_color -o yellow)/etc/shells(set_color normal);
+    echo (set_color purple)Updating (set_color -o purple)/etc/shells(set_color purple) with Fish path(set_color normal);
+    echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
+  end
+  echo (set_color purple)Changing user shell to $fish_prefix Fish(set_color normal);
   chsh -s "$(brew --prefix)/bin/fish";
   echo
 else
   set_color purple;
-  echo $fish_prefix Default shell is /bin/fish 󰡕;
+  echo $fish_prefix User shell is /bin/fish 󰡕;
   set_color normal
 end
 
@@ -45,6 +56,9 @@ else
   set_color normal
 end
 
+#
+# TODO Check this logic, didn't link fish config correctly
+#
 # Linking fish config
 if test -L $fishdir/config.fish && test (realpath $fishdir/config.fish) = "$DOTS/fish/__fish_config__";
   set_color purple;
@@ -57,4 +71,5 @@ else if test -e $fishdir/fish.config
   echo Linking (set_color purple)$DOTS/__fish_config__(set_color normal)
   ln -s $DOTS/__fish_config__ $fishdir/fish.config
   echo
+  echo (set_color purple)Restart your terminal session to use $fish_prefix Fish $fish_prefix(set_color normal);
 end

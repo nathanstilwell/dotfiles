@@ -1,0 +1,24 @@
+#!/opt/homebrew/bin/fish
+
+
+function heading --argument message bgcolor color --description "Output a string formatted as a heading"
+  if not set -q $color
+    set -l color normal
+  end
+  if not set -q $bgcolor
+    set -l bgcolor blue
+  end
+
+  echo
+  echo (set_color -b $bgcolor)"    "(set_color -o $color)$message(set_color -b $bgcolor)"    " (set_color normal)
+end
+
+function sub_heading --argument message color --description "Output a string formatted as a sub heading"
+  if not set -q $color
+    set -l color normal
+  end
+  set_color -o $color
+  echo
+  echo $message
+  set_color normal
+end

@@ -17,34 +17,46 @@ set -l hb_light F9D094
 set -l hb_dark 2e2a24
 set -l mac 0362fc
 
-# echo
-# echo (set_color -b $hb_light;set_color -o $hb_dark)   Homebrew   (set_color normal);
-# echo
-# if not command -v brew > /dev/null;
-#   echo Installing homebrew...;
-#   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-#   # add brew to the $PATH is missing
-#   if not command -a (brew --prefix)/bin/brew > /dev/null;
-# 	fish_add_path -U (brew --prefix)/bin/brew
-#   end
-# else
-#   echo (set_color $hb_light)Homebrew is installed(set_color normal)
-# end
+source $DOTS/util_headings
 
-if command -v brew > /dev/null;
-  echo
-  echo Installing (set_color $hb_light)moar Homebrew casks(set_color normal);
-  cd $HOME;
-  for cask in $cask_list
-    brew install --cask $cask
+### Start
+
+heading Applications $hb_light $hb_dark
+echo
+
+if not command -v brew > /dev/null;
+  echo (set_color -o $hb_light)Homebrew not found. Installing Homebrew.(set_color normal);
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if not command -v brew > /dev/null;
+    # add path to brew, if not found
+    fish_add_path (brew --prefix)/bin/brew;
   end
+end
+
+if test -e $HOME/Brewfile;
+  echo (set_color $hb_light)Brewfile found. Running (set_color -o $hb_light)brew bundle(set_color $hb_light).(set_color normal)
+  cd $HOME;
+  brew bundle;
   cd -;
 end
 
-echo
-echo (set_color -b $mac;set_color -o FFF)    App Store    (set_color normal)
-echo
+if command -v brew > /dev/null;
+  echo
+  echo Installing (set_color -i $hb_light)Discerning(set_color $hb_light) Homebrew casks(set_color normal);
+  cd $HOME;
+  for cask in $cask_list
+    ## TODO: check for existence of cask Application before installing
+    brew install --cask $cask
+  end
+  cd -;
+else
+  echo (set_color red)Could not file brew(set_color normal);
+end
+
 if command -v mas > /dev/null;
+  echo
+  echo (set_color -o $mac;)Installing AppStore apps.(set_color normal)
+  echo
   for app in $app_list
     mas install $app
   end
