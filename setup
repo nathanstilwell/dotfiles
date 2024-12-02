@@ -2,7 +2,6 @@
 
 set -l DOTS $HOME/.dotfiles;
 set -l CONFIG $HOME/.config;
-set -l DOT_TARGET $HOME;
 
 source $DOTS/util_headings
 
@@ -66,11 +65,11 @@ end
 
 # Fish version of linking `.dotfiles`
 sub_heading "Linking dotfiles to ~" green
-link $DOTS .dotfile $DOT_TARGET -d;
+link $DOTS .dotfile $HOME -d;
 
 sub_heading "Linking symlinks to ~" green
-link $DOTS .symlink $DOT_TARGET;
+link $DOTS .symlink $HOME;
 
 sub_heading "Linking config files to ~/.config"
-link $DOTS .config $DOT_TARGET/.config;
+link $DOTS .config $HOME/.config;
 
