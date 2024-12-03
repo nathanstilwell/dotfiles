@@ -1,0 +1,79 @@
+#!/opt/homebrew/bin/fish
+
+set -l DOTS $HOME/.dotfiles;
+set -l PROFILES $HOME/.profiles
+
+source $DOTS/util_headings
+
+# Check for clones profiles, if not clone
+sub_heading "Checking Git connection" green
+
+ssh -T git@github.com >/dev/null 2>&1;
+set -l sshCheck $status;
+
+if test $sshCheck -ne 1;
+  echo (set_color red)Git ssh did not authenticate.(set_color normal);
+else
+  echo (set_color green)Git ssh is setup correctly.(set_color normal);
+end
+
+## Check for dotfiles
+sub_heading "Checking for Profiles" green
+
+if test -d $PROFILES;
+  echo (set_color green)Profiles are cloned correctly(set_color normal);
+else
+  echo (set_color yellow)Profiles not found.(set_color normal)
+  read -P "Would you like to clone profiles now? " -l cloneDots -n 1
+  if string match -q $cloneDots "y";
+    cd $HOME;
+    git clone git@github.com:nathanstilwell/profiles.git $PROFILES;
+  end
+end
+
+# List profiles for user to choose, or create new
+set -l profile_glob (find $PROFILES -not -name ".*" -type d -depth 1 | xargs basename);
+echo $profile_glob
+
+echo (set_color -o normal)Which profile would you like to use for this computer\?(set_color normal)
+echo
+
+set -l index 1;
+for profile in $profile_glob;
+  echo "$index) $profile";
+  set index (math $index + 1);
+end
+echo "$index) Create new profile";
+
+echo
+read -P "> " -l profile_choice -n 1;
+
+# test for user profile choice
+if test $profile_choice = $index;
+  sub_heading "Setting up new profile..." normal
+  echo
+
+  # prompt for a new profile name
+  read -P "What would you like your new profile name to be? " -l profile_name;
+
+  # mkdir with new profile name
+
+  # create basic files and directories in new profile
+  #
+  # - .profile.fish
+  # - git/gitconfig-extras
+  # - ssh/config
+  # - notes/
+  # - todos/
+
+  # print instructions for populating new files
+else if test $profile_choice -gt $index
+  echo (set_color -o red)That is an invalid choice. (set_color normal)Skipping.;
+  echo
+else
+  echo "You chose $profile_glob[$profile_choice]";
+  echo
+end
+# If new, then list files the user will need to create, then quit
+
+# If existing profile, link files
