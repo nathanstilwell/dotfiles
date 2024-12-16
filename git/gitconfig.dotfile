@@ -26,7 +26,7 @@
   status = auto
 
 [core]
-  excludesfile = ~/.gitignore-global
+	excludesFile = ~/.gitignore
 
 [push]
   default = tracking
