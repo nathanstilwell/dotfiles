@@ -1,3 +1,4 @@
 .editorconfig
 .ctrlp
 **/*.todo
+.vercel
