@@ -1,7 +1,7 @@
 --
 -- Shared functions
 --
-function resizeWindow(dw, dh, dx, dy)
+local function resizeWindow(dw, dh, dx, dy)
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -14,7 +14,7 @@ function resizeWindow(dw, dh, dx, dy)
   win:setFrame(f)
 end
 
-function fullScreenWindow(win)
+local function fullScreenWindow(win)
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
@@ -26,7 +26,7 @@ function fullScreenWindow(win)
   win:setFrame(f)
 end
 
-function moveWindowToDisplay(d)
+local function moveWindowToDisplay(d)
   return function()
     local displays = hs.screen.allScreens()
     local win = hs.window.focusedWindow()
