@@ -1,0 +1,42 @@
+#!/opt/homebrew/bin/fish
+
+# ▄▖▘  ▌   ▄     ▗
+# ▙▖▌▛▘▛▌  ▙▘▛▌▛▌▜▘
+# ▌ ▌▄▌▌▌  ▙▘▙▌▙▌▐▖
+#
+
+# install Homebrew, if somehow we've made it this far without it, and add `brew`
+# to the fish path so we can run `brew` from here on out.
+if not command -v brew > /dev/null;
+  echo (set_color -o $hb_light)Homebrew not found. Installing Homebrew.(set_color normal);
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if not command -v brew > /dev/null;
+    # add path to brew, if not found
+    fish_add_path (brew --prefix)/bin/brew;
+  end
+end
+
+if not command -v gum > /dev/null;
+  brew install gum;
+end
+
+
+command -v fish &> /dev/null && {
+  fish $INSTALL/setup_profile;
+}
+
+command -v fish &> /dev/null && {
+  fish $INSTALL/link_dotfiles;
+}
+
+command -v fish &> /dev/null && {
+  fish $INSTALL/app_install;
+}
+
+command -v fish &> /dev/null && {
+  fish $INSTALL/shell_setup;
+}
+
+command -v fish &> /dev/null && {
+  fish $INSTALL/set_defaults;
+}
