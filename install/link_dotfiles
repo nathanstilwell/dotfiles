@@ -3,7 +3,7 @@
 set -l DOTS $HOME/.dotfiles;
 set -l CONFIG $HOME/.config;
 
-source $DOTS/util_headings
+source $DOTS/install/util_headings
 
 function link --argument-names dotfiles extension target --description "Symlink a collection to a location"
   argparse d/dotprefix -- $argv;
