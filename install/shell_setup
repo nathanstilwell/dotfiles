@@ -9,7 +9,7 @@ set -l fishpath (brew --prefix)/bin/fish
 set -l current_shell (string split " " $usershell)[2]
 set -l fish_prefix "🐟";
 
-source $DOTS/util_headings
+source $DOTS/install/util_headings
 
 # -------------------- Set section title here ------------------
 heading "Shell Setup" purple black

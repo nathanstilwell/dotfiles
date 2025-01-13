@@ -1,5 +1,6 @@
 #!/opt/homebrew/bin/fish
 
+## Set default browser to Arc
 set -l default_browser (defaults read ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure | awk -F'"' '/http;/{print window[(NR)-1]}{window[NR]=$2}')
 
 if test $default_browser != "company.thebrowser.browser";
@@ -11,5 +12,12 @@ else
   echo Default browser is set to (set_color -io blue)Arc(set_color normal)
 end
 
+## Enable hammerspoon accessibility from Privacy & Security
+# TODO: output instructions to the USER to enable the above in "System Settings"
+
 # TODO: Set Arc defaults from cli?
 # - turn off "little arc" links
+
+# See settings from defaults read company.thebrowser.Browser.plist
+# defaults write company.thebrowser.Browser.plist openExternalLinksInLittleBrowserEnabled false
+# defaults write company.thebrowser.Browser.plist arc_quitAlwaysKeepsWindows true
