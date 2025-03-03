@@ -70,10 +70,14 @@ keybinds clear-defaults=true { // `clear-defaults=true` to override the default 
 
   pane {
     bind "Enter" { SwitchToMode "Normal"; }
-    bind "h" "Left" { MoveFocus "Left"; }
-    bind "l" "Right" { MoveFocus "Right"; }
-    bind "j" "Down" { MoveFocus "Down"; }
-    bind "k" "Up" { MoveFocus "Up"; }
+    bind "h" { MoveFocus "Left"; }
+    bind "l" { MoveFocus "Right"; }
+    bind "j" { MoveFocus "Down"; }
+    bind "k" { MoveFocus "Up"; }
+    bind "Left" { MovePane "Left"; }
+    bind "Right" { MovePane "Right"; }
+    bind "Up" { MovePane "Up"; }
+    bind "Down" { MovePane "Down"; }
     bind "p" { SwitchFocus; }
     bind "n" { NewPane; SwitchToMode "Normal"; }
     bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
