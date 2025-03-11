@@ -1,0 +1,75 @@
+#!/opt/homebrew/bin/fish
+
+set -l DOTS $HOME/.dotfiles;
+set -l CONFIG $HOME/.config;
+
+source $DOTS/install/util_headings
+
+function link --argument-names dotfiles extension target --description "Symlink a collection to a location"
+  argparse d/dotprefix -- $argv;
+  set glob_files (ls -d $dotfiles/**/*$extension)
+
+  for file in $glob_files
+    set filename (basename $file)
+    set linkfilename (string replace $extension '' $filename);
+
+    if set -ql _flag_dotprefix
+      set target_file_path $target/.$linkfilename;
+    else
+      set target_file_path $target/$linkfilename;
+    end
+
+    if test -e $target_file_path;
+      echo -n (set_color yellow)$linkfilename(set_color normal) already exists,
+      echo (set_color yellow) skipping $linkfilename(set_color normal);
+      continue;
+    else
+      echo -n Symlinking (set_color green)$linkfilename(set_color normal) ⤑
+      echo (set_color green) $target_file_path(set_color normal);
+      ln -s $file $target_file_path;
+    end # if
+  end # for
+end # function
+
+### Start
+
+echo "[COOL ASCII HEADER HERE]";
+
+heading Setup green black
+
+## Check that git ssh is set up
+sub_heading "Connecting to Dotfiles" green
+
+ssh -T git@github.com >/dev/null 2>&1;
+set -l sshCheck $status;
+
+if test $sshCheck -ne 1;
+  echo (set_color red)Git ssh did not authenticate.(set_color normal);
+else
+  echo (set_color green)Git ssh is setup correctly.(set_color normal);
+end
+
+## Check for dotfiles
+sub_heading "Checking for dotfiles" green
+
+if test -d $DOTS;
+  echo (set_color green)Dotfiles are cloned correctly(set_color normal);
+else
+  echo (set_color yellow)Dotfiles not found.(set_color normal)
+  read -P "Would you like to clone dotfiles now? " -l cloneDots -n 1
+  if string match -q $cloneDots "y";
+    cd $HOME;
+    git clone git@github.com:nathanstilwell/dotfiles.git .dotfiles;
+  end
+end
+
+# Fish version of linking `.dotfiles`
+sub_heading "Linking dotfiles to ~" green
+link $DOTS .dotfile $HOME -d;
+
+sub_heading "Linking symlinks to ~" green
+link $DOTS .symlink $HOME;
+
+sub_heading "Linking config files to ~/.config"
+link $DOTS .config $HOME/.config;
+
