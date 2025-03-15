@@ -46,3 +46,22 @@ function time-log --argument-names time --description "A function to display a v
   echo (date +"%H:%M:%S")" | $time |" >> $filepath
 end
 
+function show-time-log --description "show logged time entries"
+  argparse 'f/file=' -- $argv
+
+  set -l file ~/.config/time-log.md;
+  if set -q _flag_file
+    set file $_flag_file
+  end
+
+  set -l filepath (realpath $file)
+  set filepath (eval echo $filepath)
+
+  if not test -e $filepath
+    echo "No time log found at $filepath"
+    return
+  end
+
+  set viewer (type -q glow && echo "glow" || echo "cat")
+  $viewer $filepath
+end
