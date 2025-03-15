@@ -41,6 +41,8 @@ function time-log --argument-names time --description "A function to display a v
 
   # Go time!
 
-  echo -n "| $type |"(date +"%Y-%m-%d")" | "(date +"%H:%M:%S")" | " >> $filepath && timer $time -f --format 24h -n $type && echo (date +"%H:%M:%S")" | $time |" >> $filepath
-
+  echo -n "| $type |"(date +"%Y-%m-%d")" | "(date +"%H:%M:%S")" | " >> $filepath;
+  timer $time -f --format 24h -n $type;
+  echo (date +"%H:%M:%S")" | $time |" >> $filepath
 end
+
