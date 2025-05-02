@@ -1,0 +1,25 @@
+#!/opt/homebrew/bin/fish
+
+
+function heading --argument message color --description "Output a string formatted as a heading"
+  if not set -q $color
+    set -l color "#F8F8F2"; # dracula foreground
+  end
+
+  echo
+  gum style --border thick --margin "1" --padding "0 1" --border-foreground $color $(gum style --foreground $color $message)
+end
+
+function sub_heading --argument message color --description "Output a string formatted as a sub heading"
+  if not set -q $color
+    set -l color "#F8F8F2"; # dracula foreground
+  end
+  set_color normal
+  echo
+  gum style --padding "0 1" --bold --foreground=$color $message
+  set_color normal
+end
+
+function spin --argument title command --description "Display a gum spinner for a command"
+  gum spin $command --spinner="minidot" --title="$title" --spinner.foreground="#ff79c6"
+end

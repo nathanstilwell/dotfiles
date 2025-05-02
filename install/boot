@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# TODO(nathanstilwell): in order to REALLY boot this from some remote script,
+# I need to add a check if dotfiles are cloned, and then determine if git is
+# set up, etc in order to clone dotfiles and move on. For the moment I'm just
+# going to assume that dotfiles are cloned and we can run install scripts.
+
+DOTS=$HOME/.dotfiles;
+INSTALL=$DOTS/install;
+
+source "$DOTS/utils/colors.sh";
+
+## Install fish to run fish shell scripts for the rest
+## of the setup and installation
+
+# install Homebrew if missing
+command -v brew > /dev/null || {
+  # echo -e "Homebrew is missing. ${bold:?}Installing homebrew.${stop:?}";
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)" # add `brew` to the PATH
+}
+
+# install fish
+command -v fish &> /dev/null || {
+  # echo -e "Missing fish shell. ${bold:?}Installing fish shell.${stop:?}";
+  command -v brew &> /dev/null || {
+    echo "${red:?}${bold:?}Couldn't install Homebrew. Please help. 🙏${stop:?}";
+  }
+  command -v brew &> /dev/null && {
+    brew install fish;
+  }
+}
+
+command -v fish &>/dev/null || {
+  echo -e "${red:?}Fish not found. Need more help! Why no \`brew install fish\`? ${stop:?}";
+  exit 1;
+}
+
+command -v fish &> /dev/null && {
+  if ![[ -d $INSTALL ]]; then
+    echo -e "${red:?}${bold:?}Can\'t find dotfiles directory. Expecting dotfiles in ~/.dotfiles. 🤷 ${stop:?}";
+    exit 1;
+  fi
+  fish $INSTALL/fish_boot;
+}
+

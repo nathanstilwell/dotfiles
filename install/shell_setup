@@ -1,0 +1,74 @@
+#!/opt/homebrew/bin/fish
+
+set -l DOTS $HOME/.dotfiles;
+set -l CONFIG $HOME/.config;
+
+set -l fishdir $CONFIG/fish
+set -l usershell (dscl . -read ~/ UserShell)
+set -l fishpath (brew --prefix)/bin/fish
+set -l current_shell (string split " " $usershell)[2]
+set -l fish_prefix "🐟";
+
+source $DOTS/install/util_headings
+
+# -------------------- Set section title here ------------------
+heading "Shell Setup" purple black
+echo
+.
+# if not fish then change shell,
+if test $current_shell != $fishpath
+  set_color -o purple;
+  echo
+  echo "$fish_prefix Changing Shell to Fish";
+  set_color normal;
+  echo -n Current user shell is (set_color -o purple)$current_shell(set_color normal),
+  echo changing user shell to (set_color -o purple)$fishpath(set_color normal)
+
+  # set condition to check for brew on path, and /etc/shells contains fish already
+  set hasFish (cat /etc/shells | grep "/bin/fish");
+  if test -z $hasFish;
+    echo (set_color yellow)Fish path not found in (set_color -o yellow)/etc/shells(set_color normal);
+    echo (set_color purple)Updating (set_color -o purple)/etc/shells(set_color purple) with Fish path(set_color normal);
+    echo "$(brew --prefix)/bin/fish" | sudo tee -a /etc/shells
+  end
+  echo (set_color purple)Changing user shell to $fish_prefix Fish(set_color normal);
+  chsh -s "$(brew --prefix)/bin/fish";
+  echo
+else
+  set_color purple;
+  echo $fish_prefix User shell is /bin/fish 󰡕;
+  set_color normal
+end
+
+# if not Fisher install fisher and plugins
+if not test -e $fishdir/fish_plugins;
+  echo
+  set_color -o purple
+  echo "$fish_prefix Installing Fisher"
+  set_color normal;
+
+  curl -sL https://git.io/fisher | source
+  fisher install jorgebucaran/fisher PatrickF1/fzf.fish
+  echo
+else
+  set_color purple
+  echo $fish_prefix fisher and plugins installed 󰡕
+  set_color normal
+end
+
+# Linking fish config
+if test -L $fishdir/config.fish && test (realpath $fishdir/config.fish) = "$DOTS/fish/__fish_config__";
+  set_color purple;
+  echo $fish_prefix Fish config is symlinked 󰡕;
+  set_color normal;
+else
+  if test -e $fishdir/config.fish
+    echo
+    echo Backing up existing fish config, (set_color yellow)config.fish ⤑ config.fish.old(set_color normal)
+    mv $fishdir/config.fish $fishdir/config.fish.old
+  end
+  echo Linking (set_color purple)$DOTS/fish/__fish_config__(set_color normal)
+  ln -s $DOTS/fish/__fish_config__ $fishdir/config.fish
+  echo
+  echo (set_color purple)Restart your terminal session to use $fish_prefix Fish $fish_prefix(set_color normal);
+end

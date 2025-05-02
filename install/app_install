@@ -1,0 +1,89 @@
+#!/opt/homebrew/bin/fish
+
+# Mac App list by app_id
+# 904280696   Things
+# 411643860   DaisyDisk
+# 803453959   Slack
+# 497799835   XCode
+# 1276493162  Remarkable Desktop
+
+# paths
+set -l DOTS $HOME/.dotfiles
+
+# a list of mac applications
+set -l app_list 904280696 411643860 803453959 497799835 1276493162;
+# a list of Homebrew casks that can't tell if they are Already installed for whatever reason
+set -l cask_list "arc" "wezterm"
+# TunnelBear download URL
+set -l tunnelbear_url "https://s3.amazonaws.com/tunnelbear/downloads/mac/TunnelBear.zip"
+
+set -l hb_light F9D094
+set -l hb_dark 2e2a24
+set -l mac 0362fc
+set -l url_install 50FA7B
+
+source $DOTS/install/util_headings
+
+### Start
+
+heading Applications $hb_light $hb_dark
+echo
+
+if not command -v brew > /dev/null;
+  echo (set_color -o $hb_light)Homebrew not found. Installing Homebrew.(set_color normal);
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if not command -v brew > /dev/null;
+    # add path to brew, if not found
+    fish_add_path (brew --prefix)/bin/brew;
+  end
+end
+
+# Brew Bundle
+if test -e $HOME/Brewfile;
+  echo (set_color $hb_light)Brewfile found. Running (set_color -o $hb_light)brew bundle(set_color $hb_light).(set_color normal)
+  cd $HOME;
+  brew bundle;
+  cd -;
+end
+
+# Extra Casks
+if command -v brew > /dev/null;
+  echo
+  echo Installing (set_color -i $hb_light)Discerning(set_color $hb_light) Homebrew casks(set_color normal);
+  cd $HOME;
+  for cask in $cask_list
+    ## TODO: check for existence of cask Application before installing
+    brew install --cask $cask
+  end
+  cd -;
+else
+  echo (set_color red)Could not file brew(set_color normal);
+end
+
+# Mac App Store apps
+if command -v mas > /dev/null;
+  echo
+  echo (set_color -o $mac;)Installing AppStore apps.(set_color normal)
+  echo
+  for app in $app_list
+    mas install $app
+  end
+end
+
+# Internet Downloads
+
+echo Downloading (set_color -o $url_install;)TunnelBear(set_color normal):
+if command -v wget > /devl/null;
+  echo
+  cd $HOME/Downloads;
+  wget $tunnelbear_url;
+  set -l tb_split_url (string split $tunnelbear_url);
+  set -l tb_zip $HOME/Downloads/(echo $tb_split_url[-1]);
+  if test -e $tb_zip;
+    unzip $tb_zip;
+    echo (set_color $url_install)Copy TunnelBear application to /Applications folder.(set_color normal)
+    open $HOME/Downloads && open /Applications;
+    # prompt user to confirm TunnelBear is moved
+  end
+end
+

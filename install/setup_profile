@@ -1,0 +1,189 @@
+#!/opt/homebrew/bin/fish
+
+set DOTS $HOME/.dotfiles;
+set PROFILES $HOME/.profiles
+set local_color "#FF79C6"
+set confirm_check $(gum style --foreground "#50FA7B" 󰸞 )
+
+source $DOTS/install/util_headings
+
+heading "Setup Profile" $local_color
+
+#
+# Check for Profiles
+#
+if test -d $PROFILES;
+  echo -n "checking for profiles .... ";
+  echo -n "$confirm_check ";
+  gum style --italic "Profiles are cloned correctly"
+else
+  echo (set_color yellow)Profiles not found.(set_color normal)
+  read -P "Would you like to clone profiles now? " -l cloneProfiles -n 1
+  if string match -q $cloneProfiles "y";
+    ssh -T git@github.com >/dev/null 2>&1;
+    set -l sshCheck $status;
+
+    if test $sshCheck -ne 1;
+      echo (set_color magenta)Git ssh could not authenticate.(set_color normal);
+      exit 0;
+    end
+
+    cd $HOME;
+    git clone git@github.com:nathanstilwell/profiles.git $PROFILES;
+  end
+end
+
+#
+# List profiles choices
+#
+set -l profile_glob (find $PROFILES -not -name ".*" -type d -depth 1 | xargs basename);
+set new_profile_option "Create new profile"
+set -a profile_glob $(gum style --italic "$new_profile_option")
+echo
+set profile_selection $(gum choose $profile_glob --limit 1 --header.foreground="#bd93f9" --header "Which profile would you like to use for this computer?")
+
+if test -z $profile_selection;
+  echo (set_color magenta)Skipping profile setup.(set_color normal);
+  exit 0;
+end
+
+## if chose an existing profile
+if test $profile_selection != $new_profile_option
+  set profile_name $profile_selection
+  set profile_path $PROFILES/$profile_name;
+  set profile_choice_type "existing";
+end
+
+## if creating a new profile
+if test $profile_selection = $new_profile_option
+  set new_name $(gum input --no-show-help --prompt.foreground="#BD93F9" --header.foreground="#bd93f9" --header="What would you like your new profile name to be?")
+
+  if test -z $new_name;
+    echo (set_color magenta)Skipping profile setup.(set_color normal);
+    exit 0;
+  else
+    set profile_name $new_name;
+    set profile_path $PROFILES/$profile_name;
+    set profile_choice_type "new"
+
+    if test -e $profile_path;
+      echo (set_color magenta)The profile you chose already exists. Using that one.(set_color normal);
+      set profile_number_selection (contains -i $profile_name $profile_glob);
+      set profile_name $profile_glob[$profile_number_selection];
+      set profile_path $PROFILES/$profile_name;
+      set profile_choice_type "existing"
+    end # if profile_path exists
+  end # if profile name empty
+end # if create new profile
+
+## Generate new files if creating an new profile
+if test $profile_choice_type = "new";
+  sub_heading "Setting up new profile" $local_color
+  echo
+
+  mkdir -p $profile_path;
+
+  # read default_files and process
+
+  while read -l line
+    set -l entry (string split " " $line)
+    set -l type $entry[1]
+
+    if string match -r "#| " $type > /dev/null;
+      continue;
+    end
+
+    if string match 'd' $type > /dev/null;
+      set -l directory_name $entry[2];
+      echo 󰮝 created (set_color $local_color)$directory_name(set_color normal) in $(gum style --bold $profile_path);
+      mkdir -p $profile_path/$directory_name;
+    end
+
+    if string match 'f' $type > /dev/null;
+      echo
+      set -l file_name $entry[2];
+      set -l profile_location $entry[3];
+      set -l link_location $entry[4];
+
+      gum style --bold $file_name
+
+      if test $profile_location != ".";
+        if not test -e $profile_path/$profile_location;
+          echo "󰮝 created sub-directory $(gum style --bold $profile_path/$profile_location)";
+          mkdir -p $profile_path/$profile_location;
+        end
+      end
+
+      if test $profile_location = ".";
+        set file_source $profile_path;
+      else
+        set file_source $profile_path/$profile_location;
+      end
+
+      touch $file_source/$file_name;
+      echo "󰻭 created in $(gum style --bold $file_source)";
+
+      if test $link_location = ".";
+        set link_path $HOME;
+      else
+        set link_path $HOME/$link_location;
+      end
+
+      if test -e $link_path/$file_name;
+        echo 󰁯 (set_color -o magenta)(basename $file_name) exists.(set_color normal) Backing up to $(gum style --bold "~/$file_name.backup")
+        mv $link_path/$file_name $link_path/$file_name.backup
+      end
+      ln -s $file_source/$file_name $link_path/$file_name;
+      echo 󰌷 symlinked $file_source/$file_name ▷ $link_path/$file_name;
+    end
+  end < $PROFILES/default_files
+end # if choice_type = "new"
+
+if test $profile_choice_type = "existing";
+  sub_heading "Setting up new profile" $local_color
+  # Auto link files
+
+  if test -e $profile_path/.profile.fish;
+    gum style --bold ".profile.fish"
+    if test -e $HOME/.profile.fish;
+      echo 󰁯 (set_color -o magenta).profile.fish exists.(set_color normal) Backing up to $(gum style --bold "~/.profile.fish.backup")
+      mv $HOME/.profile.fish $HOME/.profile.fish.backup;
+    end
+    ln -s $profile_path/.profile.fish $HOME/.profile.fish
+    echo 󰌷 symlinked $profile_path/.profile.fish ▷ $HOME/.profile.fish;
+  end
+
+  # check for git/.gitconfig-extras, if exists link to $HOME
+  if test -e $profile_path/git/.gitconfig-extras;
+    gum style --bold ".gitconfig-extras"
+    if test -e $HOME/.gitconfig-extras;
+      echo 󰁯 (set_color -o magenta).gitconfig-extras exists.(set_color normal) Backing up to $(gum style --bold "~/.gitconfig-extras.backup")
+      mv $HOME/.gitconfig-extras $HOME/.gitconfig-extras.backup;
+    end
+    ln -s $profile_path/git/.gitconfig-extras $HOME/.gitconfig-extras;
+    echo 󰌷 symlinked $profile_path/git/.gitconfig-extras ▷ $HOME/.gitconfig-extras;
+  end
+
+  # check for ssh/config, if exists link to $HOME/ssh/config
+  if test -e $profile_path/ssh/config;
+    gum style --bold "ssh/config"
+    if test -e $HOME/.ssh/config;
+      echo 󰁯 (set_color -o magenta)ssh/config exists.(set_color normal) Backing up to $(gum style --bold "~/.ssh/config.backup")
+      mv $HOME/.ssh/config $HOME/.ssh/config.backup;
+    end
+    ln -s $profile_path/ssh/config $HOME/.ssh/config;
+    echo 󰌷 symlinked $profile_path/ssh/config ▷ $HOME/.ssh/config;
+  end
+
+  # check for starship.toml, if exist link to $HOME/.config/starship.toml
+  if test -e $profile_path/starship.toml;
+    gum style --bold "starship.toml"
+    if test -e $HOME/.config/starship.toml;
+      echo 󰁯 (set_color -o magenta)starship.toml exists.(set_color normal) Backing up to $(gum style --bold "~/.config/starship.toml.backup")
+      mv $HOME/.config/starship.toml $HOME/.config/starship.toml.backup;
+    end
+    ln -s $profile_path/starship.toml $HOME/.config/starship.toml;
+    echo 󰌷 symlinked $profile_path/starship.toml ▷ $HOME/.config/starship.toml;
+  end
+end
+
