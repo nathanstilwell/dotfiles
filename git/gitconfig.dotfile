@@ -17,6 +17,7 @@
   fixup = "!git log -n 50 --pretty=format:'%h %s 〖%an〗' --no-merges | fzf --cycle --reverse | cut -c -7 | xargs -o -I {} git commit --fixup {} --no-verify"
   squaff = "!git log -n 50 --pretty=format:'%h%d - %s 〖%an〗' | fzf --cycle --reverse | cut -c -7 | xargs -o git rebase -i"
   logsig = log --show-signature
+  adog = log --all --decorate --oneline --graph
 
 [color]
   ui = auto
