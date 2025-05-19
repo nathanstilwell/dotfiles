@@ -13,7 +13,7 @@ local config = wezterm.config_builder()
 config.color_scheme = "Dracula"
 
 -- WezTerm Menus
-config.command_palette_font_size = 18.0
+config.command_palette_font_size = 24.0
 config.command_palette_rows = 30
 config.command_palette_fg_color = '#acaeb4'
 config.command_palette_bg_color = '#1e2129'
@@ -21,16 +21,19 @@ config.char_select_fg_color = '#acaeb4'
 config.char_select_bg_color = '#1e2129'
 
 -- Font
-config.font = wezterm.font {
-  family = 'PragmataPro Mono Liga',
-  harfbuzz_features = {
-    'calt=1',
-    'clig=1',
-    'liga=1',
-    'cv03=1',
-    'ss13=1',
+config.font = wezterm.font_with_fallback({
+  { family = 'PragmataPro Mono Liga', harfbuzz_features = {
+      'calt=1', -- |\
+      'clig=1', -- | | Ligatures
+      'liga=1', -- |/
+      'cv03=1', -- smoother ampersand (&)
+      'ss13=1', -- git branch drawing
+      'ss15=1', -- Tags
+--    'ss18=1', -- Optional tags, maybe not supported in Wezterm
+    },
   },
-}
+  { family = "Symbols Nerd Font Mono", scale = 0.7 },
+})
 config.font_size = 15.0
 
 -- Window Padding
