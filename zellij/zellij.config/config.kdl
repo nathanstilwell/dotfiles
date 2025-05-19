@@ -14,7 +14,6 @@ keybinds clear-defaults=true { // `clear-defaults=true` to override the default 
 // Switching modes
 
   shared_except "locked" {
-    bind "Alt g" { SwitchToMode "Locked"; }
     bind "Alt x" { Quit; }
   }
   shared_except "normal" "locked" {
@@ -38,10 +37,6 @@ keybinds clear-defaults=true { // `clear-defaults=true` to override the default 
 
 
 // Mode bindings
-
-  locked {
-      bind "Alt g" { SwitchToMode "Normal"; }
-  }
 
   tab {
     bind "Alt t" { SwitchToMode "Normal"; }
