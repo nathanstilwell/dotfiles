@@ -1,0 +1,66 @@
+layout {
+    cwd "/Users/nathan.stilwell"
+    tab name="[TODO]" focus=true hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="nvim" cwd="/Users/nathan.stilwell/.profiles" {
+          args "~/.profiles/bilt/todos/work-log-2025.md"
+        }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+    tab name="[HACK]" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="nvim" cwd="/Users/nathan.stilwell/code/bilt-frontend" size="97%" {
+            start_suspended true
+        }
+        pane borderless=true size="3%"
+    }
+    tab name="[CONFIG]" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane command="nvim" cwd="~/.dotfiles" focus=true size="50%" {
+                start_suspended true
+            }
+            pane size="50%" {
+                pane cwd=".profiles/bilt" size="50%"
+                pane cwd=".config/nvim" size="50%"
+            }
+        }
+    }
+    tab name="[TRACE]" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+            pane name="Bilt Mock Partner App (:4000)" cwd="/Users/nathan.stilwell/code/bilt-frontend/apps/bilt-mock-partner-app" size="50%"
+            pane size="50%" {
+                pane command="ngrok" name="Ngrok (nathanstilwell.ngrok.io)" cwd="/Users/nathan.stilwell" size="50%" {
+                    args "http" "--url=nathanstilwell.ngrok.io" "4000"
+                    start_suspended true
+                }
+                pane name="Bilt Rewards (:3000)" cwd="/Users/nathan.stilwell" size="50%"
+            }
+        }
+    }
+    tab name="[NOTE]" hide_floating_panes=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="nvim" cwd="/Users/nathan.stilwell/.profiles/bilt/notes/mrc-mortgage" {
+            start_suspended true
+        }
+    }
+    new_tab_template {
+        pane size=1 borderless=true {
+            plugin location="tab-bar"
+        }
+        pane cwd="/Users/nathan.stilwell"
+    }
+}
