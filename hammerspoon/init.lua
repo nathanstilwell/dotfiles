@@ -81,7 +81,7 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "C", function()
 end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
-  hs.application.launchOrFocus("Google Chrome Canary")
+  hs.application.launchOrFocus("Brave Browser")
 end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "G", function()
