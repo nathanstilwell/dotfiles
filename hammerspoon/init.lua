@@ -72,6 +72,10 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "3", moveWindowToDisplay(3))
 -- Focus Applications
 --
 
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "A", function()
+  hs.application.launchOrFocus("Dia")
+end)
+
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "B", function()
   hs.application.launchOrFocus("Google Chrome")
 end)
@@ -82,7 +86,16 @@ end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
   hs.application.launchOrFocus("Brave Browser")
+  -- hs.application.launchOrFocus("Zen")
 end)
+
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "E", function()
+  hs.application.launchOrFocus("Cursor")
+end)
+
+--
+-- "F" is a Forboden key (used to access window layer)
+--
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "G", function()
   hs.application.launchOrFocus("Figma")
@@ -97,6 +110,15 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "I", function()
   hs.application.launchOrFocusByBundleID("com.culturedcode.ThingsMac")
 end)
 
+
+--
+-- "J" is a Forboden key (used to access window layer)
+--
+
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "K", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
+
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "L", function()
   hs.application.launchOrFocus("Slack")
 end)
@@ -109,25 +131,54 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "N", function()
   hs.application.launchOrFocus("Linear")
 end)
 
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "O", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
+
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "P", function()
   hs.application.launchOrFocus("Music")
 end)
+
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Q", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "R", function()
   hs.application.launchOrFocus("Arc")
 end)
 
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "S", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
+
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "T", function()
-  hs.application.launchOrFocus("iTerm")
+  -- hs.application.launchOrFocus("iTerm")
+  hs.application.launchOrFocus("Ghostty")
 end)
+
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "U", function()
+  hs.application.launchOrFocus("Claude")
+end)
+
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "V", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "W", function()
   hs.application.launchOrFocus("WezTerm")
 end)
 
-hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Z", function()
-  hs.application.launchOrFocus("zoom.us")
-end)
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "X", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
+
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Y", function()
+-- hs.application.launchOrFocus("TBD")
+-- end)
+
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Z", function()
+--   hs.application.launchOrFocus("zoom.us")
+-- end)
 
 -- Sleep Displays
 
