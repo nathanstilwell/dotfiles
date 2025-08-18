@@ -165,7 +165,7 @@ end)
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "W", function()
-  hs.application.launchOrFocus("WezTerm")
+  -- hs.application.launchOrFocus("WezTerm")
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "X", function()
