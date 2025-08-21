@@ -165,12 +165,12 @@ end)
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "W", function()
-  -- hs.application.launchOrFocus("WezTerm")
+  hs.application.launchOrFocus("WezTerm")
 end)
 
--- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "X", function()
--- hs.application.launchOrFocus("TBD")
--- end)
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "X", function()
+  hs.application.launchOrFocus("Xcode")
+end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Y", function()
 -- hs.application.launchOrFocus("TBD")
