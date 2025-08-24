@@ -1,0 +1,15 @@
+# Fonts
+font-family = "PragmataPro Mono Liga"
+font-size = 18
+window-inherit-font-size = false
+font-feature = "+calt, +clig, +liga, +cv03, +ss13, +ss15, +ss18"
+
+# test ss18 [this] [is] [so] [dope] [less than 20 char]
+# BUG # DEBUG # ERROR # ERR # HACK // MARK // TRACE
+
+
+# Theme
+theme = light:alucard,dark:dracula-pro
+
+scrollback-limit = 10000000
+
