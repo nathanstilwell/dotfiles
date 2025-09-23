@@ -11,6 +11,7 @@
   scorch = clean -fdx
   belete = branch -d
   Belete = branch -D
+  pulete = push origin --delete
   dropit = restore .
   who = shortlog -sn
   sub = submodule
