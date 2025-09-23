@@ -5,7 +5,7 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="nvim" cwd="/Users/nathan.stilwell/.profiles" {
-          args "~/.profiles/bilt/todos/work-log-2025.md"
+          args "bilt/todos/work-log-2025.md"
         }
         pane size=1 borderless=true {
             plugin location="status-bar"
@@ -34,26 +34,11 @@ layout {
             }
         }
     }
-    tab name="[TRACE]" hide_floating_panes=true {
-        pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
-        }
-        pane split_direction="vertical" {
-            pane name="Bilt Mock Partner App (:4000)" cwd="/Users/nathan.stilwell/code/bilt-frontend/apps/bilt-mock-partner-app" size="50%"
-            pane size="50%" {
-                pane command="ngrok" name="Ngrok (nathanstilwell.ngrok.io)" cwd="/Users/nathan.stilwell" size="50%" {
-                    args "http" "--url=nathanstilwell.ngrok.io" "4000"
-                    start_suspended true
-                }
-                pane name="Bilt Rewards (:3000)" cwd="/Users/nathan.stilwell" size="50%"
-            }
-        }
-    }
     tab name="[NOTE]" hide_floating_panes=true {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane command="nvim" cwd="/Users/nathan.stilwell/.profiles/bilt/notes/mrc-mortgage" {
+        pane command="nvim" cwd="/Users/nathan.stilwell/.profiles/bilt/notes" {
             start_suspended true
         }
     }
