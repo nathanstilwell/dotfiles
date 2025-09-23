@@ -1,3 +1,4 @@
+-- luacheck: globals hs
 --
 -- Shared functions
 --
@@ -131,9 +132,9 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "N", function()
   hs.application.launchOrFocus("Linear")
 end)
 
--- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "O", function()
--- hs.application.launchOrFocus("TBD")
--- end)
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "O", function()
+  hs.application.launchOrFocus("Notion")
+end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "P", function()
   hs.application.launchOrFocus("Music")
