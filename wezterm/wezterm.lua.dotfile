@@ -28,8 +28,9 @@ config.font = wezterm.font_with_fallback({
       'liga=1', -- |/
       'cv03=1', -- smoother ampersand (&)
       'ss13=1', -- git branch drawing
-      'ss15=1', -- Tags
---    'ss18=1', -- Optional tags, maybe not supported in Wezterm
+      'ss15=1', -- Language specific Tags, ex [WARNING]
+      'ss18=1', -- Optional tags, ex // BUG
+      'ss20=1', -- Tag text [stuff in here]
     },
   },
   { family = "Symbols Nerd Font Mono", scale = 0.7 },

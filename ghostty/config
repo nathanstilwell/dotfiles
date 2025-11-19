@@ -2,11 +2,16 @@
 font-family = "PragmataPro Mono Liga"
 font-size = 18
 window-inherit-font-size = false
-font-feature = "+calt, +clig, +liga, +cv03, +ss13, +ss15, +ss18"
+font-feature = "+calt, +clig, +liga, +cv03, +cv04, +ss13, +ss15, +ss18, +ss20"
 
-# test ss18 [this] [is] [so] [dope] [less than 20 char]
-# BUG # DEBUG # ERROR # ERR # HACK // MARK // TRACE
+# test ss18
+# # BUG # DEBUG # ERROR # ERR # FAIL # FATAL # HACK
+# # INFO # MARK # NOTE # TRACE # WARN # WARNING
+# // BUG // DEBUG // ERR // ERROR // FAIL // FATAL // HACK
+# // INFO // MARK // TRACE // NOTE // WARN // WARNING
 
+# test ss20
+# [does] [this] [not] [work] [anymore]
 
 # Theme
 theme = light:alucard,dark:dracula-pro
