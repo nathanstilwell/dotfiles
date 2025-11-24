@@ -4,6 +4,17 @@ font-size = 18
 window-inherit-font-size = false
 font-feature = "+calt, +clig, +liga, +cv03, +cv04, +ss13, +ss15, +ss18, +ss20"
 
+# test ss13
+# |
+# |\
+# | |\
+# |/ /|
+# | | |\
+# | | | |
+
+# test ss15
+# [BUG] [DEBUG] [ERROR] [ERR] [FAIL] [FATAL] [HACK]
+
 # test ss18
 # # BUG # DEBUG # ERROR # ERR # FAIL # FATAL # HACK
 # # INFO # MARK # NOTE # TRACE # WARN # WARNING
