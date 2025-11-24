@@ -22,7 +22,8 @@ font-feature = "+calt, +clig, +liga, +cv03, +cv04, +ss13, +ss15, +ss18, +ss20"
 # // INFO // MARK // TRACE // NOTE // WARN // WARNING
 
 # test ss20
-# [does] [this] [not] [work] [anymore]
+# [this] [is] [how] [tags] [show] [up] [21 character limit]
+# [this is how things in brackets when they go over the limit] [or-contain-characters]
 
 # Theme
 theme = light:alucard,dark:dracula-pro
