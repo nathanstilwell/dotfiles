@@ -160,3 +160,4 @@ plugins {
     }
 }
 
+session_serialization false
