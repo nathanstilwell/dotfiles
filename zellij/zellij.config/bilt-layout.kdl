@@ -25,9 +25,7 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane split_direction="vertical" {
-            pane command="nvim" cwd="~/.dotfiles" focus=true size="50%" {
-                start_suspended true
-            }
+            pane command="nvim" cwd="~/.dotfiles" focus=true size="50%"
             pane size="50%" {
                 pane cwd=".profiles/bilt" size="50%"
                 pane cwd=".config/nvim" size="50%"
@@ -46,6 +44,6 @@ layout {
         pane size=1 borderless=true {
             plugin location="tab-bar"
         }
-        pane cwd="/Users/nathan.stilwell"
+        pane borderless=true cwd="/Users/nathan.stilwell"
     }
 }
