@@ -30,3 +30,4 @@ theme = light:alucard,dark:dracula-pro
 
 scrollback-limit = 10000000
 
+keybind = shift+enter=text:\n
