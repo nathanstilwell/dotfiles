@@ -5,7 +5,7 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="nvim" cwd="/Users/nathan.stilwell/.profiles" {
-          args "bilt/todos/work-log-2025.md"
+          args "bilt/todos/work-log-2026.md"
         }
         pane size=1 borderless=true {
             plugin location="status-bar"
