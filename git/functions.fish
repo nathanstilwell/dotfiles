@@ -5,9 +5,18 @@ end
 
 function prune --description "Delete git branches that have lost remotes"
   git fetch --all --prune;
-  git rebase;
-  for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
-    git branch -D $branch;
+
+  for line in (git branch -vv | grep ': gone]' | awk '{if ($1 == "+") print "worktree|" $2; else print "branch|" $1}')
+    set -l parts (string split "|" $line);
+    set -l type $parts[1]
+    set -l branch $parts[2]
+
+    if test "$type" = "worktree"
+      # git worktree remove $branch
+      echo "found a worktree for branch $branch";
+    else
+      git branch -D $branch;
+    end
   end
 end
 
