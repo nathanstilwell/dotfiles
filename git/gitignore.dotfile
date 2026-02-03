@@ -2,3 +2,6 @@
 .ctrlp
 **/*.todo
 .vercel
+
+# SonarScanner CLI analysis files (generated during code quality scans)
+.scannerwork/
