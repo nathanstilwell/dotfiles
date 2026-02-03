@@ -34,10 +34,9 @@ abbr z zellij
 alias x="rm -rf"
 alias xx="rm -rfP"
 
-
 # Applications
-alias mkd="open -a /Applications/Marked\ 2.app"
-alias allow="sudo xattr -dr com.apple.quarantine "
+alias mkd="glow -p -w 120"
+alias allow="sudo xattr -dr com.apple.quarantine"
 
 # Directories
 alias l="ls -alhF"
