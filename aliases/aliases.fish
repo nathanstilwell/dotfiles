@@ -12,6 +12,7 @@ abbr _ bat
 abbr a asdf
 abbr b brew
 abbr c curl
+abbr cl claude
 abbr d docker
 abbr e echo
 abbr g git
