@@ -26,7 +26,7 @@ font-feature = "+calt, +clig, +liga, +cv03, +cv04, +ss13, +ss15, +ss18, +ss20"
 # [this is how things in brackets when they go over the limit] [or-contain-characters]
 
 # Theme
-theme = light:alucard,dark:dracula-pro
+theme = light:alucard,dark:simple-dark
 
 scrollback-limit = 10000000
 
