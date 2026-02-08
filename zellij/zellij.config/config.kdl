@@ -149,7 +149,7 @@ keybinds clear-defaults=true { // `clear-defaults=true` to override the default 
   }
 }
 
-theme "dracula"
+theme "ansi"
 
 plugins {
     tab-bar location="zellij:tab-bar"
