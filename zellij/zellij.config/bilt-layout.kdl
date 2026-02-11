@@ -1,27 +1,26 @@
 layout {
     cwd "/Users/nathan.stilwell"
     tab name="[TODO]" focus=true hide_floating_panes=true {
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="zellij:tab-bar"
         }
         pane command="nvim" cwd="/Users/nathan.stilwell/.profiles" {
           args "bilt/todos/work-log-2026.md"
         }
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="status-bar"
         }
     }
     tab name="[HACK]" hide_floating_panes=true {
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="zellij:tab-bar"
         }
-        pane command="nvim" cwd="/Users/nathan.stilwell/code/bilt-frontend" size="97%" {
+        pane command="nvim" cwd="/Users/nathan.stilwell/code/bilt-frontend" {
             start_suspended true
         }
-        pane borderless=true size="3%"
     }
     tab name="[CONFIG]" hide_floating_panes=true {
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="zellij:tab-bar"
         }
         pane split_direction="vertical" {
@@ -33,7 +32,7 @@ layout {
         }
     }
     tab name="[NOTE]" hide_floating_panes=true {
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="zellij:tab-bar"
         }
         pane command="nvim" cwd="/Users/nathan.stilwell/.profiles/bilt/notes" {
@@ -41,9 +40,9 @@ layout {
         }
     }
     new_tab_template {
-        pane size=1 borderless=true {
+        pane size=1 {
             plugin location="tab-bar"
         }
-        pane borderless=true cwd="/Users/nathan.stilwell"
+        pane cwd="/Users/nathan.stilwell"
     }
 }

@@ -1,4 +1,5 @@
-/**
+/*
+
      ████████          ██  ██ ██    ██
     ░░░░░░██          ░██ ░██░░    ░░
          ██    █████  ░██ ░██ ██    ██
@@ -155,9 +156,10 @@ plugins {
     tab-bar location="zellij:tab-bar"
     compact-bar location="zellij:compact-bar"
     session-manager location="zellij:session-manager"
-    welcome-screen location="zellij:session-manager" {
-        welcome_screen true
-    }
 }
 
+// no borders on panes
+pane_frames false
+
+// session serialization was messing with changes in env
 session_serialization false
