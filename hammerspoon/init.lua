@@ -85,14 +85,15 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "C", function()
   hs.application.launchOrFocus("1Password")
 end)
 
-hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
-  hs.application.launchOrFocus("Brave Browser")
-  -- hs.application.launchOrFocus("Zen")
-end)
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
+-- Some old options for dev browser
+--   -- hs.application.launchOrFocus("Brave Browser")
+--   -- hs.application.launchOrFocus("Zen")
+-- end)
 
-hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "E", function()
-  hs.application.launchOrFocus("Cursor")
-end)
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "E", function()
+--   hs.application.launchOrFocus("TBD")
+-- end)
 
 --
 -- "F" is a Forboden key (used to access window layer)
@@ -106,10 +107,10 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "H", function()
   hs.application.launchOrFocus("Hammerspoon")
 end)
 
-hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "I", function()
-  -- No idea why this is necessary
-  hs.application.launchOrFocusByBundleID("com.culturedcode.ThingsMac")
-end)
+-- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "I", function()
+--   -- No idea why this is necessary
+--   hs.application.launchOrFocusByBundleID("com.culturedcode.ThingsMac")
+-- end)
 
 
 --
@@ -117,7 +118,7 @@ end)
 --
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "K", function()
--- hs.application.launchOrFocus("TBD")
+--    hs.application.launchOrFocus("TBD")
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "L", function()
@@ -141,7 +142,7 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "P", function()
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Q", function()
--- hs.application.launchOrFocus("TBD")
+--   hs.application.launchOrFocus("TBD")
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "R", function()
@@ -149,7 +150,7 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "R", function()
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "S", function()
--- hs.application.launchOrFocus("TBD")
+--   hs.application.launchOrFocus("TBD")
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "T", function()
@@ -162,7 +163,7 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "U", function()
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "V", function()
--- hs.application.launchOrFocus("TBD")
+--   hs.application.launchOrFocus("TBD")
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "W", function()
@@ -174,7 +175,7 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "X", function()
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Y", function()
--- hs.application.launchOrFocus("TBD")
+--   hs.application.launchOrFocus("TBD")
 -- end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "Z", function()
