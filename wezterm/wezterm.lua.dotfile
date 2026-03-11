@@ -9,16 +9,31 @@ local config = wezterm.config_builder()
 -- Config
 -- ===================
 
--- Dracula
-config.color_scheme = "Dracula"
+-- Abysmal (high-contrast grayscale)
+config.colors = {
+  foreground = '#D8D9D4',
+  background = '#000000',
+  cursor_fg = '#585856',
+  cursor_bg = '#D8D9D4',
+  selection_fg = '#000000',
+  selection_bg = '#D8D9D4',
+  ansi = {
+    '#000000', '#A8A9A4', '#484846', '#CDCEC8',
+    '#686866', '#E8E8E2', '#505050', '#C0C1BC',
+  },
+  brights = {
+    '#1A1A18', '#C8C9C4', '#4A4A48', '#EAEAE6',
+    '#8A8A86', '#F8F8F2', '#686866', '#DCDDD8',
+  },
+}
 
 -- WezTerm Menus
 config.command_palette_font_size = 20.0
 config.command_palette_rows = 30
-config.command_palette_fg_color = '#acaeb4'
-config.command_palette_bg_color = '#1e2129'
-config.char_select_fg_color = '#acaeb4'
-config.char_select_bg_color = '#1e2129'
+config.command_palette_fg_color = '#D8D9D4'
+config.command_palette_bg_color = '#0A0A0A'
+config.char_select_fg_color = '#D8D9D4'
+config.char_select_bg_color = '#0A0A0A'
 
 -- Font
 config.font = wezterm.font_with_fallback({

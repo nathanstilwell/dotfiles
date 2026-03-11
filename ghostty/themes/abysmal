@@ -1,0 +1,26 @@
+# High-contrast grayscale theme
+# Based on simple-dark by tek256
+
+palette = 0=#000000
+palette = 1=#A8A9A4
+palette = 2=#484846
+palette = 3=#CDCEC8
+palette = 4=#686866
+palette = 5=#E8E8E2
+palette = 6=#505050
+palette = 7=#C0C1BC
+palette = 8=#1A1A18
+palette = 9=#C8C9C4
+palette = 10=#4A4A48
+palette = 11=#EAEAE6
+palette = 12=#8A8A86
+palette = 13=#F8F8F2
+palette = 14=#686866
+palette = 15=#DCDDD8
+
+background = #000000
+foreground = #D8D9D4
+cursor-color = #D8D9D4
+cursor-text = #585856
+selection-background = #D8D9D4
+selection-foreground = #000000
