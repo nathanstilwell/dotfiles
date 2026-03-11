@@ -39,6 +39,14 @@ layout {
             start_suspended true
         }
     }
+    tab name="[AI]" hide_floating_panes=true {
+        pane size=1 {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="nvim" cwd="/Users/nathan.stilwell/code/ai-coding" {
+            start_suspended true
+        }
+    }
     new_tab_template {
         pane size=1 {
             plugin location="tab-bar"
