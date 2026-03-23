@@ -25,3 +25,6 @@ end;
 
 # Load System Specific Configs
 test -e ~/.profile.fish && source ~/.profile.fish;
+
+# ASDF Version Manager (added by bilt-mobile setup)
+source (brew --prefix asdf)/libexec/asdf.fish
