@@ -96,6 +96,27 @@ config.keys = {
     mods = 'CMD|CTRL',
     action = wezterm.action.ActivateCommandPalette,
   },
+  -- Splits that I already know
+  {
+    key = 'd',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'd',
+    mods = 'CMD',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = '[',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Next',
+  },
+  {
+    key = ']',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Prev',
+  },
 }
 
 -- ===================
