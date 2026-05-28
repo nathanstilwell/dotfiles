@@ -15,16 +15,32 @@ layout {
         pane size=1 {
             plugin location="zellij:tab-bar"
         }
-        pane command="nvim" cwd="/Users/nathan.stilwell/code/bilt-frontend" {
-            start_suspended true
+        pane cwd="/Users/nathan.stilwell/code/bilt-frontend" { }
+    }
+
+    tab name="[CLAUDE]" hide_floating_panes=true {
+        pane size=1 {
+            plugin location="zellij:tab-bar"
+        }
+        pane split_direction="vertical" {
+          pane command="claude" cwd="/Users/nathan.stilwell/code/bilt-frontend" size="50%"
+          pane command="claude" cwd="/Users/nathan.stilwell/code/bilt-mobile" size="50%"
         }
     }
+
+    tab name="[DEVIN]" hide_floating_panes=true {
+        pane size=1 {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="devin" cwd="/Users/nathan.stilwell/code"
+    }
+
     tab name="[CONFIG]" hide_floating_panes=true {
         pane size=1 {
             plugin location="zellij:tab-bar"
         }
         pane split_direction="vertical" {
-            pane command="nvim" cwd="~/.dotfiles" focus=true size="50%"
+            pane cwd="~/.dotfiles" focus=true size="50%"
             pane size="50%" {
                 pane cwd=".profiles/bilt" size="50%"
                 pane cwd=".config/nvim" size="50%"
@@ -36,14 +52,6 @@ layout {
             plugin location="zellij:tab-bar"
         }
         pane command="nvim" cwd="/Users/nathan.stilwell/.profiles/bilt/notes" {
-            start_suspended true
-        }
-    }
-    tab name="[AI]" hide_floating_panes=true {
-        pane size=1 {
-            plugin location="zellij:tab-bar"
-        }
-        pane command="nvim" cwd="/Users/nathan.stilwell/code/ai-coding" {
             start_suspended true
         }
     }
