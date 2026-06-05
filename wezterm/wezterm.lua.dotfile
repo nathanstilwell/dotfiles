@@ -10,21 +10,12 @@ local config = wezterm.config_builder()
 -- ===================
 
 -- Abysmal (high-contrast grayscale)
-config.colors = {
-  foreground = '#D8D9D4',
-  background = '#000000',
-  cursor_fg = '#585856',
-  cursor_bg = '#D8D9D4',
-  selection_fg = '#000000',
-  selection_bg = '#D8D9D4',
-  ansi = {
-    '#000000', '#A8A9A4', '#484846', '#CDCEC8',
-    '#686866', '#E8E8E2', '#505050', '#C0C1BC',
-  },
-  brights = {
-    '#1A1A18', '#C8C9C4', '#4A4A48', '#EAEAE6',
-    '#8A8A86', '#F8F8F2', '#686866', '#DCDDD8',
-  },
+config.color_scheme_dirs = { os.getenv('HOME') .. '/.config/wezterm/themes' }
+config.color_scheme = 'Abysmal'
+config.foreground_text_hsb = {
+  hue = 1.0,
+  saturation = 1.0,
+  brightness = 1.1,
 }
 
 -- WezTerm Menus
@@ -50,7 +41,7 @@ config.font = wezterm.font_with_fallback({
   },
   { family = "Symbols Nerd Font Mono", scale = 0.7 },
 })
-config.font_size = 16.0
+config.font_size = 20.0
 
 -- Window Padding
 config.window_padding = {

@@ -1,0 +1,13 @@
+[colors]
+foreground = "#E0E1DC"
+background = "#000000"
+cursor_fg = "#686866"
+cursor_bg = "#E0E1DC"
+selection_fg = "#000000"
+selection_bg = "#E0E1DC"
+
+ansi = ["#000000", "#B4B5B0", "#404440", "#D8D9D4", "#767674", "#EEEEEA", "#646462", "#CCCDC8"]
+brights = ["#242422", "#D4D5D0", "#585856", "#F0F0EC", "#989894", "#FAFAF6", "#767674", "#E4E5E0"]
+
+[metadata]
+name = "Abysmal"
