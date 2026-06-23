@@ -84,11 +84,9 @@ hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "C", function()
   hs.application.launchOrFocus("1Password")
 end)
 
--- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
--- Some old options for dev browser
---   -- hs.application.launchOrFocus("Brave Browser")
---   -- hs.application.launchOrFocus("Zen")
--- end)
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "D", function()
+  hs.application.launchOrFocus("Devin")
+end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "E", function()
 --   hs.application.launchOrFocus("TBD")
