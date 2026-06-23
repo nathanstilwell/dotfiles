@@ -1,4 +1,3 @@
--- luacheck: globals hs
 --
 -- Shared functions
 --
