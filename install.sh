@@ -91,7 +91,26 @@ echo -e "${bold:?}## Homebrew";
 echo -e "--------------------------------------------${bold_off:?}"
 command -v brew > /dev/null || {
   echo -e "${bold:?}Installing homebrew${stop:?}";
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Signed + notarized .pkg installer, pinned to a release. macOS verifies the
+  # Developer ID signature; the checksum guards the download. Bump both
+  # together from https://github.com/Homebrew/brew/releases
+  homebrew_pkg_version="6.0.10";
+  homebrew_pkg_sha256="88fb3b23b24aab94295f774f7cc92d8982185b73de39fe21fd2cf877338daea2";
+
+  homebrew_pkg="$(mktemp -d)/Homebrew.pkg";
+  curl -fsSL -o "$homebrew_pkg" \
+    "https://github.com/Homebrew/brew/releases/download/${homebrew_pkg_version}/Homebrew.pkg";
+
+  if echo "${homebrew_pkg_sha256}  ${homebrew_pkg}" | shasum -a 256 -c - > /dev/null; then
+    sudo installer -pkg "$homebrew_pkg" -target /;
+    rm -f "$homebrew_pkg";
+  else
+    echo -e "${red:?}Homebrew installer failed checksum verification, aborting.${stop:?}";
+    rm -f "$homebrew_pkg";
+    exit 1;
+  fi
+
   eval "$(/opt/homebrew/bin/brew shellenv)" # add `brew` to the PATH
 }
 
