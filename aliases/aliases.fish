@@ -59,3 +59,6 @@ alias load="source ~/.config/fish/config.fish";
 
 ## edit dotfiles
 alias dots='nvim ~/.dotfiles'
+
+## screen saver
+alias :='tarts cube'
