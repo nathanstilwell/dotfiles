@@ -1,6 +1,6 @@
 # Fonts
 font-family = "PragmataPro Mono Liga"
-font-size = 20
+font-size = 16
 window-inherit-font-size = false
 font-feature = "+calt, +clig, +liga, +cv03, +cv04, +ss13, +ss15, +ss18, +ss20"
 
