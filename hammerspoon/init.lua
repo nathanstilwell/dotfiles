@@ -143,7 +143,7 @@ end)
 -- end)
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "R", function()
-  hs.application.launchOrFocus("Arc")
+  hs.application.launchOrFocus("Firefox")
 end)
 
 -- hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "S", function()
