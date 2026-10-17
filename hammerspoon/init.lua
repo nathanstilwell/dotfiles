@@ -179,6 +179,12 @@ end)
 --   hs.application.launchOrFocus("zoom.us")
 -- end)
 
+-- Start the macOS screen saver
+
+hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "6", function()
+  hs.execute("open -a ScreenSaverEngine")
+end)
+
 -- Sleep Displays
 
 hs.hotkey.bind({ "cmd", "ctrl", "alt" }, "7", function()
